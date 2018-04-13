@@ -1,0 +1,67 @@
+
+<h2 class="margin_top">Formulario de <%= name %> Sala</h2>
+
+<div>
+
+<%= form_for(@room) do |f| %>
+
+  <div class="form-group row margin_top">
+    <div class="col-md-10">
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name, placeholder: "Nombre de la sala" %>
+    </div>
+  </div>
+
+  <br>
+
+    <div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :start_date %>
+      <br>
+      <% date_field("room", "start_date", min: Date.today) %>
+      <input id="room_start_date" name="room[start_date]" type="date" value="<%= @room.start_date %>" placeholder="year-month-day"/>
+    </div>
+    </div>
+    <br>
+
+    <div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :finish_date %>
+      <br>
+      <% date_field("room", "finish_date", min: Date.today) %>
+      <input id="room_finish_date" name="room[finish_date]" type="date" value="<%= @room.start_date %>" placeholder="year-month-day"/>
+    </div>
+    </div>
+
+    <br>
+
+  <div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :tried_times %>
+      <br>
+      <%= f.number_field :tried_times, placeholder: "Número de intento" %>
+    </div>
+  </div>
+
+
+   <br>
+
+  <div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :set_limit %>
+      <br>
+      <%= f.text_field :set_limit, placeholder: "Establecer limite" %>
+    </div>
+  </div>
+  </div>
+
+  <div class="form-group row">
+    <p>
+    <%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", rooms_path, class: 'btn btn-primary' %>
+    </p>
+  </div>
+
+ 
+
+<% end %>

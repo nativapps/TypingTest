@@ -1,0 +1,12 @@
+.room_table{
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form_room{
+    margin: 0 auto;
+    min-width: 200px;
+    min-height: 200px;
+    width: 30%;
+}
