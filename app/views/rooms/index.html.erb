@@ -13,6 +13,7 @@
         <th>Set limit</th>
         <th>Option</th>
     </tr>
+    <% if(current_user.is_admin?) %>
     <% @rooms.each do |room| %>
         <tr>
             <td><%= room.name %></td>
@@ -27,5 +28,6 @@
 			<%= link_to "Eliminar", room, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
         </td> 
         </tr>
+    <% end %>
     <% end %>
 </table>
