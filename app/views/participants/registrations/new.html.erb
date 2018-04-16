@@ -1,0 +1,66 @@
+<h2>Agregar participante</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group row margin_top">
+    <div class="col-md-10">
+      <%= f.label :first_name %>
+      <br>
+      <%= f.text_field :first_name, placeholder: "Nombre" %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="form-group row">
+		<div class="col-md-10">
+			<%= f.label :last_name %>
+			<br>
+			<%= f.text_field :last_name, placeholder: "Apellidos" %>
+		</div>
+  </div>
+
+  <br>
+
+  <div class="form-group row">
+		<div class="col-md-10">
+			<%= f.label :phone %>
+			<br>
+			<%= f.text_field :phone, placeholder: "Teléfono" %>
+		</div>
+  </div>
+  
+  <br>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+    <%= link_to "Volver", participants_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= render "participants/shared/links" %>

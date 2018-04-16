@@ -1,0 +1,70 @@
+
+<h2 class="margin_top">Formulario de <%= name %> participante</h2>
+
+<div>
+<%= form_for(@participant) do |f| %>
+
+  <div class="form-group row margin_top">
+    <div class="col-md-10">
+      <%= f.label :first_name %>
+      <br>
+      <%= f.text_field :first_name, placeholder: "Nombre" %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="form-group row">
+		<div class="col-md-10">
+			<%= f.label :last_name %>
+			<br>
+			<%= f.text_field :last_name, placeholder: "Apellidos" %>
+		</div>
+  </div>
+
+  <br>
+
+  <div class="form-group row">
+		<div class="col-md-10">
+			<%= f.label :phone %>
+			<br>
+			<%= f.text_field :phone, placeholder: "Teléfono" %>
+		</div>
+  </div>
+
+  <br>
+  
+	<div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :email %>
+      <br>
+      <%= f.text_field :email, placeholder: "Correo electronico" %>
+    </div>
+  </div>
+
+  <br>
+  
+	<div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :password %>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Contraseña" %>
+    </div>
+  </div>
+
+  <br>
+  
+	<div class="form-group row">
+    <div class="col-md-10">
+      <%= f.label :password_confirmation %>
+      <br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repita la contraseña" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <p>
+    	<%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", participants_path, class: 'btn btn-primary' %>
+    </p>
+  </div>
+<% end %>

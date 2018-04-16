@@ -1,0 +1,10 @@
+<h2>Información del participante</h2>
+
+<p>Nombre: <%= @participant.first_name %></p>
+<p>Apellido: <%= @participant.last_name %></p>
+<p>Teléfono: <%= @participant.phone %></p>
+<p>Correo electronico: <%= @participant.email %></p>
+
+<%= link_to "Volver", participants_path, class: 'btn btn-primary' %>
+<%= link_to "Modificar", edit_participant_path(@participant), class: 'btn btn-primary' %>
+<%= link_to "Eliminar", @participant, method: :delete, data: {confirm: '¿Esta seguro de eliminar participante?'}, class: 'btn btn-danger' %>
