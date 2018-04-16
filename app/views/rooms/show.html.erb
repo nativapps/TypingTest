@@ -1,15 +1,23 @@
-<h2>Información de la sala <%= @room.name %></h2>
+ <%# if(current_user.is_admin?) %>
+    <h2>Información de la sala <%= @room.name %></h2>
 
-<p>Nombre de la sala: <%= @room.name %></p>
+    <p>Nombre de la sala: <%= @room.name %></p>
 
-<p>Fecha de commienzo: <%= @room.start_date%></p>
+    <p>Fecha de commienzo: <%= @room.start_date%></p>
 
-<p>Fecha de finalización: <%= @room.finish_date %> </p>
+    <p>Fecha de finalización: <%= @room.finish_date %> </p>
 
-<p>Numero de intentos: <%= @room.tried_times %></p>
+    <p>Numero de intentos: <%= @room.tried_times %></p>
 
-<p>tiempo limite: <%= @room.set_limit %></p>
+    <p>tiempo limite: <%= @room.set_limit %></p>
 
-<%= link_to "Volver", rooms_path, class: 'btn btn-primary' %>
-<%= link_to "Modificar", edit_room_path(@room), class: 'btn btn-primary' %>
-<%= link_to "Eliminar", @room, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
+    <p>Created date: <%= @room.created_at %></p>
+
+    <%= link_to "Volver", rooms_path, class: 'btn btn-primary' %>
+    <%= link_to "Modificar", edit_room_path(@room), class: 'btn btn-primary' %>
+    <%= link_to "Eliminar", @room, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
+<%# end %>
+
+<%# if(current_user.is_admin == false) %>
+    <p>Hola</p>
+<%# end %>

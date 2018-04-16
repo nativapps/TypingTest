@@ -1,33 +1,37 @@
-<h2>Rooms session</h2>
+<% if(current_user.is_admin?) %>
+	<h2>Rooms session</h2>
 
-<%= link_to "Add room", new_room_path(@room), class: 'btn btn-primary' %>
+	<%= link_to "Add room", new_room_path(@room), class: 'btn btn-primary' %>
 
-<br>
+	<br>
 
-<table class="room_table">
-    <tr>
-        <th>Name</th>
-        <th>Start date</th>
-        <th>Finish date</th>
-        <th>Tried times</th>
-        <th>Set limit</th>
-        <th>Option</th>
-    </tr>
-    <% if(current_user.is_admin?) %>
-    <% @rooms.each do |room| %>
-        <tr>
-            <td><%= room.name %></td>
-            <td><%= room.start_date %></td>
-            <td><%= room.finish_date %></td>
-            <td><%= room.tried_times %></td>
-            <td><%= room.set_limit %></td>
+	<table class="room_table">
+			<tr>
+					<th>Name</th>
+					<th>Start date</th>
+					<th>Finish date</th>
+					<th>Tried times</th>
+					<th>Set limit</th>
+					<th>Option</th>
+			</tr>
+		
+			<% @rooms.each do |room| %>
+					<tr>
+							<td><%= room.name %></td>
+							<td><%= room.start_date %></td>
+							<td><%= room.finish_date %></td>
+							<td><%= room.tried_times %></td>
+							<td><%= room.set_limit %></td>
 
-            <td>
-			<%= link_to "Ver", room, class: 'btn btn-primary' %>
-			<%= link_to "Modificar", edit_room_path(room), class: 'btn btn-primary' %>
-			<%= link_to "Eliminar", room, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
-        </td> 
-        </tr>
-    <% end %>
-    <% end %>
-</table>
+							<td>
+				<%= link_to "Ver", room, class: 'btn btn-primary' %>
+				<%= link_to "Modificar", edit_room_path(room), class: 'btn btn-primary' %>
+				<%= link_to "Eliminar", room, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
+					</td> 
+					</tr>
+			<% end %>
+	</table>
+<% else %>
+  <h2>Error 401</h2>
+	<p>Esta sessión es solo personal autorizado.</p>
+<% end %>

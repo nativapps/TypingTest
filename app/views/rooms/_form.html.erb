@@ -1,67 +1,74 @@
 
-<h2 class="margin_top">Formulario de <%= name %> Sala</h2>
+<% if(current_user.is_admin?) %>
+  <h2 class="margin_top">Formulario de <%= name %> Sala</h2>
 
-<div>
+  <div>
 
-<%= form_for(@room) do |f| %>
+  <%= form_for(@room) do |f| %>
 
-  <div class="form-group row margin_top">
-    <div class="col-md-10">
-      <%= f.label :name %>
-      <br>
-      <%= f.text_field :name, placeholder: "Nombre de la sala" %>
-    </div>
-  </div>
-
-  <br>
-
-    <div class="form-group row">
-    <div class="col-md-10">
-      <%= f.label :start_date %>
-      <br>
-      <% date_field("room", "start_date", min: Date.today) %>
-      <input id="room_start_date" name="room[start_date]" type="date" value="<%= @room.start_date %>" placeholder="year-month-day"/>
-    </div>
-    </div>
-    <br>
-
-    <div class="form-group row">
-    <div class="col-md-10">
-      <%= f.label :finish_date %>
-      <br>
-      <% date_field("room", "finish_date", min: Date.today) %>
-      <input id="room_finish_date" name="room[finish_date]" type="date" value="<%= @room.start_date %>" placeholder="year-month-day"/>
-    </div>
+    <div class="form-group row margin_top">
+      <div class="col-md-10">
+        <%= f.label :name %>
+        <br>
+        <%= f.text_field :name, placeholder: "Nombre de la sala" %>
+      </div>
     </div>
 
     <br>
 
-  <div class="form-group row">
-    <div class="col-md-10">
-      <%= f.label :tried_times %>
+      <div class="form-group row">
+      <div class="col-md-10">
+        <%= f.label :start_date %>
+        <br>
+
+        <%#= f.select :day, (1..31).to_a, selected: @room.start_date.day %>
+        <%#= f.select :month, (1..12).to_a, selected: @room.start_date.month %>
+        <%#= f.select :year, ((Time.now.year - 20)..Time.now.year).to_a, selected: @room.start_date.year %>
+
+        <% date_field("room", "start_date", min: Date.today) %>
+        <input id="room_start_date" name="room[start_date]" type="date" value="<%= @room.start_date %>" placeholder="year-month-day"/>
+      </div>
+      </div>
       <br>
-      <%= f.number_field :tried_times, placeholder: "Número de intento" %>
-    </div>
-  </div>
 
+      <div class="form-group row">
+      <div class="col-md-10">
+        <%= f.label :finish_date %>
+        <br>
+        <% date_field("room", "finish_date", min: Date.today) %>
+        <input id="room_finish_date" name="room[finish_date]" type="date" value="<%= @room.finish_date %>" placeholder="year-month-day"/>
+      </div>
+      </div>
 
-   <br>
-
-  <div class="form-group row">
-    <div class="col-md-10">
-      <%= f.label :set_limit %>
       <br>
-      <%= f.text_field :set_limit, placeholder: "Establecer limite" %>
+
+    <div class="form-group row">
+      <div class="col-md-10">
+        <%= f.label :tried_times %>
+        <br>
+        <%= f.number_field :tried_times, placeholder: "Número de intento" %>
+      </div>
     </div>
-  </div>
-  </div>
 
-  <div class="form-group row">
-    <p>
-    <%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", rooms_path, class: 'btn btn-primary' %>
-    </p>
-  </div>
 
- 
+    <br>
 
+    <div class="form-group row">
+      <div class="col-md-10">
+        <%= f.label :set_limit %>
+        <br>
+        <%= f.text_field :set_limit, placeholder: "Establecer limite" %>
+      </div>
+    </div>
+    </div>
+
+    <div class="form-group row">
+      <p>
+      <%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", rooms_path, class: 'btn btn-primary' %>
+      </p>
+    </div>
+  <% end %>
+<% else %>
+  <h2>Error 401</h2>
+	<p>Esta sessión es solo personal autorizado.</p>
 <% end %>
