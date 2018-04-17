@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_16_023256) do
+ActiveRecord::Schema.define(version: 2018_04_17_213250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2018_04_16_023256) do
     t.date "finish_date"
     t.integer "tried_times"
     t.string "set_limit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_banks", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.text "text_test"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

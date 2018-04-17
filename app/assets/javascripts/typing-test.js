@@ -14,16 +14,77 @@ if (navigator.userAgent.match(/firefox/i)) {
 /////////////////////////////////////////
 
 // Sorted list of the 500 most common English words.
-let wordList = ["the", "name", "of", "very", "to", "through", "and", "just", "a", "form", "in", "much", "is", "great", "it", "think", "you", "say", "that", "help", "he", "low", "was", "line", "for", "before", "on", "turn", "are", "cause", "with", "same", "as", "mean", "I", "differ", "his", "move", "they", "right", "be", "boy", "at", "old", "one", "too", "have", "does", "this", "tell", "from", "sentence", "or", "set", "had", "three", "by", "want", "hot", "air", "but", "well", "some", "also", "what", "play", "there", "small", "we", "end", "can", "put", "out", "home", "other", "read", "were", "hand", "all", "port", "your", "large", "when", "spell", "up", "add", "use", "even", "word", "land", "how", "here", "said", "must", "an", "big", "each", "high", "she", "such", "which", "follow", "do", "act", "their", "why", "time", "ask", "if", "men", "will", "change", "way", "went", "about", "light", "many", "kind", "then", "off", "them", "need", "would", "house", "write", "picture", "like", "try", "so", "us", "these", "again", "her", "animal", "long", "point", "make", "mother", "thing", "world", "see", "near", "him", "build", "two", "self", "has", "earth", "look", "father", "more", "head", "day", "stand", "could", "own", "go", "page", "come", "should", "did", "country", "my", "found", "sound", "answer", "no", "school", "most", "grow", "number", "study", "who", "still", "over", "learn", "know", "plant", "water", "cover", "than", "food", "call", "sun", "first", "four", "people", "thought", "may", "let", "down", "keep", "side", "eye", "been", "never", "now", "last", "find", "door", "any", "between", "new", "city", "work", "tree", "part", "cross", "take", "since", "get", "hard", "place", "start", "made", "might", "live", "story", "where", "saw", "after", "far", "back", "sea", "little", "draw", "only", "left", "round", "late", "man", "run", "year", "don't", "came", "while", "show", "press", "every", "close", "good", "night", "me", "real", "give", "life", "our", "few", "under", "stop", "open", "ten", "seem", "simple", "together", "several", "next", "vowel", "white", "toward", "children", "war", "begin", "lay", "got", "against", "walk", "pattern", "example", "slow", "ease", "center", "paper", "love", "often", "person", "always", "money", "music", "serve", "those", "appear", "both", "road", "mark", "map", "book", "science", "letter", "rule", "until", "govern", "mile", "pull", "river", "cold", "car", "notice", "feet", "voice", "care", "fall", "second", "power", "group", "town", "carry", "fine", "took", "certain", "rain", "fly", "eat", "unit", "room", "lead", "friend", "cry", "began", "dark", "idea", "machine", "fish", "note", "mountain", "wait", "north", "plan", "once", "figure", "base", "star", "hear", "box", "horse", "noun", "cut", "field", "sure", "rest", "watch", "correct", "color", "able", "face", "pound", "wood", "done", "main", "beauty", "enough", "drive", "plain", "stood", "girl", "contain", "usual", "front", "young", "teach", "ready", "week", "above", "final", "ever", "gave", "red", "green", "list", "oh", "though", "quick", "feel", "develop", "talk", "sleep", "bird", "warm", "soon", "free", "body", "minute", "dog", "strong", "family", "special", "direct", "mind", "pose", "behind", "leave", "clear", "song", "tail", "measure", "produce", "state", "fact", "product", "street", "black", "inch", "short", "lot", "numeral", "nothing", "class", "course", "wind", "stay", "question", "wheel", "happen", "full", "complete", "force", "ship", "blue", "area", "object", "half", "decide", "rock", "surface", "order", "deep", "fire", "moon", "south", "island", "problem", "foot", "piece", "yet", "told", "busy", "knew", "test", "pass", "record", "farm", "boat", "top", "common", "whole", "gold", "king", "possible", "size", "plane", "heard", "age", "best", "dry", "hour", "wonder", "better", "laugh", "true", "thousand", "during", "ago", "hundred", "ran", "am", "check", "remember", "game", "step", "shape", "early", "yes", "hold", "hot", "west", "miss", "ground", "brought", "interest", "heat", "reach", "snow", "fast", "bed", "five", "bring", "sing", "sit", "listen", "perhaps", "six", "fill", "table", "east", "travel", "weight", "less", "language", "morning", "among"];
+let wordList = [
+    "the", "name", "of", "very", "to", "through", "and", "just", "a",
+    "form", "in", "much", "is", "great", "it", "think", "you", "say",
+    "that", "help", "he", "low", "was", "line", "for", "before", "on",
+    "turn", "are", "cause", "with", "same", "as", "mean", "I", "differ",
+    "his", "move", "they", "right", "be", "boy", "at", "old", "one",
+    "too", "have", "does", "this", "tell", "from", "sentence", "or",
+    "set", "had", "three", "by", "want", "hot", "air", "but", "well",
+    "some", "also", "what", "play", "there", "small", "we", "end", "can",
+    "put", "out", "home", "other", "read", "were", "hand", "all", "port",
+    "your", "large", "when", "spell", "up", "add", "use", "even", "word",
+    "land", "how", "here", "said", "must", "an", "big", "each", "high",
+    "she", "such", "which", "follow", "do", "act", "their", "why", "time",
+    "ask", "if", "men", "will", "change", "way", "went", "about", "light",
+    "many", "kind", "then", "off", "them", "need", "would", "house",
+    "write", "picture", "like", "try", "so", "us", "these", "again",
+    "her", "animal", "long", "point", "make", "mother", "thing", "world",
+    "see", "near", "him", "build", "two", "self", "has", "earth", "look",
+    "father", "more", "head", "day", "stand", "could", "own", "go",
+    "page", "come", "should", "did", "country", "my", "found", "sound",
+    "answer", "no", "school", "most", "grow", "number", "study", "who",
+    "still", "over", "learn", "know", "plant", "water", "cover", "than",
+    "food", "call", "sun", "first", "four", "people", "thought", "may",
+    "let", "down", "keep", "side", "eye", "been", "never", "now", "last",
+    "find", "door", "any", "between", "new", "city", "work", "tree",
+    "part", "cross", "take", "since", "get", "hard", "place", "start",
+    "made", "might", "live", "story", "where", "saw", "after", "far",
+    "back", "sea", "little", "draw", "only", "left", "round", "late",
+    "man", "run", "year", "don't", "came", "while", "show", "press",
+    "every", "close", "good", "night", "me", "real", "give", "life",
+    "our", "few", "under", "stop", "open", "ten", "seem", "simple",
+    "together", "several", "next", "vowel", "white", "toward", "children",
+    "war", "begin", "lay", "got", "against", "walk", "pattern", "example",
+    "slow", "ease", "center", "paper", "love", "often", "person",
+    "always", "money", "music", "serve", "those", "appear", "both",
+    "road", "mark", "map", "book", "science", "letter", "rule", "until",
+    "govern", "mile", "pull", "river", "cold", "car", "notice", "feet",
+    "voice", "care", "fall", "second", "power", "group", "town", "carry",
+    "fine", "took", "certain", "rain", "fly", "eat", "unit", "room",
+    "lead", "friend", "cry", "began", "dark", "idea", "machine", "fish",
+    "note", "mountain", "wait", "north", "plan", "once", "figure", "base",
+    "star", "hear", "box", "horse", "noun", "cut", "field", "sure",
+    "rest", "watch", "correct", "color", "able", "face", "pound", "wood",
+    "done", "main", "beauty", "enough", "drive", "plain", "stood", "girl",
+    "contain", "usual", "front", "young", "teach", "ready", "week",
+    "above", "final", "ever", "gave", "red", "green", "list", "oh",
+    "though", "quick", "feel", "develop", "talk", "sleep", "bird", "warm",
+    "soon", "free", "body", "minute", "dog", "strong", "family",
+    "special", "direct", "mind", "pose", "behind", "leave", "clear",
+    "song", "tail", "measure", "produce", "state", "fact", "product",
+    "street", "black", "inch", "short", "lot", "numeral", "nothing",
+    "class", "course", "wind", "stay", "question", "wheel", "happen",
+    "full", "complete", "force", "ship", "blue", "area", "object", "half",
+    "decide", "rock", "surface", "order", "deep", "fire", "moon", "south",
+    "island", "problem", "foot", "piece", "yet", "told", "busy", "knew",
+    "test", "pass", "record", "farm", "boat", "top", "common", "whole",
+    "gold", "king", "possible", "size", "plane", "heard", "age", "best",
+    "dry", "hour", "wonder", "better", "laugh", "true", "thousand",
+    "during", "ago", "hundred", "ran", "am", "check", "remember", "game",
+    "step", "shape", "early", "yes", "hold", "hot", "west", "miss",
+    "ground", "brought", "interest", "heat", "reach", "snow", "fast",
+    "bed", "five", "bring", "sing", "sit", "listen", "perhaps", "six",
+    "fill", "table", "east", "travel", "weight", "less", "language",
+    "morning", "among"];
 
 //////////////////////////////////////////
 
 // Knuth-Fisher-Yates Shuffle
 // http://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
-    let m = array.length,
-        t,
-        i;
+    let m = array.length, t, i;
     // While there remain elements to shuffle…
     while (m) {
         // Pick a remaining element…
@@ -61,7 +122,7 @@ function addWords() {
 //////////////////////////////////////////
 
 // Word Colors
-let colorCurrentWord = " #dddddd";
+let colorCurrentWord =" #dddddd";
 let colorCorrectWord = "#93C572";
 let colorIncorrectWord = "#e50000";
 
@@ -150,25 +211,21 @@ function isTimer(seconds) {
                 clearInterval(typingTimer);
             } else {
                 time -= 1;
-                let timePad = time < 10 ? "0" + time : time; // zero padded
+                let timePad = (time < 10) ? ("0" + time) : time; // zero padded
                 $("#timer > span")[0].innerHTML = `0:${timePad}`;
             }
         }, 1000);
-    } else if (one == "0:00") {
-        return false;
-    }
+    } else if (one == "0:00") {return false;}
     return true;
 }
 
 function calculateWPM(data) {
-    let { seconds, correct, incorrect, total, typed } = data;
-    let min = seconds / 60;
-    let wpm = Math.ceil(typed / 5 - incorrect / min);
-    let accuracy = Math.ceil(correct / total * 100);
+    let {seconds, correct, incorrect, total, typed} = data;
+    let min = (seconds / 60);
+    let wpm = Math.ceil((typed / 5) - (incorrect) / min);
+    let accuracy = Math.ceil((correct / total) * 100);
 
-    if (wpm < 0) {
-        wpm = 0;
-    } // prevent negative wpm from incorrect words
+    if (wpm < 0) {wpm = 0;}     // prevent negative wpm from incorrect words
 
     // template strings are pretty cool
     let results = `<ul id="results">
@@ -186,11 +243,8 @@ function calculateWPM(data) {
 
     // color code accuracy
     let wpmClass = $("li:nth-child(2) .wpm-value")[0].classList;
-    if (accuracy > 80) {
-        wpmClass.add("correct-word-c");
-    } else {
-        wpmClass.add("incorrect-word-c");
-    }
+    if (accuracy > 80) {wpmClass.add("correct-word-c");}
+    else { wpmClass.add("incorrect-word-c");}
 
     console.log(wordData);
 }
@@ -214,15 +268,15 @@ function typingTest(e) {
     } else {
         // Only score when timer is on.
         if (isTimer(wordData.seconds)) {
-            checkWord(word); // checks for typing errors while you type
+            checkWord(word);    // checks for typing errors while you type
             // <space> submits words
             if (kcode == 32) {
-                submitWord(word); // keep track of correct / incorrect words
-                clearLine(); // get rid of old words
+                submitWord(word);  // keep track of correct / incorrect words
+                clearLine();  // get rid of old words
                 $("#typebox")[0].value = ""; // clear typebox after each word
             }
             wordData.typed += 1; // count each valid character typed
-        } else {
+        }else {
             // Display typing test results.
             calculateWPM(wordData);
         }
@@ -233,4 +287,3 @@ function restartTest() {
     $("#typebox")[0].value = "";
     location.reload();
 }
-
