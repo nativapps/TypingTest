@@ -1,0 +1,2 @@
+class TestBank < ApplicationRecord
+end

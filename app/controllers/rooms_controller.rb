@@ -15,24 +15,24 @@ class RoomsController < ApplicationController
 
 	def create
 		@room = Room.new(room_params)
-  		if @room.save
-  			redirect_to @room
-  		else
-  			render :new
-  		end
+			if @room.save
+				redirect_to @room
+			else
+				render :new
+			end
 	end
 
 	def edit
-    	@room = Room.find(params[:id])
-  	end
+			@room = Room.find(params[:id])
+		end
 
-  	def update
+		def update
 		@room = Room.find(params[:id])
-  		if @room.update(room_params)
-  			redirect_to rooms_path
-  		else
-  			render :edit
-  		end
+			if @room.update(room_params)
+				redirect_to rooms_path
+			else
+				render :edit
+			end
 	end
 
 	def destroy
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
 		if @room.destroy
 			redirect_to rooms_path
 		else
-    	redirect_to @room
+			redirect_to @room
 		end
 	end
 
@@ -50,5 +50,5 @@ class RoomsController < ApplicationController
 
 	def room_params
 		params.require(:room).permit(:name, :start_date, :finish_date, :tried_times, :set_limit)
-end
+	end
 end
