@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_18_144045) do
+ActiveRecord::Schema.define(version: 2018_04_18_200524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2018_04_18_144045) do
     t.text "text_test"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "has_participants", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "participant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_has_participants_on_participant_id"
+    t.index ["room_id"], name: "index_has_participants_on_room_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -41,6 +50,15 @@ ActiveRecord::Schema.define(version: 2018_04_18_144045) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_participants_on_email", unique: true
     t.index ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true
+  end
+
+  create_table "participants_rooms", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "participant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_participants_rooms_on_participant_id"
+    t.index ["room_id"], name: "index_participants_rooms_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -79,4 +97,8 @@ ActiveRecord::Schema.define(version: 2018_04_18_144045) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "has_participants", "participants"
+  add_foreign_key "has_participants", "rooms"
+  add_foreign_key "participants_rooms", "participants"
+  add_foreign_key "participants_rooms", "rooms"
 end

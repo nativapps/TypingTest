@@ -11,10 +11,12 @@ class RoomsController < ApplicationController
 
 	def new
 		@room = Room.new
+		@participants = Participant.all
 	end
 
 	def create
 		@room = Room.new(room_params)
+		@room.participants=params[:participants] 
 			if @room.save
 				redirect_to @room
 			else
@@ -24,10 +26,12 @@ class RoomsController < ApplicationController
 
 	def edit
 			@room = Room.find(params[:id])
+			@participants = Participant.all
 		end
 
 		def update
 		@room = Room.find(params[:id])
+		@room.participants=params[:participants] 
 			if @room.update(room_params)
 				redirect_to rooms_path
 			else
@@ -49,6 +53,6 @@ class RoomsController < ApplicationController
 	private
 
 	def room_params
-		params.require(:room).permit(:name, :start_date, :finish_date, :tried_times, :set_limit)
+		params.require(:room).permit(:name, :start_date, :finish_date, :tried_times, :set_limit, :participants)
 	end
 end

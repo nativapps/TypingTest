@@ -1,5 +1,5 @@
 
-<% if(current_user.is_admin?) %>
+
   <h2 class="margin_top">Formulario de <%= name %> Sala</h2>
 
   <div>
@@ -60,7 +60,33 @@
         <%= f.text_field :set_limit, placeholder: "Establecer limite" %>
       </div>
     </div>
-    </div>
+
+    <div>
+    <label>Agregar participantes</label>
+    <table id="tableStudent" style="text-align: center;" class="table table-striped">
+      <tr>
+        <th style="width: 30px;">Selección</th>
+        <th>Identificación</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+      </tr>
+
+      <% @participants.each do |participant| %>
+
+      <tr>
+        <td><%= check_box_tag "participants[]", participant.id, @room.participants.include?(participant) %></td>
+        <td><%#= participant.identification %></td>
+        <td><%= participant.first_name %></td>
+        <td><%= participant.last_name %></td>
+      </tr>
+
+      <% end %>
+    </table>
+</div>
+    
+  </div>
+
+    
 
     <div class="form-group row">
       <p>
@@ -68,7 +94,3 @@
       </p>
     </div>
   <% end %>
-<% else %>
-  <h2>Error 401</h2>
-	<p>Esta sessión es solo personal autorizado.</p>
-<% end %>
