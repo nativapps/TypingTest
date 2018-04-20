@@ -1,7 +1,7 @@
 
   <body onload="addWords()">
     <header>
-      <h3>ES6 Typing Test</h3>
+      <h3>Typing Test</h3>
     </header>
 
     <section id="word-section">
@@ -10,9 +10,15 @@
 
     <section id="type-section">
       <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)"/>
-      <div id="timer" class="type-btn"><span>1:00</span></div>
+      <div id="timer" class="type-btn"><span><%= @time %></span></div>
       <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
         <span id="restart-symbol">↻</span>
+      </button>
+    </section>
+
+    <section>
+      <button>
+        Enviar y Finalizar
       </button>
     </section>
   </body>

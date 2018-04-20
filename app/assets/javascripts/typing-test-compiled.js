@@ -15,7 +15,6 @@ if (navigator.userAgent.match(/firefox/i)) {
 
 // Sorted list of the 500 most common English words.
 //let wordList = ["the", "name", "of", "very", "to", "through", "and", "just", "a", "form", "in", "much", "is", "great", "it", "think", "you", "say", "that", "help", "he", "low", "was", "line", "for", "before", "on", "turn", "are", "cause", "with", "same", "as", "mean", "I", "differ", "his", "move", "they", "right", "be", "boy", "at", "old", "one", "too", "have", "does", "this", "tell", "from", "sentence", "or", "set", "had", "three", "by", "want", "hot", "air", "but", "well", "some", "also", "what", "play", "there", "small", "we", "end", "can", "put", "out", "home", "other", "read", "were", "hand", "all", "port", "your", "large", "when", "spell", "up", "add", "use", "even", "word", "land", "how", "here", "said", "must", "an", "big", "each", "high", "she", "such", "which", "follow", "do", "act", "their", "why", "time", "ask", "if", "men", "will", "change", "way", "went", "about", "light", "many", "kind", "then", "off", "them", "need", "would", "house", "write", "picture", "like", "try", "so", "us", "these", "again", "her", "animal", "long", "point", "make", "mother", "thing", "world", "see", "near", "him", "build", "two", "self", "has", "earth", "look", "father", "more", "head", "day", "stand", "could", "own", "go", "page", "come", "should", "did", "country", "my", "found", "sound", "answer", "no", "school", "most", "grow", "number", "study", "who", "still", "over", "learn", "know", "plant", "water", "cover", "than", "food", "call", "sun", "first", "four", "people", "thought", "may", "let", "down", "keep", "side", "eye", "been", "never", "now", "last", "find", "door", "any", "between", "new", "city", "work", "tree", "part", "cross", "take", "since", "get", "hard", "place", "start", "made", "might", "live", "story", "where", "saw", "after", "far", "back", "sea", "little", "draw", "only", "left", "round", "late", "man", "run", "year", "don't", "came", "while", "show", "press", "every", "close", "good", "night", "me", "real", "give", "life", "our", "few", "under", "stop", "open", "ten", "seem", "simple", "together", "several", "next", "vowel", "white", "toward", "children", "war", "begin", "lay", "got", "against", "walk", "pattern", "example", "slow", "ease", "center", "paper", "love", "often", "person", "always", "money", "music", "serve", "those", "appear", "both", "road", "mark", "map", "book", "science", "letter", "rule", "until", "govern", "mile", "pull", "river", "cold", "car", "notice", "feet", "voice", "care", "fall", "second", "power", "group", "town", "carry", "fine", "took", "certain", "rain", "fly", "eat", "unit", "room", "lead", "friend", "cry", "began", "dark", "idea", "machine", "fish", "note", "mountain", "wait", "north", "plan", "once", "figure", "base", "star", "hear", "box", "horse", "noun", "cut", "field", "sure", "rest", "watch", "correct", "color", "able", "face", "pound", "wood", "done", "main", "beauty", "enough", "drive", "plain", "stood", "girl", "contain", "usual", "front", "young", "teach", "ready", "week", "above", "final", "ever", "gave", "red", "green", "list", "oh", "though", "quick", "feel", "develop", "talk", "sleep", "bird", "warm", "soon", "free", "body", "minute", "dog", "strong", "family", "special", "direct", "mind", "pose", "behind", "leave", "clear", "song", "tail", "measure", "produce", "state", "fact", "product", "street", "black", "inch", "short", "lot", "numeral", "nothing", "class", "course", "wind", "stay", "question", "wheel", "happen", "full", "complete", "force", "ship", "blue", "area", "object", "half", "decide", "rock", "surface", "order", "deep", "fire", "moon", "south", "island", "problem", "foot", "piece", "yet", "told", "busy", "knew", "test", "pass", "record", "farm", "boat", "top", "common", "whole", "gold", "king", "possible", "size", "plane", "heard", "age", "best", "dry", "hour", "wonder", "better", "laugh", "true", "thousand", "during", "ago", "hundred", "ran", "am", "check", "remember", "game", "step", "shape", "early", "yes", "hold", "hot", "west", "miss", "ground", "brought", "interest", "heat", "reach", "snow", "fast", "bed", "five", "bring", "sing", "sit", "listen", "perhaps", "six", "fill", "table", "east", "travel", "weight", "less", "language", "morning", "among"];
-let wordList = ["Hola", "Esto",  "funciona"];
 //////////////////////////////////////////
 
 // Knuth-Fisher-Yates Shuffle
@@ -68,8 +67,18 @@ let colorCorrectWord = "#93C572";
 let colorIncorrectWord = "#e50000";
 
 // Word Count and other data.
+let wordList = ["Hola", "Esto,", "funciona"];
+
+let seconds = 10;
+let timePad = seconds < 10 ? "0" + seconds : seconds;
+let minutes = Math.floor(timePad/60);
+let second = Math.floor(timePad % 3600 % 60);
+let showTime = minutes + ":" + ((second < 10) ? "0" + second : second);
+
+let timeInput = showTime;
+
 let wordData = {
-    seconds: 60,
+    seconds: seconds,
     correct: 0,
     incorrect: 0,
     total: 0,
@@ -139,23 +148,27 @@ function clearLine() {
     }
 }
 
-function isTimer(seconds) {
+function isTimer(seconds, timeInput) {
     // BUG: page refresh with keyboard triggers onkeyup and starts timer
     // Use restart button to reset timer
 
     let time = seconds;
+    let timeInput2 = timeInput;
     // only set timer once
     let one = $("#timer > span")[0].innerHTML;
-    if (one == "1:00") {
+    if (one == timeInput2) {
         let typingTimer = setInterval(() => {
             if (time <= 0) {
                 clearInterval(typingTimer);
             } else {
                 time -= 1;
                 let timePad = time < 10 ? "0" + time : time; // zero padded
-                $("#timer > span")[0].innerHTML = `0:${timePad}`;
+                let minutes = Math.floor(timePad/60);
+                let second = Math.floor(timePad % 3600 % 60);
+                let showTime = minutes + ":" + ((second < 10) ? "0"+second : second);
+                $("#timer > span")[0].innerHTML = `${showTime}`;
             }
-        }, 1000);
+        }, 2000);
     } else if (one == "0:00") {
         return false;
     }
@@ -215,7 +228,7 @@ function typingTest(e) {
         word.value = "";
     } else {
         // Only score when timer is on.
-        if (isTimer(wordData.seconds)) {
+        if (isTimer(wordData.seconds, timeInput)) {
             checkWord(word); // checks for typing errors while you type
             // <space> submits words
             if (kcode == 32) {

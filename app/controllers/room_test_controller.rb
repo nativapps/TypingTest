@@ -1,4 +1,5 @@
 class RoomTestController < ApplicationController
-    def test
+    def index
+        @time = "0:10"
     end
 end
