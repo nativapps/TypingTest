@@ -26,7 +26,7 @@
 
         <tr>
             <td><%#= rt.identification %></td>
-            <td><%= rt.last_name %></td>
+            <td><%= rt.first_name %></td>
             <td><%= rt.last_name %></td>
         </tr>
 
@@ -35,6 +35,29 @@
 
     <% if @room.participants.blank? %>
         <h3>No tiene Participantes asignado</h3>
+    <% end %>
+</div>
+
+<div>
+    <h2>Tests</h2>
+    <table id="tableStudent" style="text-align: center;" class="table table-striped">
+        <tr>
+            <th>Título</th>
+            <th>tipo</th>
+        </tr>
+
+        <% @room.test_banks.each do |t| %>
+
+        <tr>
+            <td><%= t.name %></td>
+            <td><%= t.type_test %></td>
+        </tr>
+
+        <% end %>
+    </table>
+
+    <% if @room.test_banks.blank? %>
+        <h3>No tiene tests asignado</h3>
     <% end %>
 </div>
 
