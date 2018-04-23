@@ -1,4 +1,4 @@
-<% if(current_user.is_admin?) %>
+
 	<h2>Rooms session</h2>
 
 	<%= link_to "Add room", new_room_path(@room), class: 'btn btn-primary' %>
@@ -31,7 +31,3 @@
 					</tr>
 			<% end %>
 	</table>
-<% else %>
-  <h2>Error 401</h2>
-	<p>Esta sessión es solo personal autorizado.</p>
-<% end %>
