@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_18_200524) do
+ActiveRecord::Schema.define(version: 2018_04_23_193256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2018_04_18_200524) do
     t.index ["room_id"], name: "index_has_participants_on_room_id"
   end
 
+  create_table "has_tests", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "test_bank_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_has_tests_on_room_id"
+    t.index ["test_bank_id"], name: "index_has_tests_on_test_bank_id"
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,17 +57,9 @@ ActiveRecord::Schema.define(version: 2018_04_18_200524) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "identification"
     t.index ["email"], name: "index_participants_on_email", unique: true
     t.index ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true
-  end
-
-  create_table "participants_rooms", force: :cascade do |t|
-    t.bigint "room_id"
-    t.bigint "participant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["participant_id"], name: "index_participants_rooms_on_participant_id"
-    t.index ["room_id"], name: "index_participants_rooms_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -99,6 +100,6 @@ ActiveRecord::Schema.define(version: 2018_04_18_200524) do
 
   add_foreign_key "has_participants", "participants"
   add_foreign_key "has_participants", "rooms"
-  add_foreign_key "participants_rooms", "participants"
-  add_foreign_key "participants_rooms", "rooms"
+  add_foreign_key "has_tests", "rooms"
+  add_foreign_key "has_tests", "test_banks"
 end
