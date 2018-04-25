@@ -4,7 +4,7 @@ class RoomTestController < ApplicationController
     end
 
     def test
-        @time = "10"
+        @time = "60"
         @test = TestBank.find(1)
     end
 end

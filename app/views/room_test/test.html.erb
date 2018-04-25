@@ -26,6 +26,11 @@
         <label>Correct: </label><span id="count_correct"></span><br>
         <label>Incorrect: </label><span id="count_incorrect"></span><br>
         <label>Total: </label><span id="total_word"></span><br>
+
+        <br>
+
+        <label>accuracy: </label><span id="accuracy"></span><br>
+        <label>WPM: </label><span id="wpm"></span><br>
     </div>
     <button>
       Enviar y Finalizar
@@ -209,7 +214,7 @@
                   let showTime = minutes + ":" + ((second < 10) ? "0"+second : second);
                   $("#timer > span")[0].innerHTML = `${showTime}`;
               }
-          }, 2000);
+          }, 1000);
       } else if (one == "0:00") {
           return false;
       }
@@ -221,6 +226,9 @@
       let min = seconds / 60;
       let wpm = Math.ceil(typed / 5 - incorrect / min);
       let accuracy = Math.ceil(correct / total * 100);
+
+      document.getElementById("accuracy").innerHTML = accuracy;
+      document.getElementById("wpm").innerHTML = wpm
   
       if (wpm < 0) {
           wpm = 0;
