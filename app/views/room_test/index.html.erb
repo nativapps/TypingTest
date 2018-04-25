@@ -1,18 +1,21 @@
+<div>
+	<div class="room_test_h2_Container">
+		<h2 class="room_test_h2">
+		Typing Test
+		</h2>
+	</div>
 
-  <body onload="addWords()">
-    <header>
-      <h3>ES6 Typing Test</h3>
-    </header>
-
-    <section id="word-section">
-      <div class="waiting">⌛</div>
-    </section>
-
-    <section id="type-section">
-      <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)"/>
-      <div id="timer" class="type-btn"><span>1:00</span></div>
-      <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
-        <span id="restart-symbol">↻</span>
-      </button>
-    </section>
-  </body>
+	<div id="login-container">
+		<a href="<%= rooms_path %>">
+			<div class="login" id="participant">
+				<p class="room_test_p">Ingresar como administrador</p>
+			</div>
+		</a>
+		
+		<a href="<%= room_test_test_path %>">
+			<div class="login" id="admin">
+				<p class="room_test_p">Ingresar como participante</p>
+			</div>
+		</a>
+	</div>
+</div>

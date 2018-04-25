@@ -1,3 +1,17 @@
+.room_test_h2_Container{
+    min-width: 5%;
+    height: 10vh;
+    margin: 15%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.room_test_h2{
+    margin-top: 15vh;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
 .room_table{
     text-align: center;
     margin: 0 auto;
@@ -9,4 +23,53 @@
     min-width: 200px;
     min-height: 200px;
     width: 30%;
+}
+
+#login-container{
+    min-width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 15vh;
+}
+
+.login{
+    width: 35%;
+    height: 35vh;
+    margin: 0 auto;
+    margin: 5px;
+    padding: 5%;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    size: 64px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 5px black;
+}
+
+#admin{
+    background-color: rgb(187, 9, 187);
+    size: 64px;
+}
+
+#participant{
+    background-color: rgb(255, 183, 50);
+    
+}
+
+#admin:hover{
+    background-color: rgb(105, 11, 105);
+    box-shadow: 5px 10px #888888;
+    cursor: pointer;
+}
+
+#participant:hover{
+    background-color: rgb(212, 103, 14);
+    box-shadow: 5px 10px #888888;
+    cursor: pointer;
+}
+
+.room_test_p{
+    font-size: 2vw;
 }
