@@ -42,8 +42,6 @@ class Room < ApplicationRecord
 			end
 		end
   end
-    
-  #################
 
   def save_test_banks
     if @test_banks.blank? 

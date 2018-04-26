@@ -1,0 +1,17 @@
+<h2>
+	Typing Test
+</h2>
+
+<h3>
+	prueba habilitada:
+</h3>
+
+<% @lobby_rooms.each do |room| %>
+	<%= link_to room_test_rooms_path(room_id: room.id) do %>
+		<div class="lobby_test_box"> 
+		  <p><%= room.name %></p>
+    </div>
+  <% end %>
+  
+  <p><%= room.start_date %></p>
+<% end %>
