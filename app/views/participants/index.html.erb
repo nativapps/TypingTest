@@ -1,30 +1,30 @@
 <h2>participants session</h2>
 
-	<%= link_to "Add participant", new_participant_path(@participant), class: 'btn btn-primary' %>
+<%= link_to "Add participant", new_participant_path(@participant), class: 'btn btn-primary' %>
 
-	<br>
+<br>
 
-	<table class="participant_table">
-			<tr>
-					<th>First name</th>
-					<th>Last name</th>
-					<th>Phone</th>
-					<th>Email</th>
-					<th>Option</th>
-			</tr>
-		
-			<% @participants.each do |participant| %>
-					<tr>
-						<td><%= participant.first_name %></td>
-						<td><%= participant.last_name %></td>
-						<td><%= participant.phone %></td>
-						<td><%= participant.email %></td>
-                        
-						<td>
-                            <%= link_to "Ver", participant, class: 'btn btn-primary' %>
-                            <%= link_to "Modificar", edit_participant_path(participant), class: 'btn btn-primary' %>
-                            <%= link_to "Eliminar", participant, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
-                        </td> 
-					</tr>
-			<% end %>
-	</table>
+<table class="participant_table">
+	<tr>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Phone</th>
+		<th>Email</th>
+		<th>Option</th>
+	</tr>
+	
+	<% @participants.each do |participant| %>
+		<tr>
+			<td><%= participant.first_name %></td>
+			<td><%= participant.last_name %></td>
+			<td><%= participant.phone %></td>
+			<td><%= participant.email %></td>
+                  
+			<td>
+        <%= link_to "Ver", participant, class: 'btn btn-primary' %>
+        <%= link_to "Modificar", edit_participant_path(participant), class: 'btn btn-primary' %>
+        <%= link_to "Eliminar", participant, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
+      </td> 
+		</tr>
+	<% end %>
+</table>

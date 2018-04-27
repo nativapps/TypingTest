@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :rooms
   get 'room_test/index'
   get 'room_test/test'
+  get 'room_test/lobby'
+  get 'room_test/rooms'
   resources :test_banks
 
   root 'room_test#index'

@@ -1,12 +1,27 @@
 
+
   <body onload="addWords()">
   <header>
     <h3>Typing Test</h3>
+    <span class="navbar navbar-right" style="color: black">
+		<% if participant_signed_in? %>
+		  	<span><strong><%= current_participant.email %>.</strong>   -    
+		  	<%= link_to "Cerrar sección", destroy_participant_session_path, method: :delete, :class => 'navbar-link logout'%>
+		  	</span>
+			<% else %>
+		 		<%= link_to "Ingresar", new_participant_session_path, :class => 'navbar-link'  %>
+			<% end %>
+		</span>
   </header>
-  
+
   <input id="tiempo" value="<%= @time %>" style="display: none">
 
   <input id="text_test" value="<%= @test.text_test %>" style="display: none">
+
+    <br>
+        <p><%= @qwe %></p>
+    <br>
+
 
   <section id="word-section">
     <div class="waiting">⌛</div>
