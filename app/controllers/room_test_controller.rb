@@ -14,10 +14,14 @@ class RoomTestController < ApplicationController
 	end
 
 	def rooms
-		if current_participant.rooms && current_participant.rooms.start_date <= Date.today  #Here need to fix
+		if current_participant.rooms.find(room_id).start_date >= Date.today && current_participant.rooms.find(room_id).finish_date <= Date.today
 			@tests = current_participant.rooms.find(room_id).test_banks
 			@room_id = room_id
-		end		
+			@mensaje= current_participant.rooms.find(room_id).start_date
+		else
+			@mensaje = "no era la fecha permitida"
+			@tests = []
+		end
 	end
 
   def test
