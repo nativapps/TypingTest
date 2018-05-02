@@ -18,11 +18,6 @@
 
   <input id="text_test" value="<%= @test.text_test %>" style="display: none">
 
-    <br>
-        <p><%= @qwe %></p>
-    <br>
-
-
   <section id="word-section">
     <div class="waiting">⌛</div>
   </section>
@@ -30,22 +25,25 @@
   <section id="type-section">
     <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)"/>
     <div id="timer" class="type-btn"><span id="showTime">0:00</span></div>
-    <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
+    <!--<button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
       <span id="restart-symbol">↻</span>
-    </button>
+    </button>-->
   </section>
 
   <section>
     <div>
-        <label>Typed: </label><span id="count_typed"></span><br>
-        <label>Correct: </label><span id="count_correct"></span><br>
-        <label>Incorrect: </label><span id="count_incorrect"></span><br>
-        <label>Total: </label><span id="total_word"></span><br>
+      <%#= form_for @report, :url => { :controller => "report", :action => "create" }, :html => {:method => :post} do |r| %>
+      <%#= form_for @report, :url => report_path, :html => { :method => :post } %>  
+        <label>Typed: </label><%# r.field disabled %><br>
+        <label>Correct: </label><input id="count_correct" disabled><br>
+        <label>Incorrect: </label><input id="count_incorrect" disabled><br>
+        <label>Total: </label><input id="total_word" disabled><br>
 
         <br>
 
-        <label>accuracy: </label><span id="accuracy"></span><br>
-        <label>WPM: </label><span id="wpm"></span><br>
+        <label>accuracy: </label><input id="accuracy" disabled><br>
+        <label>WPM: </label><input id="wpm" disabled><br>
+      <%# end %>
     </div>
     <button>
       Enviar y Finalizar
@@ -176,16 +174,16 @@
           current.classList.remove("current-word");
           current.classList.add("correct-word-c");
           wordData.correct += 1;
-          document.getElementById("count_correct").innerHTML = wordData.correct;
+          document.getElementById("count_correct").value = wordData.correct;
       } else {
           current.classList.remove("current-word", "incorrect-word-bg");
           current.classList.add("incorrect-word-c");
           wordData.incorrect += 1;
-          document.getElementById("count_incorrect").innerHTML = wordData.incorrect;
+          document.getElementById("count_incorrect").value = wordData.incorrect;
       }
       // update wordData
       wordData.total = wordData.correct + wordData.incorrect;
-      document.getElementById("total_word").innerHTML = wordData.total;
+      document.getElementById("total_word").value = wordData.total;
   
       // make the next word the new current-word.
       current.nextSibling.classList.add("current-word");
@@ -242,8 +240,8 @@
       let wpm = Math.ceil(typed / 5 - incorrect / min);
       let accuracy = Math.ceil(correct / total * 100);
 
-      document.getElementById("accuracy").innerHTML = accuracy;
-      document.getElementById("wpm").innerHTML = wpm
+      document.getElementById("accuracy").value = accuracy;
+      document.getElementById("wpm").value = wpm
   
       if (wpm < 0) {
           wpm = 0;
@@ -301,7 +299,7 @@
                   $("#typebox")[0].value = ""; // clear typebox after each word
               }
               wordData.typed += 1; // count each valid character typed
-              document.getElementById("count_typed").innerHTML = wordData.typed;
+              document.getElementById("count_typed").value = wordData.typed;
           } else {
               // Display typing test results.
               calculateWPM(wordData);

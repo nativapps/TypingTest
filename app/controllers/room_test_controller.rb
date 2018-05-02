@@ -14,7 +14,7 @@ class RoomTestController < ApplicationController
 	end
 
 	def rooms
-		if current_participant.rooms.find(room_id).start_date >= Date.today && current_participant.rooms.find(room_id).finish_date <= Date.today
+		if current_participant.rooms.find(room_id).start_date <= Date.today && current_participant.rooms.find(room_id).finish_date >= Date.today
 			@tests = current_participant.rooms.find(room_id).test_banks
 			@room_id = room_id
 			@mensaje= current_participant.rooms.find(room_id).start_date

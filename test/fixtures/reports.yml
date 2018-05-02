@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  try_number: 1
+  correct: 1
+  incorrect: 1
+  total_type: 1
+  total_word: 1
+  wpm: 1
+  acurrancy: 1
+
+two:
+  try_number: 1
+  correct: 1
+  incorrect: 1
+  total_type: 1
+  total_word: 1
+  wpm: 1
+  acurrancy: 1
