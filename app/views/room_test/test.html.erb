@@ -34,7 +34,7 @@
     <div>
       <%#= form_for @report, :url => { :controller => "report", :action => "create" }, :html => {:method => :post} do |r| %>
       <%#= form_for @report, :url => report_path, :html => { :method => :post } %>  
-        <label>Typed: </label><%# r.field disabled %><br>
+        <label>Typed: </label><input id="count_typed"><%# r.field disabled %><br>
         <label>Correct: </label><input id="count_correct" disabled><br>
         <label>Incorrect: </label><input id="count_incorrect" disabled><br>
         <label>Total: </label><input id="total_word" disabled><br>
@@ -122,7 +122,7 @@
   // Word Count and other data.
   let text_test = document.getElementById("text_test").value.replace(/[# ]/g, "++").split("++");
 
-  let wordList = text_test //["Hola", "Esto,", "funciona"];
+  let wordList = text_test; //["Hola", "Esto,", "funciona"];
   let tiempo = parseInt(document.getElementById("tiempo").value);
   let seconds = tiempo;
   let timePad = seconds < 10 ? "0" + seconds : seconds;
@@ -169,9 +169,9 @@
       // update current-word and
       // keep track of correct & incorrect words
       let current = $(".current-word")[0];
-  
+      console.log(current)
       if (checkWord(word)) {
-          current.classList.remove("current-word");
+          current.classList.remove("current-word", "incorrect-word-c");
           current.classList.add("correct-word-c");
           wordData.correct += 1;
           document.getElementById("count_correct").value = wordData.correct;
@@ -187,6 +187,32 @@
   
       // make the next word the new current-word.
       current.nextSibling.classList.add("current-word");
+  }
+
+  function goBack(word){
+      // update current-word and
+      // keep track of correct & incorrect words
+      let current = $(".current-word")[0].previousSibling;
+      //current.classList.remove("incorrect-word-c", "incorrect-word-bg", "correct-word-bg");
+        console.log(current.classList);
+      if (current.classList.value == "correct-word-c") { 
+          current.classList.remove("correct-word-c");
+          current.classList.add("current-word");
+          wordData.correct -= 1;
+          document.getElementById("count_correct").value = wordData.correct;
+      } else if(current.classList.value == "incorrect-word-c"){
+          current.classList.remove("incorrect-word-c", "incorrect-word-bg");
+          current.classList.add("current-word");
+          wordData.incorrect -= 1;
+          document.getElementById("count_incorrect").value = wordData.incorrect;
+      }
+      // update wordData
+      wordData.total = wordData.correct + wordData.incorrect;
+      document.getElementById("total_word").value = wordData.total;
+  
+      // make the next word the new current-word.
+      current.classList.add("current-word");
+      current.nextSibling.classList.remove("current-word");
   }
   
   function clearLine() {
@@ -297,6 +323,12 @@
                   submitWord(word); // keep track of correct / incorrect words
                   clearLine(); // get rid of old words
                   $("#typebox")[0].value = ""; // clear typebox after each word
+              }else if (kcode == 8){
+                if(word.value == ""){
+                    goBack(word); // keep track of correct / incorrect words
+                    clearLine(); // get rid of old words
+                    $("#typebox")[0].value = ""; // clear typebox after each word
+                }
               }
               wordData.typed += 1; // count each valid character typed
               document.getElementById("count_typed").value = wordData.typed;
@@ -305,6 +337,8 @@
               calculateWPM(wordData);
           }
       }
+
+      
   }
   
   function restartTest() {
