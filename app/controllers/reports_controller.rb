@@ -2,6 +2,10 @@ class ReportsController < ApplicationController
   def index
     @report = Report.all
 	end
+
+	def edit
+		@report = Report.find(params[:id])
+	end
 	
   def create
       @report = Report.new(report_params)

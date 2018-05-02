@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   get 'room_test/rooms'
   resources :test_banks
 
+  resources :reports
+  #post 'report/create'
+
   root 'room_test#index'
 end
