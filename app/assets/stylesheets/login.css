@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* General for all screens of LOGIN */
+div.fondo_login {
+  width: 100vw;
+  height: 66vh;
+  background-image: url("img/fondo_login.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-color: white;
+}
+
+div.fondo_login img {
+
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+section.login {
+  width: 427px;
+  height: 450px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 33px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.16);
+  text-align: center;
+}
+
+section.login_general p {
+  margin: 44px 0;
+}
+
+section.login_general h1 {
+  font-size: 50px;
+}
+
+/* Log-in for Administrator and Participants */
+
+div.wrapper_inputs {
+  margin: 25px 0;
+}
+
+div.wrapper_inputs input:nth-of-type(2) {
+  margin-bottom: 0;
+}
+
+input[type=checkbox] {
+  width: auto;
+  float: left;
+}
+
+input[type=submit] {
+  width: 282px;
+  margin: 23px 0;
+}
+
+span.checkbox {
+  display: inline-block;
+  width: 120px;
+}
+
+a.go_back {
+  color: #FF7700;
+}
+
+a.go_back img {
+  margin-right: 10px;
+}
