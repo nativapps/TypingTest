@@ -1,55 +1,70 @@
 
 
   <body onload="addWords()">
-  <header>
-    <h3>Typing Test</h3>
-    <span class="navbar navbar-right" style="color: black">
-		<% if participant_signed_in? %>
-		  	<span><strong><%= current_participant.email %>.</strong>   -    
-		  	<%= link_to "Cerrar sección", destroy_participant_session_path, method: :delete, :class => 'navbar-link logout'%>
-		  	</span>
-			<% else %>
-		 		<%= link_to "Ingresar", new_participant_session_path, :class => 'navbar-link'  %>
-			<% end %>
-		</span>
-  </header>
 
+<div class="main_wrapper">
+  <section class="test">
+    <div class="content_test">
+      <h3>Typing test Name</h3>
+      
+        <div id="word-section">
+            <div class="waiting">
+            </div>
+        </div>
+        
+        <div id="type-section">
+          <input id="typebox" type="text" class="input_test" placeholder="Click or tap here and start typing!" tabindex="1" autofocus onkeyup="typingTest(event)"/>
+          
+        </div>
+    </div>
+    
+      <aside>
+      <h5>Time left</h5>
+      <div id="timer" class="input_test_aside"><span id="showTime">0:00</span></div>
+         <!-- <input class="input_test_aside" type="text" placeholder="1:00" > -->
+
+      <h5>Typing Speed</h5>
+
+      <p>WPM</p>
+      <input class="input_test_aside" id = "wpm" type="text">
+
+      <p>Mistyped words</p>
+      <!--<input class="input_test_aside" type="text" placeholder="0" >-->
+      <input class="input_test_aside" id="count_incorrect" disabled><br>
+      <a href="#" class="button button_line input_aside_cancel">CANCEL</a>
+
+    </aside>
+</div>
+    
   <input id="tiempo" value="<%= @time %>" style="display: none">
 
   <input id="text_test" value="<%= @test.text_test %>" style="display: none">
 
-  <section id="word-section">
-    <div class="waiting">⌛</div>
-  </section>
 
-  <section id="type-section">
-    <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)"/>
-    <div id="timer" class="type-btn"><span id="showTime">0:00</span></div>
-    <!--<button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
-      <span id="restart-symbol">↻</span>
-    </button>-->
-  </section>
+
+
 
   <section>
     <div>
       <%#= form_for @report, :url => { :controller => "report", :action => "create" }, :html => {:method => :post} do |r| %>
       <%#= form_for @report, :url => report_path, :html => { :method => :post } %>  
-        <label>Typed: </label><input id="count_typed"><%# r.field disabled %><br>
-        <label>Correct: </label><input id="count_correct" disabled><br>
-        <label>Incorrect: </label><input id="count_incorrect" disabled><br>
-        <label>Total: </label><input id="total_word" disabled><br>
+        <input id="count_typed" " style="display: none"><%# r.field disabled %><br>
+        <input id="count_correct" disabled " style="display: none"><br>
+        <input id="count_incorrect" disabled " style="display: none"><br>
+        <input id="total_word" disabled " style="display: none"><br>
 
         <br>
 
-        <label>accuracy: </label><input id="accuracy" disabled><br>
-        <label>WPM: </label><input id="wpm" disabled><br>
+        <input id="accuracy" disabled " style="display: none"><br>
+        <input id="wpm" disabled " style="display: none"><br>
       <%# end %>
     </div>
-    <button>
+    <!--<button>
       Enviar y Finalizar
-    </button>
+    </button>-->
   </section>
-
+  
+  
   <script>
   // jQuery like selection of elements.
   window.$ = document.querySelectorAll.bind(document);
@@ -101,11 +116,11 @@
           //let words = shuffle(wordList);  //disable the random word
           let words = wordList.reverse();;
           let wordSpan = `<span>${words[i]}</span>`;
-          wordSection.innerHTML += wordSpan;
+          wordSection.innerHTML += wordSpan ;
       }
       // mark first word as current-word
       wordSection.firstChild.classList.add("current-word");
-  
+
       // mark last word with magic-box
       // let magicBox = document.createElement("DIV");
       // magicBox.classList.add("magic-box");
@@ -129,6 +144,7 @@
   let minutes = Math.floor(timePad/60);
   let second = Math.floor(timePad % 3600 % 60);
   let showTime = minutes + ":" + ((second < 10) ? "0" + second : second);
+  let segundos = 0;
   document.getElementById("showTime").innerHTML = showTime;
   
   let timeInput = showTime;
@@ -252,6 +268,7 @@
                   let second = Math.floor(timePad % 3600 % 60);
                   let showTime = minutes + ":" + ((second < 10) ? "0"+second : second);
                   $("#timer > span")[0].innerHTML = `${showTime}`;
+                  segundos = 60 - second;
               }
           }, 1000);
       } else if (one == "0:00") {
@@ -260,10 +277,13 @@
       return true;
   }
   
+
+  
   function calculateWPM(data) {
       let { seconds, correct, incorrect, total, typed } = data;
       let min = seconds / 60;
       let wpm = Math.ceil(typed / 5 - incorrect / min);
+      console.log("here i am " + wpm);
       let accuracy = Math.ceil(correct / total * 100);
 
       document.getElementById("accuracy").value = accuracy;
@@ -296,6 +316,22 @@
       }
   
       console.log(wordData);
+      return wpm;
+  }
+  
+    
+  function fastWPM(data) {
+      let { seconds, correct, incorrect, total, typed } = data;
+      let min = segundos / 60;
+      let wpm = Math.ceil(((typed / 5) - incorrect) / min);
+      let accuracy = Math.ceil(correct / total * 100);
+      document.getElementById("accuracy").value = accuracy;
+      document.getElementById("wpm").value = wpm
+      //console.log("resta ->" + (typed/5 - incorrect) + " tiempo->" + segundos + " wpm-> " + wpm);
+      if (wpm < 0) {
+          wpm = 0;
+      } // prevent negative wpm from incorrect words
+      return wpm;
   }
   
   function typingTest(e) {
@@ -310,6 +346,7 @@
       e = e || window.event;
       let kcode = e.keyCode;
       let word = $("#typebox")[0];
+      console.log(word.value);
   
       // check if empty (starts with space)
       if (word.value.match(/^\s/g)) {
@@ -322,13 +359,19 @@
               if (kcode == 32) {
                   submitWord(word); // keep track of correct / incorrect words
                   clearLine(); // get rid of old words
-                  $("#typebox")[0].value = ""; // clear typebox after each word
-              }else if (kcode == 8){
+                  //$("#typebox")[0].value = ""; // clear typebox after each word
+                  if (segundos>0)
+                      document.getElementById("wpm").value = fastWPM(wordData);
+
+              }
+              else if (kcode == 8)
+              {
                 if(word.value == ""){
                     goBack(word); // keep track of correct / incorrect words
                     clearLine(); // get rid of old words
                     $("#typebox")[0].value = ""; // clear typebox after each word
                 }
+                wordData.typed -= 1; // prevents type character count to go up when backspace is stroke
               }
               wordData.typed += 1; // count each valid character typed
               document.getElementById("count_typed").value = wordData.typed;
