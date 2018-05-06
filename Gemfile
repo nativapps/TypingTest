@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Devise to user aunthenticantion
 gem 'devise'
 
+# Use for send email
+#gem 'delayed_job_active_record'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
