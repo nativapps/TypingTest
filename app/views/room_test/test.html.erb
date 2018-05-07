@@ -1,6 +1,6 @@
 
 
-  <body onload="addWords()">
+<body onload="addWords()">
 
 <div class="main_wrapper">
   <section class="test">
@@ -13,8 +13,8 @@
         </div>
         
         <div id="type-section">
-          <input id="typebox" type="text" class="input_test" placeholder="Click or tap here and start typing!" tabindex="1" autofocus onkeyup="typingTest(event)"/>
-          
+          <textarea id="typebox" rows="2" type="text" class="input_test" placeholder="Click or tap here and start typing!" tabindex="1" autofocus onkeyup="typingTest(event)"/>
+          </textarea>
         </div>
     </div>
     
@@ -31,7 +31,7 @@
       <p>Mistyped words</p>
       <!--<input class="input_test_aside" type="text" placeholder="0" >-->
       <input class="input_test_aside" id="count_incorrect" disabled><br>
-      <a href="#" class="button button_line input_aside_cancel">CANCEL</a>
+    <!-- <a href="#" class="button button_line input_aside_cancel">CANCEL</a> -->
 
     </aside>
 </div>
@@ -65,7 +65,7 @@
   </section>
   
   
-  <script>
+  <script type="text/javascript" data-turbolinks-eval=false>
   // jQuery like selection of elements.
   window.$ = document.querySelectorAll.bind(document);
   
@@ -166,32 +166,34 @@
   // else, mark as current-word
   //////////////////////////////////////////
   
-  function checkWord(word) {
-      let wlen = word.value.length;
+
+  
+  
+  function checkIt(currentWord) {
       // how much we have of the current word.
       let current = $(".current-word")[0];
-      let currentSubstring = current.innerHTML.substring(0, wlen);
+      let currentSubstring = current.innerHTML.substring(0, current.innerHTML.length);
       // check if we have any typing errors
-      if (word.value.trim() != currentSubstring) {
-          current.classList.add("incorrect-word-bg");
+      if (currentWord != currentSubstring) 
           return false;
-      } else {
-          current.classList.remove("incorrect-word-bg");
+       else 
           return true;
-      }
   }
+  
   
   function submitWord(word) {
       // update current-word and
       // keep track of correct & incorrect words
       let current = $(".current-word")[0];
-      console.log(current)
-      if (checkWord(word)) {
+
+      if (checkIt(word)) {
+          //console.log("Correcta ->*"+word.value);
           current.classList.remove("current-word", "incorrect-word-c");
           current.classList.add("correct-word-c");
           wordData.correct += 1;
           document.getElementById("count_correct").value = wordData.correct;
       } else {
+         //console.log("Incorrecta ->*"+word.value);
           current.classList.remove("current-word", "incorrect-word-bg");
           current.classList.add("incorrect-word-c");
           wordData.incorrect += 1;
@@ -203,6 +205,8 @@
   
       // make the next word the new current-word.
       current.nextSibling.classList.add("current-word");
+      typed_char=0; // SPACE reset to zero
+      submitted_words++;
   }
 
   function goBack(word){
@@ -210,7 +214,6 @@
       // keep track of correct & incorrect words
       let current = $(".current-word")[0].previousSibling;
       //current.classList.remove("incorrect-word-c", "incorrect-word-bg", "correct-word-bg");
-        console.log(current.classList);
       if (current.classList.value == "correct-word-c") { 
           current.classList.remove("correct-word-c");
           current.classList.add("current-word");
@@ -231,22 +234,15 @@
       current.nextSibling.classList.remove("current-word");
   }
   
-  function clearLine() {
+  function clearLine(sign) { // sign determina si sube o baja el scroll del cuadro de texto. Depende de si viene de SPACE o BACKSPACE
       // remove past words once you get to the next line
       let wordSection = $("#word-section")[0];
       let current = $(".current-word")[0]; // second line (first word)
       let previous = current.previousSibling; // first line (last word)
-      let children = $(".correct-word-c, .incorrect-word-c").length;
-  
-      // <span>'s on the next line have a greater offsetTop value
-      // than those on the top line.
-      // Remove words until the first word on the second line
-      // is the fistChild of word-section.
-      if (current.offsetTop > previous.offsetTop) {
-          for (let i = 0; i < children; i++) {
-              wordSection.removeChild(wordSection.firstChild);
-          }
-      }
+      console.log("offSet current=>"+current.offsetTop+" previous=>"+previous.offsetTop+"sign=>"+sign)
+      if (current.offsetTop > previous.offsetTop)
+           wordSection.scrollTop = wordSection.scrollTop + (sign*30);
+
   }
   
   function isTimer(seconds, timeInput) {
@@ -283,7 +279,7 @@
       let { seconds, correct, incorrect, total, typed } = data;
       let min = seconds / 60;
       let wpm = Math.ceil(typed / 5 - incorrect / min);
-      console.log("here i am " + wpm);
+      //console.log("here i am " + wpm);
       let accuracy = Math.ceil(correct / total * 100);
 
       document.getElementById("accuracy").value = accuracy;
@@ -314,8 +310,7 @@
       } else {
           wpmClass.add("incorrect-word-c");
       }
-  
-      console.log(wordData);
+
       return wpm;
   }
   
@@ -334,6 +329,10 @@
       return wpm;
   }
   
+  var typed_char=0; //number of characters typed after a SPACE hit
+  var delete_soon = false;
+  var submitted_words = 0;
+  
   function typingTest(e) {
       // Char:        Key Code:
       // <space>      32
@@ -346,33 +345,41 @@
       e = e || window.event;
       let kcode = e.keyCode;
       let word = $("#typebox")[0];
-      console.log(word.value);
+      //console.log(word.value);
   
       // check if empty (starts with space)
       if (word.value.match(/^\s/g)) {
           word.value = "";
       } else {
+          
           // Only score when timer is on.
           if (isTimer(wordData.seconds, timeInput)) {
-              checkWord(word); // checks for typing errors while you type
-              // <space> submits words
-              if (kcode == 32) {
-                  submitWord(word); // keep track of correct / incorrect words
-                  clearLine(); // get rid of old words
-                  //$("#typebox")[0].value = ""; // clear typebox after each word
+              typed_char++;
+              // <space> submits words****
+              if (kcode == 32){
+                  typed_char=0; // Reset to zero after a SPACE hit
+                  let split =  word.value.split(" ");
+                  let current_word = split[(split.length)-2];
+                  submitWord(current_word);
+                  clearLine(1); // get rid of old words
                   if (segundos>0)
                       document.getElementById("wpm").value = fastWPM(wordData);
 
               }
               else if (kcode == 8)
               {
-                if(word.value == ""){
-                    goBack(word); // keep track of correct / incorrect words
-                    clearLine(); // get rid of old words
-                    $("#typebox")[0].value = ""; // clear typebox after each word
+                typed_char--;
+                let split =  word.value.split(" ");
+                let number_of_spaces = split.length-1;
+                //console.log("number of spaces=>"+number_of_spaces+ " submitted words=>" +submitted_words+" word=>*" + word.value+" extract=>*"+split[split.length-1]);
+                while (number_of_spaces<submitted_words)
+                    {
+                       clearLine(-1); // get rid of old words
+                       goBack(word);
+                       submitted_words--;
+                    }
+                wordData.typed = word.value.length; // -number of spaces, en caso de querer excluir los espacios
                 }
-                wordData.typed -= 1; // prevents type character count to go up when backspace is stroke
-              }
               wordData.typed += 1; // count each valid character typed
               document.getElementById("count_typed").value = wordData.typed;
           } else {
@@ -384,10 +391,6 @@
       
   }
   
-  function restartTest() {
-      $("#typebox")[0].value = "";
-      location.reload();
-  }
   
   </script>
 </body>

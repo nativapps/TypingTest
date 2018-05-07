@@ -252,13 +252,16 @@ footer a {
   font-size: 3em; }
 
 .current-word {
-  background-color: #dddddd; }
+  /*background-color: #dddddd; */
+  color: #713aeb; /*#eb8b3a; orange*/
+}
 
 .correct-word-c {
   color: #93C572; }
 
 .incorrect-word-c {
-  color: #e50000; }
+  color: #ddd;
+  text-decoration: line-through; }
 
 .incorrect-word-bg {
   background-color: #e50000; }
