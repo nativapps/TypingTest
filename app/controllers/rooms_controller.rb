@@ -35,7 +35,8 @@ class RoomsController < ApplicationController
 	def update
 		@room = Room.find(params[:id])
 		@room.participants=params[:participants]
-		@room.test_banks=params[:test_banks] 
+		@room.test_banks=params[:test_banks]
+		InvitationMailer.invitation_email(@participant).deliver
 		if @room.update(room_params)
 			redirect_to rooms_path
 		else
@@ -54,9 +55,20 @@ class RoomsController < ApplicationController
 		end
 	end
 
+	def send_invitation
+		@room = Room.find(room_id)
+		InvitationMailer.invitation_email(@room).deliver_later
+		flash[:notice] = "email has been sent."
+		redirect_to room_path(@room.id)
+	end
+
 	private
 
 	def room_params
 		params.require(:room).permit(:name, :start_date, :finish_date, :tried_times, :set_limit, :participants, :test_banks)
+	end
+
+	def room_id
+		return params[:room_id]
 	end
 end

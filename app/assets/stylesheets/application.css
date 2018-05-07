@@ -14,17 +14,4 @@
  *= require_self
  */
 
- .login_container{
-    min-width: 20%;
-    margin: 0 auto;
-    text-align: center;
- }
 
- #footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: rgb(0, 0, 0);
-    text-align: center;
-}

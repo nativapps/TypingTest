@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* CSS Document */
+
+section.main {
+padding: 28px 0;
+}
+
+section.main ul {
+width: 100%;
+}
+section.main ul li {
+  float: left;
+}
+
+section.main ul li:last-of-type {
+  float: right;
+  margin: 0;
+}

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* CSS Document */
+
+header {
+  width: 100%;
+  min-width: 768px;
+  height: 350px;
+  background-image: url(../img/header.png);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white!important;
+}
+
+header nav {
+  width: 100%;
+  padding: 6px 0;
+  background-color: rgba(0,0,0,0.11);
+  margin-bottom: 63px;
+}
+
+header nav img {
+  float: left;
+  padding: 13px;
+}
+
+header nav ul {
+  float: right;
+  margin-top: 11px;
+}
+
+header nav ul li {
+  float: left;
+}
+
+header nav ul li a {
+  display: block;margin: 0 10px;
+  color: white;
+  padding: 4px 15px;
+
+}
+
+header nav ul li:last-of-type {
+border-left: solid 1px white;
+}
+
+header p {
+  color: white;
+}

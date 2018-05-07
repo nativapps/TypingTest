@@ -15,11 +15,11 @@ class ParticipantsController < ApplicationController
 
 	def create
 		@participant = Participant.new(participant_params)
-			if @participant.save
-  			redirect_to @participant
-  		else
-  			render :new
-  		end
+		if @participant.save
+			redirect_to @participant
+		else
+			render :new
+		end
 	end
 
 	def edit
@@ -28,11 +28,11 @@ class ParticipantsController < ApplicationController
 
 	def update
 		@participant = Participant.find(params[:id])
-			if @participant.update(participant_params)
-				redirect_to participants_path
-			else
-				render :edit
-			end
+		if @participant.update(participant_params)
+			redirect_to participants_path
+		else
+			render :edit
+		end
 	end
 
 	def destroy
@@ -42,7 +42,7 @@ class ParticipantsController < ApplicationController
 		if @participant.destroy
 			redirect_to participants_path
 		else
-    	redirect_to @participant
+			redirect_to @participant
 		end
 	end
 	
@@ -50,5 +50,5 @@ class ParticipantsController < ApplicationController
 
 	def participant_params
 		params.require(:participant).permit(:first_name, :last_name, :identification, :phone, :email, :password)
-  end
+	end
 end
