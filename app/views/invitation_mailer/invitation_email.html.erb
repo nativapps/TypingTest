@@ -6,9 +6,17 @@
   <body>
     <h1>Welcome to example.com</h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is:<br>
+      your username is: <%= @participant.first_name %>
     </p>
+
+    <p>
+      Your email: <%= @participant.email %>
+    </p>
+
+    <p>
+     <%= @participant.last_name %>
+    </p>
+
     <p>
       To login to the site, just follow this link: 
     </p>

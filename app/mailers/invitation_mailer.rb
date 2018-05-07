@@ -5,6 +5,7 @@ class InvitationMailer < ApplicationMailer
     room = room
     if !room.nil?
       room.participants.each do |participant|
+        @participant = participant
         mail(to: participant.email, subject: 'Mensagge of the invitation')
       end
     end

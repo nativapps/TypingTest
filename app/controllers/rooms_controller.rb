@@ -58,7 +58,7 @@ class RoomsController < ApplicationController
 	def send_invitation
 		@room = Room.find(room_id)
 		InvitationMailer.invitation_email(@room).deliver_later
-		flash[:notice] = "Order has been sent."
+		flash[:notice] = "email has been sent."
 		redirect_to room_path(@room.id)
 	end
 

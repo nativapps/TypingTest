@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@nativapps.com'
+  default from: 'pruebasmtpdevelop@gmail.com'
   layout nil #'mailer'
 end
