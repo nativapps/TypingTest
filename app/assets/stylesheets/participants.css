@@ -78,10 +78,12 @@ aside p {
 .input_test_aside {
 
   border: none;
-  width: 106px;
-text-align: center;
-  padding: 14px;
   font-size: 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  padding: 14px;
+  width: 106px;
+  
 }
 .input_test_aside:focus {
   border-width: 0px;
