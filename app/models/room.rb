@@ -21,7 +21,7 @@ class Room < ApplicationRecord
   end
 
   private
-
+  
   def save_participants
     if @participants.blank? 
               

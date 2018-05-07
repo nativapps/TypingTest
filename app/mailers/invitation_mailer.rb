@@ -1,8 +1,12 @@
 class InvitationMailer < ApplicationMailer
-  default from: 'invitacion@example.com'
+  #default from: 'invitacion@example.com'
  
-  def invitation_email(participant)
-  	@participant = participant
-    mail(to: "usuario@email.com", subject: 'Mensagge of the invitation')
+  def invitation_email(room)
+    room = room
+    if !room.nil?
+      room.participants.each do |participant|
+        mail(to: participant.email, subject: 'Mensagge of the invitation')
+      end
+    end
   end
 end

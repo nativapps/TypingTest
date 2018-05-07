@@ -56,15 +56,19 @@ class RoomsController < ApplicationController
 	end
 
 	def send_invitation
-		#@participant = Participant.all
-		#InvitationMailer.invitation_email(@participant).deliver
-		# redirect code here
-		redirect_to rooms_path
+		@room = Room.find(room_id)
+		InvitationMailer.invitation_email(@room).deliver_later
+		flash[:notice] = "Order has been sent."
+		redirect_to room_path(@room.id)
 	end
 
 	private
 
 	def room_params
 		params.require(:room).permit(:name, :start_date, :finish_date, :tried_times, :set_limit, :participants, :test_banks)
+	end
+
+	def room_id
+		return params[:room_id]
 	end
 end

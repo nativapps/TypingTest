@@ -68,5 +68,6 @@
 
 <br>
 
-<%= link_to 'send email',  room_send_invitation_path %>
+<%= link_to 'Send mail', send_invitation_path(room_id: @room.id) %>
+<%#= link_to "Send invitation", :controller => "rooms", :action => "send_invitation", :id => @room.id %>
 <br><br><br>

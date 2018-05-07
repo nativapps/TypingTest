@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
   root 'room_test#index'
 
-  #Send emial
-  get 'room/send_invitation'
+  #Send email
+  get :send_invitation, to: 'rooms#send_invitation', as: :send_invitation
 end
