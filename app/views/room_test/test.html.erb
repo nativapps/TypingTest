@@ -194,7 +194,7 @@
   let minutes = Math.floor(timePad/60);
   let second = Math.floor(timePad % 3600 % 60);
   let showTime = minutes + ":" + ((second < 10) ? "0" + second : second);
-  let segundos = 0;
+  let segundos = 0, minutos = 0;
   document.getElementById("showTime").innerHTML = showTime;
   
   let timeInput = showTime;
@@ -312,9 +312,14 @@
                   let timePad = time < 10 ? "0" + time : time; // zero padded
                   let minutes = Math.floor(timePad/60);
                   let second = Math.floor(timePad % 3600 % 60);
+                  //console.log("minutes=>"+minutes+" second=>"+ second + " second_before=>"+second_before);
+                  if (second_before-second>0) // Print WPM each second
+                      document.getElementById("wpm").value = fastWPM(wordData);                     
+                  second_before = second;
                   let showTime = minutes + ":" + ((second < 10) ? "0"+second : second);
                   $("#timer > span")[0].innerHTML = `${showTime}`;
                   segundos = 60 - second;
+                  minutos = Math.ceil(document.getElementById("tiempo").value/60) - minutes - 1; // 1 viene de numero de minutos de prueba -1
               }
           }, 1000);
       } else if (one == "0:00") {
@@ -332,12 +337,12 @@
     if (wpm>80) return "Pro";
   }
   
-  
+
   
   function calculateWPM(data) {
       let { seconds, correct, incorrect, total, typed } = data;
       let min = seconds / 60;
-      let wpm = Math.ceil((typed / 5) / min) - incorrect;
+      let wpm = Math.ceil((typed / 5) / min) - Math.ceil(incorrect / min);
       //console.log("here i am " + wpm);
       let accuracy = Math.ceil(correct / total * 100);
 
@@ -435,22 +440,23 @@
   
       $("#result_box")[0].innerHTML = results;
   
-      // color code accuracy
-      let wpmClass = $("li:nth-child(2) .wpm-value")[0].classList;
-      if (accuracy > 80) {
-          wpmClass.add("correct-word-c");
-      } else {
-          wpmClass.add("incorrect-word-c");
-      }
 
       return wpm;
   }
  
+ /*
+  * 
+  *
+       let min = seconds / 60;
+      let wpm = Math.ceil((typed / 5) / min) - incorrect;
+*/
     
   function fastWPM(data) {
       let { seconds, correct, incorrect, total, typed } = data;
-      let min = (segundos-seconds) / 60;
-      let wpm = Math.ceil((typed / 5) / min) - Math.ceil(incorrect * min);
+      let segundos_ajustados = minutos*60 + segundos; // Cubre los casos donde el timer>1min
+      //console.log("minutos=>" + minutos+ "segundos_ajustados=>"+segundos_ajustados+" seconds=>"+seconds+" segundos=>"+segundos);
+      let min = segundos_ajustados / 60;
+      let wpm = Math.ceil((typed / 5) / min) - Math.ceil(incorrect / min);
       let accuracy = Math.ceil(correct / total * 100);
       document.getElementById("accuracy").value = accuracy;
       document.getElementById("wpm").value = wpm
@@ -462,8 +468,9 @@
   }
   
   var typed_char=0; //number of characters typed after a SPACE hit
-  var delete_soon = false;
+  var second_before=0;
   var submitted_words = 0;
+
   
   function typingTest(e) {
       // Char:        Key Code:
@@ -494,8 +501,7 @@
                   let current_word = split[(split.length)-2];
                   submitWord(current_word);
                   clearLine(1); // get rid of old words
-                  if (segundos>0)
-                      document.getElementById("wpm").value = fastWPM(wordData);
+
 
               }
               else if (kcode == 8)
