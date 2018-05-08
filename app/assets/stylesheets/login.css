@@ -9,6 +9,8 @@ div.fondo_login {
   background-size: cover;
   background-position: center bottom;
   background-color: white;
+  clip-path: polygon(0 0, 100% 0%, 100% 84.5%, 0 100%);
+  -webkit-clip-path:polygon(0 0, 100% 0%, 100% 84.5%, 0 100%);
 }
 
 div.fondo_login img {
@@ -62,15 +64,18 @@ input[type=submit] {
   margin: 23px 0;
 }
 
-span.checkbox {
+span.rememberme {
   display: inline-block;
   width: 120px;
 }
 
-a.go_back {
-  color: #FF7700;
-}
+/***** FOOTER ******/
 
-a.go_back img {
-  margin-right: 10px;
+.footer p {
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  bottom: 10%;
+  text-align: center;
+  color: #ACACAC;
 }

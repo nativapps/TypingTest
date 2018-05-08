@@ -3,13 +3,14 @@
 
 header {
   width: 100%;
-  min-width: 768px;
-  height: 176px;
+  min-width: 500px;
+  height: auto;
   background-image: url(../img/header.png);
   background-size: cover;
   background-position: center;
   text-align: center;
   color: white;
+  padding-bottom: 35px;
 }
 
 header nav {
