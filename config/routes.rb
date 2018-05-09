@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :participants
+
+  as :participant do
+    patch '/participant/confirmation' => 'confirmations#update', :via => :put, :as => :update_participant_confirmation
+  end
+  devise_for :participants, :controllers => { :confirmations => "confirmations" }
+
   resources :participants
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
