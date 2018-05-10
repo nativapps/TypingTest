@@ -7,3 +7,5 @@ class Participant < ApplicationRecord
   has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
 end
+
+#prueba de git
