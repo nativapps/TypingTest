@@ -68,5 +68,5 @@ test:
 production:
   <<: *default
   database: typing_test_production
-  username: typing_test
-  password: <%= ENV['TYPING_TEST_DATABASE_PASSWORD'] %>
+  username: ec2-user
+  password: pg
