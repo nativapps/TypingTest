@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   #post 'report/create'
 
   root 'room_test#index'
+
+  #Send email
+  get :send_invitation, to: 'rooms#send_invitation', as: :send_invitation
 end

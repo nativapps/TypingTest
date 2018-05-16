@@ -5,12 +5,19 @@
 div.fondo_login {
   width: 100vw;
   height: 66vh;
+<<<<<<< HEAD
   background-image: url(../img/fondo_login.png);
   background-size: cover;
   background-position: center bottom;
   background-color: white;
   clip-path: polygon(0 0, 100% 0%, 100% 84.5%, 0 100%);
   -webkit-clip-path:polygon(0 0, 100% 0%, 100% 84.5%, 0 100%);
+=======
+  background-image: url("img/fondo_login.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-color: white;
+>>>>>>> tony
 }
 
 div.fondo_login img {
@@ -64,11 +71,16 @@ input[type=submit] {
   margin: 23px 0;
 }
 
+<<<<<<< HEAD
 span.rememberme {
+=======
+span.checkbox {
+>>>>>>> tony
   display: inline-block;
   width: 120px;
 }
 
+<<<<<<< HEAD
 /***** FOOTER ******/
 
 .footer p {
@@ -78,4 +90,12 @@ span.rememberme {
   bottom: 10%;
   text-align: center;
   color: #ACACAC;
+=======
+a.go_back {
+  color: #FF7700;
+}
+
+a.go_back img {
+  margin-right: 10px;
+>>>>>>> tony
 }

@@ -3,29 +3,20 @@
 
 header {
   width: 100%;
-<<<<<<< HEAD
-  min-width: 500px;
-  height: auto;
-=======
   min-width: 768px;
-  height: 176px;
->>>>>>> tony
+  height: 350px;
   background-image: url(../img/header.png);
   background-size: cover;
   background-position: center;
   text-align: center;
-  color: white;
-<<<<<<< HEAD
-  padding-bottom: 35px;
-=======
->>>>>>> tony
+  color: white!important;
 }
 
 header nav {
   width: 100%;
   padding: 6px 0;
   background-color: rgba(0,0,0,0.11);
-  margin-bottom: 28px;
+  margin-bottom: 63px;
 }
 
 header nav img {

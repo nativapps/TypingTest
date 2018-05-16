@@ -1,21 +1,11 @@
-<div>
-	<div class="room_test_h2_Container">
-		<h2 class="room_test_h2">
-		Typing Test
-		</h2>
-	</div>
-
-	<div id="login-container">
-		<a href="<%= rooms_path %>">
-			<div class="login" id="participant">
-				<p class="room_test_p">Ingresar como administrador</p>
-			</div>
-		</a>
-		
-		<a href="<%= room_test_lobby_path %>">
-			<div class="login" id="admin">
-				<p class="room_test_p">Ingresar como participante</p>
-			</div>
-		</a>
-	</div>
+<div class="fondo_login">
+	<%= image_tag("img/logo.png", :alt => "Logo", class:"logo") %>
 </div>
+
+<section class="login login_general">
+  <%= image_tag("img/keyboard.png", :alt => "keyboard") %>
+  <h1>Typing Test</h1>
+  <p>Sign-in as</p>
+  <a href="<%= rooms_path %>" class="button button_line">ADMINISTRATOR</a>
+  <a href="<%= room_test_lobby_path %>"  class="button">PARTICIPANT</a>
+</section>

@@ -1,32 +1,32 @@
-<div class="login_container">
-<h2>Iniciar sessión como participante</h2>
-  
+<div class="fondo_login">
+    <%= image_tag("img/logo.png", :alt => "Logo", class:"logo") %>
+</div>
+
+<section class="login login_user">
+  <h1>PARTICIPANTS</h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="wrapper_inputs">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
+
+      <%= f.label :password %><br>
+      <%= f.password_field :password, autocomplete: "off" %><br>
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br/>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
+      <%= f.label :remember_me %>
 
+      <span class="checkbox">
+        <%= f.check_box :remember_me, name:"remember_me", value:"remember_me" %>
+        <p>Remember me</p>
+      </span> <br>
+    <% end %>
+    
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "LOG IN", class:"button" %>
     </div>
-  <% end %>
+   <% end %>
 
-  <br>
-  
-  <a class="btn btn-info" href="<%= root_path %>">Regresar</a>
-
-  <%#= render "participants/shared/links" %>
-</div>
+  <a class="go_back" href="<%= root_path %>"><%= image_tag("img/left-arrow.png") %>Go back</a>
+</section>
