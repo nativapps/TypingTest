@@ -44,7 +44,6 @@ div.content_test h3 {
 div.content_test .text p {
   font-size: 18px;
   line-height: 34px;
-  /overflow-y: scroll;
   height: 283px;
 }
 aside {
@@ -78,10 +77,12 @@ aside p {
 .input_test_aside {
 
   border: none;
-  width: 106px;
-text-align: center;
-  padding: 14px;
   font-size: 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  padding: 14px;
+  width: 106px;
+  
 }
 .input_test_aside:focus {
   border-width: 0px;
@@ -90,4 +91,190 @@ text-align: center;
 .input_aside_cancel {
   position: absolute;
   bottom: 20px;
+}
+
+/**** ESTILOS BANK/TEST ****/
+div.bank_test_item {
+  max-width: 430px;
+   /*   width: 31%; Cuando haya mas de 1 item*/
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 30px rgba(0,0,0,0.1);
+  margin: -100px auto 118px auto;
+  overflow: hidden;
+  text-align: center;
+  padding:50px 0;
+  /* float: left;
+   margin-right: 2%;   Cuando haya mas de 1 item*/
+}
+
+div.bank_test_item h2 {
+  margin-bottom: 15px;
+}
+
+div.bank_test_item a {
+  margin: 10px 0;
+}
+
+/******** Cuando haya mas de 1 item
+
+div.mani_wrapper:nth-child(3n+0) {
+  margin: 0;
+  clear: both;
+}
+
+@media (max-width:920px){
+  div.mani_wrapper:nth-child(3n+0) {
+    margin: 0;
+    clear: none;
+  }
+
+  div.bank_test_item {
+    width: 46%;
+    margin-right: 2%;
+  }
+
+  div.mani_wrapper:nth-child(odd) {
+    margin: 0;
+    clear: both;
+  }
+}
+*********/
+
+
+/**** ESTILOS PARA PARTICIPANTS TEST RESULT****/
+
+
+section.test-result {
+  max-width: 737px;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 30px rgba(0,0,0,0.1);
+  margin: -100px auto 0 auto;
+  overflow: hidden;
+  border: solid 1px #E1E1E1;
+  text-align: center;
+  padding: 45px;
+  display: none;
+}
+
+.test-result h3 {
+margin-bottom: 45px;
+}
+
+div.points {
+  display: inline-block;
+  text-align: center;
+  width: 108px;
+  border: solid 1px #E1E1E1;
+  border-radius: 10px;
+  margin: 0 5px 10px 5px;
+  overflow: hidden;
+}
+
+div.points p {
+  padding: 10px 0;
+  background-color: #F6F4F4;
+}
+
+div.points h2 {
+  padding: 18px 0;
+}
+
+
+div.wrapper-bar {
+  max-width: 590px;
+  text-align: left;
+  margin: 40px auto;
+  border-radius: 5px;
+  margin-bottom: 85px;
+
+}
+
+div.wrapper-bar h4{
+margin-bottom: 15px;
+}
+
+div.wrapper-bar h4 span {
+color: #FFA64D;
+}
+
+
+.result-bar {
+  width:100%;
+  height: 67px;;
+  border-radius: 5px;
+  border: solid 1px #E1E1E1;
+  position: relative;
+}
+
+.result-bar .measurement {
+  float: left;
+  width: 20%
+}
+
+
+.result-bar .measurement p{
+padding: 5px 0 5px 5px;
+font-size: 12px;
+}
+
+.result-bar .measurement span {
+  display:block;
+  width:100%;
+  padding: 12px 0;
+  text-align: center;
+  color: white;
+}
+
+
+.result-bar .measurement:nth-child(1) span {
+  background-color: #FFCA8C;
+
+  border-top-left-radius: 5px;
+}
+.result-bar .measurement:nth-child(2) span{
+  background-color: #FFBA6F;
+}
+.result-bar .measurement:nth-child(3) span{
+  background-color: #FFA64D;
+}
+.result-bar .measurement:nth-child(4) span {
+  background-color: #FF9028;
+}
+.result-bar .measurement:nth-child(5) span {
+  background-color: #FF7801;
+  border-top-right-radius: 5px;
+}
+
+div.result {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #FFA64D;
+  position: absolute;
+  top: 55px;
+  margin-left: -20px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 9px;
+
+  
+}
+
+div.result h4 {
+  color: white;
+}
+
+div.result::before {
+  content: '';
+  width: 0;
+	height: 0;
+  position: absolute;
+  top: -7px;
+  left: 12px;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom:7px solid #FFA64D;
 }

@@ -1,6 +1,67 @@
 @charset "UTF-8";
 /* CSS Document */
 
+main {
+padding: 28px 0;
+}
+
+main ul {
+width: 100%;
+}
+main ul li {
+  float: left;
+}
+
+main ul li.last_button_control {
+  float: right;
+  margin: 0;
+}
+
+input[type=checkbox] {
+  margin: 0;
+}
+
+section.sub_main {
+  margin-bottom: 30px;
+}
+
+section.sub_main h4 {
+  margin-bottom: 15px;
+}
+
+div.inputs-wrapper {
+  float: left;
+}
+
+div.inputs-wrapper {
+  width: 29%;
+  margin-right: 4.33%;
+}
+
+div.inputs-wrapper input {
+  width: 100%;
+}
+
+div.table-wrapper tr:nth-child(odd) {
+    background-color: #F9F6F6;
+}
+
+input[type=submit] {
+  width: auto!important;
+}
+
+div.textarea-test {
+  width: 100%;
+  clear: both;
+}
+
+div.textarea-test textarea {
+  width: 95%;
+}
+
+div.iw-test {
+  width: 45%;
+}
 section.main {
 padding: 28px 0;
 }
