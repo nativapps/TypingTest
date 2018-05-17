@@ -1,11 +1,12 @@
 <%= render :partial => "header_view/header_participant" %>
 
-<% @tests.each do |test| %>
-  <%= link_to room_test_test_path(test_id: test.id, room_id:@room_id) do %>
-    <div class="lobby_test_box"> 
-      <p><%= test.name %></p>
-    </div>
-  <% end %>
-<% end %>
-
-<p><%= @mensaje %></p>
+<div class="main_wrapper">
+	<div class="bank_test_item">
+	<% @tests.each do |test| %>
+		<h2><%= test.name %></h2>
+    <%= link_to room_test_test_path(test_id: test.id, room_id:@room_id), class:"button" do %>
+      START TEST
+	<% end %>
+	<% end %>
+	</div>
+</div>
