@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
   <body onload="addWords()">
   <header>
     <h3>Typing Test</h3>
@@ -14,6 +15,121 @@
 		</span>
   </header>
 
+=======
+<body onload="addWords()">
+ <%= render :partial => "layouts/header_test" %>
+<div class="main_wrapper">
+  <section class="test" id="test_box">
+    <div class="content_test">
+      <h3>Typing test Name</h3>
+      
+        <div id="word-section">
+            <div class="waiting">
+            </div>
+        </div>
+        
+        <div id="type-section">
+          <textarea id="typebox" rows="2" type="text" class="input_test" placeholder="Click or tap here and start typing!" tabindex="1" autofocus onkeyup="typingTest(event)"/>
+          </textarea>
+        </div>
+    </div>
+    
+      <aside>
+      <h5>Time left</h5>
+      <div id="timer" class="input_test_aside"><span id="showTime">0:00</span></div>
+         <!-- <input class="input_test_aside" type="text" placeholder="1:00" > -->
+
+      <h5>Typing Speed</h5>
+
+      <p>WPM</p>
+      <input class="input_test_aside" id = "wpm" type="text">
+
+      <p>Mistyped words</p>
+      <!--<input class="input_test_aside" type="text" placeholder="0" >-->
+      <input class="input_test_aside" id="count_incorrect" disabled><br>
+    <!-- <a href="#" class="button button_line input_aside_cancel">CANCEL</a> -->
+
+    </aside>
+  </section>
+  
+<section class="test-result" id="result_box">
+      <h3>Your Typing Test Results </h3>
+
+      <div class="points">
+        <p>Typed</p>
+        <h2>50</h2>
+      </div>
+
+      <div class="points">
+        <p>Correct</p>
+        <h2>45</h2>
+      </div>
+
+      <div class="points">
+        <p>Incorrect</p>
+        <h2>3</h2>
+      </div>
+
+      <div class="points">
+        <p>WPM</p>
+        <h2>12</h2>
+      </div>
+
+      <div class="points">
+        <p>Accuracy</p>
+        <h2>45</h2>
+      </div>
+
+      <div class="wrapper-bar">
+
+        <h4>Your Adjusted Typing speed is <span>Fluent</span></h4>
+
+        <div class="result-bar">
+          <div class="measurement">
+            <span>
+              Slow
+            </span>
+            <p>0</p>
+          </div>
+
+          <div class="measurement">
+            <span>
+              Average
+            </span>
+            <p>20</p>
+          </div>
+
+
+          <div class="measurement">
+            <span>
+              Fluent
+            </span>
+            <p>40</p>
+          </div>
+
+
+          <div class="measurement">
+            <span>
+            Fast
+            </span>
+            <p>60</p>
+          </div>
+
+          <div class="measurement">
+            <span>
+              Pro
+            </span>
+            <p>80</p>
+          </div>
+
+        </div> <!-- .result-bar -->
+      </div><!-- .wrapper-bar -->
+  <a href="#" class="button">FINISH</a>
+
+    </section>
+</div>
+    
+>>>>>>> ab160a63bbae5ed8ce0001e3171b9691f9b20b17
   <input id="tiempo" value="<%= @time %>" style="display: none">
 
   <input id="text_test" value="<%= @test.text_test %>" style="display: none">

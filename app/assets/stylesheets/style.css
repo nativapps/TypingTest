@@ -138,12 +138,9 @@ input.button:focus {
 }
 
 /* FOOTER */
-
 footer p {
   width: 100%;
   height: 10px;
-  position: absolute;
-  bottom: 10%;
   text-align: center;
   color: #ACACAC;
 }

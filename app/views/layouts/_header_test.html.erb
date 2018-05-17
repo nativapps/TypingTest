@@ -1,0 +1,22 @@
+<header>
+     <nav class="clearfix">
+        <div class="main_wrapper">
+          <img src="<%= asset_path('Logo_typing.png') %>">
+          
+		<% if participant_signed_in? %>
+		
+		    <ul>
+          <li><a href="#"><strong><%= current_participant.email %></strong></a></li>
+          <%= link_to "Cerrar sesión", destroy_participant_session_path, method: :delete, :class => 'navbar-link logout'%>
+        </ul>
+   
+			<% else %>
+		 		<%= link_to "Ingresar", new_participant_session_path, :class => 'navbar-link'  %>
+			<% end %>
+
+		</div>
+		</nav>
+		
+		<h1>BANK/TEST</h1>
+    <p>Participants</p>
+  </header>
