@@ -1,3 +1,5 @@
+<%= render :partial => "header_view/header_participant" %>
+
 <% @tests.each do |test| %>
   <%= link_to room_test_test_path(test_id: test.id, room_id:@room_id) do %>
     <div class="lobby_test_box"> 

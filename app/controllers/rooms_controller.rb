@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
 	end
 
 	def new
+		@name = "ROOM";
 		@room = Room.new
 		@participants = Participant.all
 		@test_banks = TestBank.all

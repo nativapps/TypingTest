@@ -1,17 +1,12 @@
-<h2>
-	Typing Test
-</h2>
+<%= render :partial => "header_view/header_participant" %>
 
-<h3>
-	prueba habilitada:
-</h3>
-
-<% @lobby_rooms.each do |room| %>
-	<%= link_to room_test_rooms_path(room_id: room.id) do %>
-		<div class="lobby_test_box"> 
-		  <p><%= room.name %></p>
-    </div>
-  <% end %>
-  
-  <p><%= room.start_date %></p>
-<% end %>
+<div class="main_wrapper">
+	<div class="bank_test_item">
+	<% @lobby_rooms.each do |room| %>
+		<h2><%= room.name %></h2>
+    <%= link_to room_test_rooms_path(room_id: room.id), class:"button" do %>
+      SELECT
+	<% end %>
+	<% end %>
+	</div>
+</div>
