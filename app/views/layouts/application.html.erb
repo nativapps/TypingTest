@@ -6,7 +6,8 @@
 		<meta charset="UTF-8">
   	<title>Typing Test - Nativapps</title>
   	<link href="css/style.css" rel="stylesheet" type="text/css">
-  	<link href="css/login.css" rel="stylesheet" type="text/css">
+		<link href="css/login.css" rel="stylesheet" type="text/css">
+		<link href="css/participants.css" rel="stylesheet" type="text/css">
   	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -25,7 +26,11 @@
 
 	<body>
 		<% if current_user %>
-		<%= render :partial => "layouts/header" %>
+			<%= render :partial => "header_view/header_admin" %>
+		<% end %>
+
+		<% if current_participant %>
+			<%= render :partial => "header_view/header_participant" %>
 		<% end %>
 
 		<% flash.each do |key, value| %>

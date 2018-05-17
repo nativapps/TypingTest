@@ -1,119 +1,65 @@
 
+  <main>
+    <div class="main_wrapper">
 
-  <h2 class="margin_top">Formulario de <%= name %> Sala</h2>
+      <ul class="clearfix">
+        <%= link_to image_tag("img/back2x.png")+"Go back", rooms_path, class:"button_control" %>
+      </ul>
 
-  <div>
+      <%= form_for(@room) do |f| %>
+        <section class="sub_main clearfix">
+          <h4>INFORMATION ROOM</h4>
+          <div class="inputs-wrapper">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+          </div>
 
-  <%= form_for(@room) do |f| %>
+          <div class="inputs-wrapper">
+            <%= f.label :start_date %><br>
+            <% date_field("room", "start_date", min: Date.today) %>
+            <input id="room_start_date" name="room[start_date]" type="date" value="<%= @room.start_date %>"/>
+          </div>
 
-    <div class="form-group row margin_top">
-      <div class="col-md-10">
-        <%= f.label :name %>
-        <br>
-        <%= f.text_field :name, placeholder: "Nombre de la sala" %>
-      </div>
-    </div>
+          <div class="inputs-wrapper">
+            <%= f.label :finish_date %><br>
+            <% date_field("room", "finish_date", min: Date.today) %>
+            <input id="room_finish_date" name="room[finish_date]" type="date" value="<%= @room.finish_date %>" placeholder="year-month-day"/>
+          </div>
 
-    <br>
+          <div class="inputs-wrapper">
+            <%= f.label :tried_times %><br>
+            <%= f.number_field :tried_times %>
+          </div>
 
-      <div class="form-group row">
-      <div class="col-md-10">
-        <%= f.label :start_date %>
-        <br>
+          <div class="inputs-wrapper">
+            <%= f.label :set_limit, " (Second)" %><br>
+            <%= f.text_field :set_limit %>
+          </div>
+        </section>
 
-        <%#= f.select :day, (1..31).to_a, selected: @room.start_date.day %>
-        <%#= f.select :month, (1..12).to_a, selected: @room.start_date.month %>
-        <%#= f.select :year, ((Time.now.year - 20)..Time.now.year).to_a, selected: @room.start_date.year %>
+        <section class="sub_main">
+          <h4>TEST</h4><!--  <span class="search"><img src="img/.png"><input type="text" placeholder="search"></span> -->
+          <div class="table-wrapper  checkbox">
+            <table>
+              <tr>
+                <th><input type="checkbox" name="" value=""></th>
+                <th>Title</th>
+                <th>Type</th>
+              </tr>
+              <% @test_banks.each do |test_bank| %>
 
-        <% date_field("room", "start_date", min: Date.today) %>
-        <input id="room_start_date" name="room[start_date]" type="date" value="<%= @room.start_date %>" placeholder="year-month-day"/>
-      </div>
-      </div>
-      <br>
-
-      <div class="form-group row">
-      <div class="col-md-10">
-        <%= f.label :finish_date %>
-        <br>
-        <% date_field("room", "finish_date", min: Date.today) %>
-        <input id="room_finish_date" name="room[finish_date]" type="date" value="<%= @room.finish_date %>" placeholder="year-month-day"/>
-      </div>
-      </div>
-
-      <br>
-
-    <div class="form-group row">
-      <div class="col-md-10">
-        <%= f.label :tried_times %>
-        <br>
-        <%= f.number_field :tried_times, placeholder: "Número de intento" %>
-      </div>
-    </div>
-
-
-    <br>
-
-    <div class="form-group row">
-      <div class="col-md-10">
-        <%= f.label :set_limit, " (Tiempo en segundo)" %>
-        <br>
-        <%= f.text_field :set_limit, placeholder: "Establecer limite" %>
-      </div>
-    </div>
-
-    <div>
-    <label>Agregar participantes</label>
-    <table id="tableStudent" style="text-align: center;" class="table table-striped">
-      <tr>
-        <th style="width: 30px;">Selección</th>
-        <th>Identificación</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-      </tr>
-
-      <% @participants.each do |participant| %>
-
-      <tr>
-        <td><%= check_box_tag "participants[]", participant.id, @room.participants.include?(participant) %></td>
-        <td><%= participant.identification %></td>
-        <td><%= participant.first_name %></td>
-        <td><%= participant.last_name %></td>
-      </tr>
-
+                <tr>
+                  <td><%= check_box_tag "test_banks[]", test_bank.id, @room.test_banks.include?(test_bank) %></td>
+                  <td><%= test_bank.name %></td>
+                  <td><%= test_bank.type_test %></td>
+                </tr>
+          
+              <% end %>
+            </table>
+          </div><!-- .table-wrapper -->
+        </section>
+        <%= f.submit submitLabel, class:"button" %>
       <% end %>
-    </table>
-</div>
+    </div><!-- .main_wrapper -->
+  </main>
 
-
-
-<div>
-    <label>Agregar test</label>
-    <table id="tableStudent" style="text-align: center;" class="table table-striped">
-      <tr>
-        <th style="width: 30px;">Selección</th>
-        <th>Título</th>
-        <th>tipo</th>
-      </tr>
-
-      <% @test_banks.each do |test_bank| %>
-
-      <tr>
-        <td><%= check_box_tag "test_banks[]", test_bank.id, @room.test_banks.include?(test_bank) %></td>
-        <td><%= test_bank.name %></td>
-        <td><%= test_bank.type_test %></td>
-      </tr>
-
-      <% end %>
-    </table>
-</div>
-    
-  </div>
-
-    
-
-    <div class="form-group row">
-      <p>
-      <%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", rooms_path, class: 'btn btn-primary' %>
-      </p>
-    </div>
-  <% end %>
