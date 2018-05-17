@@ -5,7 +5,7 @@ header {
   width: 100%;
   min-width: 768px;
   height: 176px;
-  background-image: url(../img/header.png);
+  background-image: url("img/header.png") ;
   background-size: cover;
   background-position: center;
   text-align: center;
