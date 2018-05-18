@@ -1,18 +1,18 @@
 
 <%= render :partial => "header_view/header_admin" %>
 
+<ul class="controls_ul clearfix" style="display: " >
+	<li><%#= link_to image_tag("view2x.png")+"View",  room, class:"button_control" %></li>
+	<li><%#= link_to image_tag("edit2x.png")+"Edit", edit_room_path(room), class:"button_control", id:"edit" %></li>
+	<li><%#= link_to image_tag("delete2x.png")+"Delete",  room, method: :delete, data: {confirm: '¿Do you want to delete this room?'}, class:"button_control" %></li>
+</ul>
+
 <main>
 	<div class="main_wrapper">
-	<ul class="controls_ul clearfix">
-			<li><%#= link_to image_tag("view2x.png")+"View", room2_path, class:"button_control" %></li>
-			<li><%#= link_to image_tag("edit2x.png")+"Edit", edit_room_path(room2), class:"button_control" %></li>
-			<li><%#= link_to image_tag("delete2x.png")+"Delete",  room2, method: :delete, data: {confirm: '¿Do you want to delete this room?'}, class:"button_control" %></li>	  
-	</ul>
-
 	<div class="table-wrapper checkbox">
 	<table>
 		<tr>
-			<th><input type="checkbox" name="" value=""></th>
+			<th></th>
 			<th>Name</th>
 			<th>Start Date</th>
 			<th>Finish Date</th>
@@ -22,12 +22,15 @@
 
 		<% @rooms.each do |room| %>
 			<tr>
-			<td><%= check_box_tag :room2, room %></td>
-			<td><%= room.name %></td>
-		  	<td><%= room.start_date %></td>
-		  	<td><%= room.finish_date %></td>
-		  	<td><%= room.tried_times %></td>
-			<td><%= room.set_limit %> segundos</td>
+				<td><%= radio_button_tag "room", room.id, class:"button", id: room.id %></td>
+				<td><%= room.name %></td>
+		  		<td><%= room.start_date %></td>
+		  		<td><%= room.finish_date %></td>
+		  		<td><%= room.tried_times %></td>
+				<td><%= room.set_limit %> segundos</td>
+				<td><%= link_to image_tag("view2x.png")+"View",  room, class:"button_control" %></td>
+				<td><%= link_to image_tag("edit2x.png")+"Edit", edit_room_path(room), class:"button_control", id:"edit" %></td>
+				<td><%= link_to image_tag("delete2x.png")+"Delete",  room, method: :delete, data: {confirm: '¿Do you want to delete this room?'}, class:"button_control" %></td>
 			</tr>
 		<% end %>
 

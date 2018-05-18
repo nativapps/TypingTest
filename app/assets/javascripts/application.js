@@ -14,5 +14,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+
+$(document).ready(function(){
+    $(".button").click(function(){
+        
+        alert("fdsafsd");
+    });
+});
 
 
