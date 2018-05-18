@@ -7,6 +7,9 @@
     <%= link_to room_test_test_path(test_id: test.id, room_id:@room_id), class:"button" do %>
       START TEST
 	<% end %>
+	  <br>
+      <br>
 	<% end %>
+	<a class="go_back" href="<%= room_test_lobby_path %>"><%= image_tag("left-arrow.png") %>Go back</a>
 	</div>
 </div>

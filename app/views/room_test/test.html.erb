@@ -1,6 +1,6 @@
 
 
-<body onload="addWords()">
+<body >
  <%= render :partial => "layouts/header_test" %>
 <div class="main_wrapper">
   <section class="test" id="test_box">
@@ -140,7 +140,7 @@
   
   <script type="text/javascript" data-turbolinks-eval=false>
   // jQuery like selection of elements.
-  window.$ = document.querySelectorAll.bind(document);
+
   
   // Changes for  Firefox
   if (navigator.userAgent.match(/firefox/i)) {
@@ -153,11 +153,14 @@
   }
 
   // Add words to word-section
-  
-  function addWords() {
+
+  $(document).ready(function () {
+      window.$ = document.querySelectorAll.bind(document);
       // clear existing word-section
+      console.log("This is my first run jo");
       let wordSection = $("#word-section")[0];
       wordSection.innerHTML = "";
+      //console.log("window"+window);
       $("#typebox")[0].value = "";
   
       for (let i = 0; i < wordList.length ; i++) {
@@ -171,7 +174,8 @@
       // let magicBox = document.createElement("DIV");
       // magicBox.classList.add("magic-box");
       // wordSection.appendChild(magicBox);
-  }
+  });
+
   
   //////////////////////////////////////////
   
@@ -432,8 +436,8 @@
           
         </div> <!-- .result-bar -->
       </div><!-- .wrapper-bar -->
-  <a href="#" class="button">FINISH</a>`;
-  
+  <a href="<%= room_test_lobby_path %>" class="button">Finish</a>`;
+
       $("#result_box")[0].innerHTML = results;
   
 

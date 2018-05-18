@@ -2,19 +2,23 @@
     <nav class="clearfix">
     <div class="main_wrapper">
         <%= image_tag("Logo_typing.png") %>
-        <ul>
-        <li>
-        <span class="navbar navbar-right" style="color: white;">
-        <% if participant_signed_in? %>
+
+<!--         <% if participant_signed_in? %>
             <span><strong><%= current_participant.email %>.</strong>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link logout'%>
             </span>
             <% else %>
                 <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %> -->
+            <% if participant_signed_in? %>
+                <ul>
+              <li><a href="#"><strong><%= current_participant.email %></strong></a></li>
+              <%= link_to "Log out", destroy_participant_session_path, method: :delete, :class => 'navbar-link logout'%>
+            </ul>
+            <% else %>
+                <%= link_to "Login", new_participant_session_path, :class => 'navbar-link'  %>
             <% end %>
-        </span>
-        </li>
-        </ul>
+
     </div>
     </nav>
     
