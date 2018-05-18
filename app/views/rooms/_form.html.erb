@@ -58,6 +58,31 @@
             </table>
           </div><!-- .table-wrapper -->
         </section>
+
+        <div>
+          <label>Agregar participantes</label>
+          <table id="tableStudent" style="text-align: center;" class="table table-striped">
+            <tr>
+              <th style="width: 30px;">Selección</th>
+              <th>Identificación</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+            </tr>
+
+            <% @participants.each do |participant| %>
+
+            <tr>
+              <td><%= check_box_tag "participants[]", participant.id, @room.participants.include?(participant) %></td>
+              <td><%= participant.identification %></td>
+              <td><%= participant.first_name %></td>
+              <td><%= participant.last_name %></td>
+            </tr>
+
+            <% end %>
+          </table>
+      </div>
+        
+
         <%= f.submit submitLabel, class:"button" %>
       <% end %>
     </div><!-- .main_wrapper -->
