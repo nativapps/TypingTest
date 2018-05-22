@@ -1,39 +1,32 @@
+<main>
+<div class="main_wrapper">
 
-<h2 class="margin_top">Formulario de <%= name %> banco de prueba</h2>
+  <ul class="clearfix">
+    <li><%= link_to image_tag("back2x.png")+"Go back",test_banks_path, class:"button_control" %></li>
+  </ul>
 
-<%= form_for(@test) do |f| %>
+  <%= form_for(@test) do |f| %>
+    <section class="sub_main clearfix">
+      <h4>INFORMATION TEST</h4>
 
-  <div class="form-group row margin_top">
-    <div class="col-md-10">
-      <%= f.label :name %>
-      <br>
-      <%= f.text_field :name, placeholder: "Título" %>
-    </div>
-  </div>
+      <div class="inputs-wrapper iw-test">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
 
-  <br>
+      <div class="inputs-wrapper iw-test">
+      <%= f.label :type %><br>
+      <%= f.text_field :type_test %>
+      </div>
+        <br>
+      <div class="inputs-wrapper textarea-test">
+      <%= f.label :text_test %><br>
+      <%= f.text_area :text_test %>
+      </div>
 
-  <div class="form-group row">
-		<div class="col-md-10">
-			<%= f.label :type %>
-			<br>
-			<%= f.text_field :type_test, placeholder: "Tipo" %>
-		</div>
-  </div>
+    </section>
 
-  <br>
-
-  <div class="form-group row">
-		<div class="col-md-10">
-			<%= f.label :text_test %>
-			<br>
-			<%= f.text_area :text_test%>
-		</div>
-  </div>
-  
-  <div class="form-group row">
-    <p>
-    	<%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", test_banks_path, class: 'btn btn-primary' %>
-    </p>
-  </div>
-<% end %>
+      <%= f.submit submitLabel, class:"button" %>
+    <% end %>
+</div><!-- .main_wrapper -->
+</main>
