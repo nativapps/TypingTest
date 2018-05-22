@@ -118,8 +118,6 @@
       <a href="#" class="button">FINISH</a>
 
         </section>
-    <%= f.submit %>
-  <% end %>
 </div>
     
   <input id="tiempo" value="<%= @time %>" style="display: none">
@@ -445,7 +443,8 @@
           
         </div> <!-- .result-bar -->
       </div><!-- .wrapper-bar -->
-  <a href="<%= room_test_lobby_path %>" class="button">Finish</a>`;
+      <%= f.submit class: 'button' %>
+  <% end %>`;
 
       $("#result_box")[0].innerHTML = results;
   

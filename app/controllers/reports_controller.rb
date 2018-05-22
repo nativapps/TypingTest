@@ -11,11 +11,9 @@ class ReportsController < ApplicationController
 	def create
     @report = Report.new(report_params)
 		if @report.save
-			puts "It works"
-			#redirect_to @report
+			redirect_to :room_test_lobby
 		else
-			puts "Not saved"
-			#render :new
+			render json: {Message: "Report results were not saved succesfully. Pleas contact the administrator or the person in charge of your test."}
 		end
 	end
 	
