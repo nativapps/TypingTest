@@ -1,61 +1,39 @@
+<main>
+    <div class="main_wrapper">
 
-<h2 class="margin_top">Formulario de <%= name %> participante</h2>
+      <ul class="clearfix">
+        <li><%= link_to image_tag("back2x.png")+"Go back", participants_path, class:"button_control" %></li>
+      </ul>
 
-<%= form_for(@participant) do |f| %>
+      <%= form_for(@participant) do |f| %>
+        <section class="sub_main clearfix">
+          <h4>INFORMATION ROOM</h4>
+          <div class="inputs-wrapper">
+            <%= f.label :first_name %><br>
+            <%= f.text_field :first_name %>
+          </div>
 
-  <div class="form-group row margin_top">
-    <div class="col-md-10">
-      <%= f.label :first_name %>
-      <br>
-      <%= f.text_field :first_name, placeholder: "Nombre" %>
-    </div>
-  </div>
+          <div class="inputs-wrapper">
+            <%= f.label :lasst_name %><br>
+            <%= f.text_field :last_name %>
+          </div>
 
-  <br>
+          <div class="inputs-wrapper">
+            <%= f.label :identification %><br>
+            <%= f.text_field :identification %>
+          </div>
 
-  <div class="form-group row">
-		<div class="col-md-10">
-			<%= f.label :last_name %>
-			<br>
-			<%= f.text_field :last_name, placeholder: "Apellidos" %>
-		</div>
-  </div>
+          <div class="inputs-wrapper">
+          <%= f.label :phone %><br>
+          <%= f.text_field :phone %>
+          </div>
 
-  <br>
-
-  <div class="form-group row">
-		<div class="col-md-10">
-			<%= f.label :identification %>
-			<br>
-			<%= f.text_field :identification, placeholder: "Número de indentificación" %>
-		</div>
-  </div>
-
-  <br>
-
-  <div class="form-group row">
-		<div class="col-md-10">
-			<%= f.label :phone %>
-			<br>
-			<%= f.text_field :phone, placeholder: "Teléfono" %>
-		</div>
-  </div>
-
-  <br>
-  
-	<div class="form-group row">
-    <div class="col-md-10">
-      <%= f.label :email %>
-      <br>
-      <%= f.text_field :email, placeholder: "Correo electronico" %>
-    </div>
-  </div>
-
-  <br>
-  
-  <div class="form-group row">
-    <p>
-    	<%= f.submit submitLabel, class:"btn btn-primary form_btn" %>  <%= link_to "Volver", participants_path, class: 'btn btn-primary' %>
-    </p>
-  </div>
-<% end %>
+          <div class="inputs-wrapper">
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+          </div>
+        </section>
+        <%= f.submit submitLabel, class:"button" %> 
+      <% end %>
+    </div><!-- .main_wrapper -->
+  </main>

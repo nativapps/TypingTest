@@ -1,32 +1,38 @@
 <%= render :partial => "header_view/header_admin" %>
 
-<h2>participants session</h2>
+<main>
+	<div class="main_wrapper">
+  	<ul class="controls_ul clearfix">
+		  <li><%= link_to image_tag("view2x.png")+"View",  rooms_path, class:"button_control" %></li>
+		  <li><%= link_to image_tag("edit2x.png")+"Edit", edit_room_path(2), class:"button_control", id:"edit" %></li>
+			<li><%= link_to image_tag("delete2x.png")+"Delete",  rooms_path, method: :delete, data: {confirm: '¿Do you want to delete this room?'}, class:"button_control" %></li>
+			<li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add participant", new_participant_path, class:"button_control" %></li>
+		</ul>
 
-<%= link_to "Add participant", new_participant_path(@participant), class: 'btn btn-primary' %>
-
-<br>
-
-<table class="participant_table">
-	<tr>
-		<th>First name</th>
-		<th>Last name</th>
-		<th>Phone</th>
-		<th>Email</th>
-		<th>Option</th>
-	</tr>
+  	<div class="table-wrapper checkbox">
+  	<table>
+			<tr>
+				<th></th>
+			  <th>First Name</th>
+			  <th>Last Name</th>
+			  <th>Phone Number</th>
+			  <th>Email</th>
+			</tr>
+			<% @participants.each do |participant| %>
+				<tr>
+					<td><%= radio_button_tag "participant", participant.id, class:"", id: participant.id %></td>
+					<td><%= participant.first_name %></td>
+					<td><%= participant.last_name %></td>
+					<td><%= participant.phone %></td>
+					<td><%= participant.email %></td>
+				</tr>
+			<% end %>
+		</table>
 	
-	<% @participants.each do |participant| %>
-		<tr>
-			<td><%= participant.first_name %></td>
-			<td><%= participant.last_name %></td>
-			<td><%= participant.phone %></td>
-			<td><%= participant.email %></td>
-                  
-			<td>
-        <%= link_to "Ver", participant, class: 'btn btn-primary' %>
-        <%= link_to "Modificar", edit_participant_path(participant), class: 'btn btn-primary' %>
-        <%= link_to "Eliminar", participant, method: :delete, data: {confirm: '¿Esta seguro de eliminar esta sala?'}, class: 'btn btn-danger' %>
-      </td> 
-		</tr>
-	<% end %>
-</table>
+		<% if @participants.blank? %>
+			<h2>There are no participants saved</h2>
+		<% end %>
+	
+	</div> <!-- .table-wrapper -->
+	</div><!-- .main_wrapper -->
+</main>
