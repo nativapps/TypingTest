@@ -1,116 +1,125 @@
-
-
 <body >
  <%= render :partial => "layouts/header_test" %>
 <div class="main_wrapper">
-  <section class="test" id="test_box">
-    <div class="content_test">
-      <h3>Typing test Name</h3>
-      
-        <div id="word-section">
-            <div class="waiting">
-            </div>
-        </div>
-        
-        <div id="type-section">
-          <textarea id="typebox" rows="2" type="text" class="input_test" placeholder="Click or tap here and start typing!" tabindex="1" autofocus onkeyup="typingTest(event)"/>
-          </textarea>
-        </div>
-    </div>
+  <%= form_for :report, remote: true do |f| %>
+    <%= f.hidden_field :accuracy, value: "3"%>
+    <%= f.hidden_field :try_number, value: "1"%>
+    <%= f.hidden_field :correct, value: "100"%>
+    <%= f.hidden_field :total_type, value: "300"%>
+    <%= f.hidden_field :total_word, value: "600"%>
+    <%= f.hidden_field :participant_id, value: current_participant.id %>
     
-      <aside>
-      <h5>Time left</h5>
-      <div id="timer" class="input_test_aside"><span id="showTime">0:00</span></div>
-         <!-- <input class="input_test_aside" type="text" placeholder="1:00" > -->
-
-      <h5>Typing Speed</h5>
-
-      <p>WPM</p>
-      <input class="input_test_aside" id = "wpm" type="text">
-
-      <p>Mistyped words</p>
-      <!--<input class="input_test_aside" type="text" placeholder="0" >-->
-      <input class="input_test_aside" id="count_incorrect" disabled><br>
-    <!-- <a href="#" class="button button_line input_aside_cancel">CANCEL</a> -->
-
-    </aside>
-  </section>
-  
-<section class="test-result" id="result_box">
-      <h3>Your Typing Test Results </h3>
-
-      <div class="points">
-        <p>Typed</p>
-        <h2>50</h2>
+    <section class="test" id="test_box">
+      <div class="content_test">
+        <h3>Typing test Name</h3>
+        
+          <div id="word-section">
+              <div class="waiting">
+              </div>
+          </div>
+          
+          <div id="type-section">
+            <textarea id="typebox" rows="2" type="text" class="input_test" placeholder="Click or tap here and start typing!" tabindex="1" autofocus onkeyup="typingTest(event)"/>
+            </textarea>
+          </div>
       </div>
+      
+        <aside>
+        <h5>Time left</h5>
+        <div id="timer" class="input_test_aside"><span id="showTime">0:00</span></div>
+          <!-- <input class="input_test_aside" type="text" placeholder="1:00" > -->
 
-      <div class="points">
-        <p>Correct</p>
-        <h2>45</h2>
-      </div>
+        <h5>Typing Speed</h5>
 
-      <div class="points">
-        <p>Incorrect</p>
-        <h2>3</h2>
-      </div>
-
-      <div class="points">
         <p>WPM</p>
-        <h2>12</h2>
-      </div>
+        <%= f.text_field :wpm, class: "input_test_aside", id: "wpm", disabled: true %>
 
-      <div class="points">
-        <p>Accuracy</p>
-        <h2>45</h2>
-      </div>
+        <p>Mistyped words</p>
+        <!--<input class="input_test_aside" type="text" placeholder="0" >-->
+        <%= f.text_field :incorrect, class: "input_test_aside", id: "count_incorrect", disabled: true %>
+        <br>
+      <!-- <a href="#" class="button button_line input_aside_cancel">CANCEL</a> -->
 
-      <div class="wrapper-bar">
-
-        <h4>Your Adjusted Typing speed is <span>Fluent</span></h4>
-
-        <div class="result-bar">
-          <div class="measurement">
-            <span>
-              Slow
-            </span>
-            <p>0</p>
-          </div>
-
-          <div class="measurement">
-            <span>
-              Average
-            </span>
-            <p>20</p>
-          </div>
-
-
-          <div class="measurement">
-            <span>
-              Fluent
-            </span>
-            <p>40</p>
-          </div>
-
-
-          <div class="measurement">
-            <span>
-            Fast
-            </span>
-            <p>60</p>
-          </div>
-
-          <div class="measurement">
-            <span>
-              Pro
-            </span>
-            <p>80</p>
-          </div>
-
-        </div> <!-- .result-bar -->
-      </div><!-- .wrapper-bar -->
-  <a href="#" class="button">FINISH</a>
-
+      </aside>
     </section>
+    
+    <section class="test-result" id="result_box">
+          <h3>Your Typing Test Results </h3>
+
+          <div class="points">
+            <p>Typed</p>
+            <h2>50</h2>
+          </div>
+
+          <div class="points">
+            <p>Correct</p>
+            <h2>45</h2>
+          </div>
+
+          <div class="points">
+            <p>Incorrect</p>
+            <h2>3</h2>
+          </div>
+
+          <div class="points">
+            <p>WPM</p>
+            <h2>12</h2>
+          </div>
+
+          <div class="points">
+            <p>Accuracy</p>
+            <h2>45</h2>
+          </div>
+
+          <div class="wrapper-bar">
+
+            <h4>Your Adjusted Typing speed is <span>Fluent</span></h4>
+
+            <div class="result-bar">
+              <div class="measurement">
+                <span>
+                  Slow
+                </span>
+                <p>0</p>
+              </div>
+
+              <div class="measurement">
+                <span>
+                  Average
+                </span>
+                <p>20</p>
+              </div>
+
+
+              <div class="measurement">
+                <span>
+                  Fluent
+                </span>
+                <p>40</p>
+              </div>
+
+
+              <div class="measurement">
+                <span>
+                Fast
+                </span>
+                <p>60</p>
+              </div>
+
+              <div class="measurement">
+                <span>
+                  Pro
+                </span>
+                <p>80</p>
+              </div>
+
+            </div> <!-- .result-bar -->
+          </div><!-- .wrapper-bar -->
+      <a href="#" class="button">FINISH</a>
+
+        </section>
+    <%= f.submit %>
+  <% end %>
 </div>
     
   <input id="tiempo" value="<%= @time %>" style="display: none">

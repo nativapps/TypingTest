@@ -6,6 +6,7 @@ class Participant < ApplicationRecord
   
   has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
+  has_many :reports
 
   # new function to set the password without knowing the current 
   # password used in our confirmation controller. 
