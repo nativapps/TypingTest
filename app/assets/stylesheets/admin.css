@@ -6,7 +6,9 @@ padding: 28px 0;
 }
 
 main ul {
-width: 100%;
+padding: 45px;
+display: block;
+height: auto;
 }
 main ul li {
   float: left;
