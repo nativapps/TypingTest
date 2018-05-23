@@ -2,13 +2,15 @@
  <%= render :partial => "layouts/header_test" %>
 <div class="main_wrapper">
   <%= form_for :report, remote: true do |f| %>
-    <%= f.hidden_field :accuracy, value: "3"%>
-    <%= f.hidden_field :try_number, value: "1"%>
-    <%= f.hidden_field :correct, value: "100"%>
-    <%= f.hidden_field :total_type, value: "300"%>
-    <%= f.hidden_field :total_word, value: "600"%>
+    <%= f.hidden_field :accuracy, id: "accuracy"%>
+    <%= f.hidden_field :try_number, value: "1"%> <!-- Falta configurar el valor de try_number -->
+    <%= f.hidden_field :correct, id: "count_correct"%>
+    <%= f.hidden_field :total_type, id: "count_typed"%>
+    <%= f.hidden_field :total_word, id: "total_word"%>
     <%= f.hidden_field :participant_id, value: current_participant.id %>
     
+      <%# end %>
+
     <section class="test" id="test_box">
       <div class="content_test">
         <h3>Typing test Name</h3>
@@ -32,11 +34,11 @@
         <h5>Typing Speed</h5>
 
         <p>WPM</p>
-        <%= f.text_field :wpm, class: "input_test_aside", id: "wpm", disabled: true %>
+        <%= f.text_field :wpm, class: "input_test_aside", id: "wpm", readonly: true %>
 
         <p>Mistyped words</p>
         <!--<input class="input_test_aside" type="text" placeholder="0" >-->
-        <%= f.text_field :incorrect, class: "input_test_aside", id: "count_incorrect", disabled: true %>
+        <%= f.text_field :incorrect, class: "input_test_aside", id: "count_incorrect", readonly: true %>
         <br>
       <!-- <a href="#" class="button button_line input_aside_cancel">CANCEL</a> -->
 
@@ -132,11 +134,8 @@
         <input id="count_correct" disabled " style="display: none"><br>
         <input id="count_incorrect" disabled " style="display: none"><br>
         <input id="total_word" disabled " style="display: none"><br>
-
-        <br>
-
         <input id="accuracy" disabled " style="display: none"><br>
-        <input id="wpm" disabled " style="display: none"><br>
+        <input id="wpm_" disabled " style="display: none"><br>
       <%# end %>
     </div>
     <!--<button>
@@ -353,9 +352,14 @@
       //console.log("here i am " + wpm);
       let accuracy = Math.ceil(correct / total * 100);
 
+      // Set final results
       document.getElementById("accuracy").value = accuracy;
-      document.getElementById("wpm").value = wpm
-  
+      document.getElementById("wpm").value = wpm;
+      document.getElementById("count_correct").value = correct;
+      document.getElementById("count_typed").value = typed;
+      document.getElementById("total_word").value = total;
+      console.log("Here i am, wrapping it up, accuracy=>"+accuracy+" wpm=>"+wpm+" count_correct=>"+correct+ " count_typed=>"+typed+" total_word=>"+total);
+
       if (wpm < 0) {
           wpm = 0;
       } // prevent negative wpm from incorrect words
@@ -443,7 +447,7 @@
           
         </div> <!-- .result-bar -->
       </div><!-- .wrapper-bar -->
-      <%= f.submit class: 'button' %>
+      <%= f.submit class: 'button', value: "Send results"%>
   <% end %>`;
 
       $("#result_box")[0].innerHTML = results;
