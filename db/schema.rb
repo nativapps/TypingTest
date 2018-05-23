@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_08_210727) do
+ActiveRecord::Schema.define(version: 2018_05_21_150559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,9 +73,11 @@ ActiveRecord::Schema.define(version: 2018_05_08_210727) do
     t.integer "total_type"
     t.integer "total_word"
     t.integer "wpm"
-    t.integer "acurrancy"
+    t.integer "accuracy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "participant_id"
+    t.index ["participant_id"], name: "index_reports_on_participant_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -99,7 +101,6 @@ ActiveRecord::Schema.define(version: 2018_05_08_210727) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "is_admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -118,4 +119,5 @@ ActiveRecord::Schema.define(version: 2018_05_08_210727) do
   add_foreign_key "has_participants", "rooms"
   add_foreign_key "has_tests", "rooms"
   add_foreign_key "has_tests", "test_banks"
+  add_foreign_key "reports", "participants"
 end
