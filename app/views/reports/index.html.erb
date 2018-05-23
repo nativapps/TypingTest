@@ -1,0 +1,29 @@
+<header>
+	<%= render :partial => "header_view/header_admin" %>
+		<h1>Result</h1>
+		<p>Administrator</p>
+</header>
+
+<main>
+	<div class="main_wrapper">
+ 
+	<div class="table-wrapper checkbox">
+		<table>
+			<tr>
+				<th></th>
+			</tr>
+
+			<% @reports.each do |r| %>
+				<tr>
+					<td></td>
+				</tr>
+			<% end %>
+
+		</table>
+
+		<% if @reports.blank? %>
+			<h2>There are no rooms saved</h2>
+		<% end %>
+		</div> <!-- .table-wrapper -->
+	</div><!-- .main_wrapper -->
+</main>

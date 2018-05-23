@@ -18,8 +18,9 @@
 //= require jquery_ujs
 
 /*$(document).ready(function(){
-    $(".button").click(function(){
-        alert("fdsafsd");
+    $(".selectClick").click(function(){
+        var x = document.getElementsByClassName('selectClick')[0].id
+        alert(x);
     });
 });*/
 
