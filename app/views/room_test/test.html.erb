@@ -1,5 +1,6 @@
 <body >
  <%= render :partial => "layouts/header_test" %>
+
 <div class="main_wrapper">
   <%= form_for :report, remote: true do |f| %>
     <%= f.hidden_field :accuracy, id: "accuracy"%>
@@ -10,7 +11,6 @@
     <%= f.hidden_field :participant_id, value: current_participant.id %>
     
       <%# end %>
-
     <section class="test" id="test_box">
       <div class="content_test">
         <h3>Typing test Name</h3>
@@ -117,7 +117,8 @@
 
             </div> <!-- .result-bar -->
           </div><!-- .wrapper-bar -->
-      <a href="#" class="button">FINISH</a>
+        
+      
 
         </section>
 </div>
@@ -141,45 +142,46 @@
     <!--<button>
       Enviar y Finalizar
     </button>-->
+
   </section>
   
   
-  <script type="text/javascript" data-turbolinks-eval=false>
-  // jQuery like selection of elements.
+<script type="text/javascript">
+// jQuery like selection of elements.
 
   
-  // Changes for  Firefox
-  if (navigator.userAgent.match(/firefox/i)) {
-      // Unicode font sizes
-      let ffBtn = "font-weight: normal; font-size: 2em; margin-left: 0.3em;";
-      $("#restart-symbol")[0].setAttribute("style", ffBtn);
-  
-      let ffwait = "line-height: 1em; font-size: 4em;";
-      $(".waiting")[0].setAttribute("style", ffwait);
-  }
+// Changes for  Firefox
+if (navigator.userAgent.match(/firefox/i)) {
+    // Unicode font sizes
+    let ffBtn = "font-weight: normal; font-size: 2em; margin-left: 0.3em;";
+    $("#restart-symbol")[0].setAttribute("style", ffBtn);
 
-  // Add words to word-section
+    let ffwait = "line-height: 1em; font-size: 4em;";
+    $(".waiting")[0].setAttribute("style", ffwait);
+}
 
-  $(document).ready(function () {
+// Add words to word-section
+// $(window).on("load", function(){
+//$(document).ready(function(){
+  $(document).on("turbolinks:load",function () {
       window.$ = document.querySelectorAll.bind(document);
       // clear existing word-section
-      console.log("This is my first run jo");
+      console.log("It's alive joooo!!!");
       let wordSection = $("#word-section")[0];
       wordSection.innerHTML = "";
-      //console.log("window"+window);
       $("#typebox")[0].value = "";
   
       for (let i = 0; i < wordList.length ; i++) {
           let wordSpan = `<span>${wordList[i]}</span>`;
-          wordSection.innerHTML += wordSpan;
+
+          if (wordList[i] != "*")
+              wordSection.innerHTML += wordSpan;
+            else 
+              wordSection.innerHTML += '<br>';
       }
       // mark first word as current-word
       wordSection.firstChild.classList.add("current-word");
 
-      // mark last word with magic-box
-      // let magicBox = document.createElement("DIV");
-      // magicBox.classList.add("magic-box");
-      // wordSection.appendChild(magicBox);
   });
 
   
@@ -213,14 +215,7 @@
     typed: 0
   };
   
-  //////////////////////////////////////////
-  // Initial implementation notes:
-  // next word on <space>, if empty, then set value=""
-  // after <space> if value == current-word, mark as correct-word
-  // else, mark as incorrect-word
-  // if value.length != current-word[:value.length], mark as incorrect-word
-  // else, mark as current-word
-  //////////////////////////////////////////
+
   
 
   
@@ -228,7 +223,7 @@
   function checkIt(currentWord) {
       // how much we have of the current word.
       let current = $(".current-word")[0];
-      let currentSubstring = current.innerHTML.substring(0, current.innerHTML.length);
+      let currentSubstring = current.innerHTML.substring(0, currentWord.length);
       // check if we have any typing errors
       if (currentWord != currentSubstring) 
           return false;
@@ -241,15 +236,15 @@
       // update current-word and
       // keep track of correct & incorrect words
       let current = $(".current-word")[0];
-
+      console.log("I will check **" + word + '**');
       if (checkIt(word)) {
-          //console.log("Correcta ->*"+word.value);
+        console.log(word + " is correct");
           current.classList.remove("current-word", "incorrect-word-c");
           current.classList.add("correct-word-c");
           wordData.correct += 1;
           document.getElementById("count_correct").value = wordData.correct;
       } else {
-         //console.log("Incorrecta ->*"+word.value);
+        console.log(word + " is incorrect");    
           current.classList.remove("current-word", "incorrect-word-bg");
           current.classList.add("incorrect-word-c");
           wordData.incorrect += 1;
@@ -261,7 +256,6 @@
   
       // make the next word the new current-word.
       current.nextSibling.classList.add("current-word");
-      typed_char=0; // SPACE reset to zero
       submitted_words++;
   }
 
@@ -301,12 +295,14 @@
 
   }
   
+  let finished = false;
   function isTimer(seconds, timeInput) {
       // BUG: page refresh with keyboard triggers onkeyup and starts timer
       // Use restart button to reset timer
   
       let time = seconds;
       let timeInput2 = timeInput;
+
       // only set timer once
       let one = $("#timer > span")[0].innerHTML;
       if (one == timeInput2) {
@@ -324,8 +320,33 @@
                   second_before = second;
                   let showTime = minutes + ":" + ((second < 10) ? "0"+second : second);
                   $("#timer > span")[0].innerHTML = `${showTime}`;
-                  segundos = 60 - second;
                   minutos = Math.ceil(document.getElementById("tiempo").value/60) - minutes - 1; // 1 viene de numero de minutos de prueba -1
+                  //console.log("minutes=>"+minutes+ " minutos=>"+minutos + " seconds=>" + seconds + "second=>" + second + "time=>"+time);
+                  segundos = seconds - time + 1;
+                  // seconds es el tiempo de la prueba fijo en segundos
+                  // second es el "segundero" en el tiempo que se le muestra al usuario,
+                  // minutes es el "minutero" en el tiempo que se le muestra al usuario
+                  if (time == 0 && !finished)
+                     {
+                        let word = $("#typebox")[0];
+                        word.value += " "; // Here we simulate a Space being hit on the keyboard
+                        //console.log("wooord=>" + word.value);
+                        let split =  word.value.split(" ");
+                        let current_word = split[(split.length)-2];
+                        console.log("LENGTH!"+current_word.length);
+                        if (current_word.length)
+                             submitWord(current_word);
+                        clearLine(1); // get rid of old words
+                        // Disabling typing text area
+                         document.getElementById("typebox").disabled="true";
+                        // Display typing test results.
+                        // Disabling word-section
+                        document.getElementById("test_box").style.display="none";
+                        // Showing results
+                        document.getElementById("result_box").style.display="block";
+                        calculateWPM(wordData);
+                        finished = true;        // This let this block executes only once
+                     }
               }
           }, 1000);
       } else if (one == "0:00") {
@@ -447,7 +468,7 @@
           
         </div> <!-- .result-bar -->
       </div><!-- .wrapper-bar -->
-      <%= f.submit class: 'button', value: "Send results"%>
+      <%= f.submit class: 'button', value: "Send results", data: { "disable-with": "Saving your results..." }%>
   <% end %>`;
 
       $("#result_box")[0].innerHTML = results;
@@ -459,27 +480,26 @@
  /*
   * 
   *
-       let min = seconds / 60;
-      let wpm = Math.ceil((typed / 5) / min) - incorrect;
+      This is the formulae used in final calculateWPM(data) function
+      let min = seconds / 60;
+      let wpm = Math.ceil((typed / 5) / min) - Math.ceil(incorrect / min);
 */
     
   function fastWPM(data) {
       let { seconds, correct, incorrect, total, typed } = data;
-      let segundos_ajustados = minutos*60 + segundos; // Cubre los casos donde el timer>1min
-      console.log("minutos=>" + minutos+ "segundos_ajustados=>"+segundos_ajustados+" seconds=>"+seconds+" segundos=>"+segundos);
-      let min = segundos_ajustados / 60;
+      //console.log("minutos=>" + minutos+ " seconds=>"+seconds+" segundos=>"+segundos);
+      let min = segundos / 60;
       let wpm = Math.ceil((typed / 5) / min) - Math.ceil(incorrect / min);
       let accuracy = Math.ceil(correct / total * 100);
       document.getElementById("accuracy").value = accuracy;
       document.getElementById("wpm").value = wpm
-      //console.log("resta ->" + (typed/5 - incorrect) + " tiempo->" + segundos + " wpm-> " + wpm);
+      console.log("typed ->" + typed);
       if (wpm < 0) {
           wpm = 0;
       } // prevent negative wpm from incorrect words
       return wpm;
   }
-  
-  var typed_char=0; //number of characters typed after a SPACE hit
+
   var second_before=0;
   var submitted_words = 0;
 
@@ -502,23 +522,17 @@
       if (word.value.match(/^\s/g)) {
           word.value = "";
       } else {
-          
           // Only score when timer is on.
           if (isTimer(wordData.seconds, timeInput)) {
-              typed_char++;
               // <space> submits words****
               if (kcode == 32){
-                  typed_char=0; // Reset to zero after a SPACE hit
                   let split =  word.value.split(" ");
                   let current_word = split[(split.length)-2];
                   submitWord(current_word);
                   clearLine(1); // get rid of old words
-
-
               }
               else if (kcode == 8)
               {
-                typed_char--;
                 let split =  word.value.split(" ");
                 let number_of_spaces = split.length-1;
                 //console.log("number of spaces=>"+number_of_spaces+ " submitted words=>" +submitted_words+" word=>*" + word.value+" extract=>*"+split[split.length-1]);
@@ -528,23 +542,15 @@
                        goBack(word);
                        submitted_words--;
                     }
-                wordData.typed = word.value.length; // -number of spaces, en caso de querer excluir los espacios
-                }
-              wordData.typed += 1; // count each valid character typed
-              document.getElementById("count_typed").value = wordData.typed;
-          } else {
-              // Disabling typing text area
-               document.getElementById("typebox").disabled="true";
-              // Display typing test results.
-              // Disabling word-section
-              document.getElementById("test_box").style.display="none";
-              // Showing results
-              document.getElementById("result_box").style.display="block";
-              calculateWPM(wordData);
-          }
-      }
-
-      
+                wordData.typed = word.value.length - number_of_spaces; // -number of spaces, en caso de querer excluir los espacios
+              }
+              else if (kcode != 16 && kcode != 20){ // Excluse SHIFT and MAYUS
+                //console.log("just typed=>" + wordData.typed + "kcode=>" + kcode);
+                wordData.typed += 1; // count each valid character typed
+                document.getElementById("count_typed").value = wordData.typed;
+              }
+          } 
+      }      
   }
   
   

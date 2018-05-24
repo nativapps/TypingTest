@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 2018_05_21_150559) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bank_tests", force: :cascade do |t|
-    t.string "name"
-    t.string "type_test"
-    t.text "text_test"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "has_participants", force: :cascade do |t|
     t.bigint "room_id"
     t.bigint "participant_id"
