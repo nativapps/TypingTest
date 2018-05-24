@@ -1,24 +1,24 @@
 <header>
-    <%= render :partial => "header_view/header_admin" %>
-    <h1>PARTICIPANT</h1>
-    <p>Administrator</p>
+		<%= render :partial => "header_view/header_admin" %>
+		<h1>PARTICIPANT</h1>
+		<p>Administrator</p>
 </header>
 
 <main>
 	<div class="main_wrapper">
-  	<ul class="controls_ul clearfix">
-		  <li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add participant", new_participant_path, class:"button_control" %></li>
-		</ul>
+		<ul class="controls_ul clearfix">
+		<li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add participant", new_participant_path, class:"button_control" %></li>
+	</ul>
 
-  	<div class="table-wrapper checkbox">
-  	<table>
+		<div class="table-wrapper checkbox">
+		<table>
 			<tr>
 				<th></th>
-			  <th>First Name</th>
-			  <th>Last Name</th>
-			  <th>Phone Number</th>
-			  <th>Email</th>
-			  <th><th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Phone Number</th>
+				<th>Email</th>
+				<th><th>
 			</tr>
 			<% @participants.each do |participant| %>
 				<tr>

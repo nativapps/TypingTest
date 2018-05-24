@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   as :participant do
     patch '/participant/confirmation' => 'confirmations#update', :via => :put, :as => :update_participant_confirmation
   end
@@ -14,15 +13,15 @@ Rails.application.routes.draw do
   get 'room_test/lobby'
   get 'room_test/rooms'
   post 'room_test/test', to: "reports#create"
-#  patch 'room_test/test', to: "reports#update"
+  # patch 'room_test/test', to: "reports#update"
 
   resources :test_banks
 
   resources :reports
-  #post 'report/create'
+  # post 'report/create'
 
   root 'room_test#index'
 
-  #Send email
+  # Send email
   get :send_invitation, to: 'rooms#send_invitation', as: :send_invitation
 end
