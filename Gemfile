@@ -19,6 +19,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
 # Use for send email
-#gem 'delayed_job_active_record'
+# gem 'delayed_job_active_record'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

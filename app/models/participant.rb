@@ -3,13 +3,11 @@ class Participant < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
         :rememberable, :trackable, :validatable
-  
+
   has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
   has_many :reports
 
-  # new function to set the password without knowing the current 
-  # password used in our confirmation controller. 
   def password_match?
     self.errors[:password] << I18n.t('errors.messages.blank') if password.blank?
     self.errors[:password_confirmation] << I18n.t('errors.messages.blank') if password_confirmation.blank?
@@ -37,16 +35,12 @@ class Participant < ApplicationRecord
     pending_any_confirmation {yield}
   end
 
-
-
-def password_required?
-  # Password is required if it is being set, but not for new records
-  if !persisted? 
-    false
-  else
-    !password.nil? || !password_confirmation.nil?
+  def password_required?
+    # Password is required if it is being set, but not for new records
+    if !persisted? 
+      false
+    else
+      !password.nil? || !password_confirmation.nil?
+    end
   end
 end
-end
-
-#prueba de git

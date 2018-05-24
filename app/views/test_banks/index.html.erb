@@ -7,9 +7,6 @@
 <main>
 <div class="main_wrapper">
 	<ul class="controls_ul clearfix">
-		<li><%= link_to image_tag("view2x.png")+"View",  rooms_path, class:"button_control" %></li>
-		<li><%= link_to image_tag("edit2x.png")+"Edit", edit_room_path(2), class:"button_control", id:"edit" %></li>
-		<li><%= link_to image_tag("delete2x.png")+"Delete",  rooms_path, method: :delete, data: {confirm: '¿Do you want to delete this room?'}, class:"button_control" %></li>
 		<li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add test", new_test_bank_path, class:"button_control" %></li>
 	</ul>
 
