@@ -2,7 +2,7 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
   # Remove the first skip_before_filter (:require_no_authentication) if you
   # don't want to enable logged participants to access the confirmation page.
   # If you are using rails 5.1+ use: skip_before_action
-  # skip_before_filter :require_no_authentication
+  skip_before_filter :require_no_authentication
   skip_before_action :authenticate_participant!
 
   # PUT /resource/confirmation
@@ -23,7 +23,7 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
 
     if !@confirmable.errors.empty?
       self.resource = @confirmable
-      render 'devise/confirmations/new' # Change this if you don't have the views on default path
+      render 'participant/confirmations/new' # Change this if you don't have the views on default path
     end
   end
 
@@ -36,13 +36,13 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
         do_confirm
       end
     end
-    
+
     unless @confirmable.errors.empty?
       self.resource = @confirmable
-      render 'devise/confirmations/new' # Change this if you don't have the views on default path 
+      render 'participant/confirmations/new' # Change this if you don't have the views on default path 
     end
   end
-  
+
   protected
 
   def with_unconfirmed_confirmable
@@ -56,12 +56,16 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
     @confirmation_token = params[:confirmation_token]
     @requires_password = true
     self.resource = @confirmable
-    render 'devise/confirmations/show' # Change this if you don't have the views on default path
+    render 'participant/confirmations/show' # Change this if you don't have the views on default path
   end
 
   def do_confirm
     @confirmable.confirm!
     set_flash_message :notice, :confirmed
     sign_in_and_redirect(resource_name, @confirmable)
+  end
+
+  def after_confirmation_path_for(resource_name, resource)
+    your_new_after_confirmation_path
   end
 end

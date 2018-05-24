@@ -2,7 +2,8 @@ class Participant < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
-        :rememberable, :trackable, :validatable
+         :rememberable, :trackable, :validatable,
+         :registerable, :confirmable
 
   has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
@@ -15,8 +16,8 @@ class Participant < ApplicationRecord
     password == password_confirmation && !password.blank?
   end
 
-  # new function to set the password without knowing the current 
-  # password used in our confirmation controller. 
+  # new function to set the password without knowing the current
+  # password used in our confirmation controller.
   def attempt_set_password(params)
     p = {}
     p[:password] = params[:password]
@@ -29,15 +30,15 @@ class Participant < ApplicationRecord
     self.encrypted_password.blank?
   end
 
-  # Devise::Models:unless_confirmed` method doesn't exist in Devise 2.0.0 anymore. 
-  # Instead you should use `pending_any_confirmation`.  
+  # Devise::Models:unless_confirmed` method doesn't exist in Devise 2.0.0 anymore
+  # Instead you should use `pending_any_confirmation`.
   def only_if_unconfirmed
     pending_any_confirmation {yield}
   end
 
   def password_required?
     # Password is required if it is being set, but not for new records
-    if !persisted? 
+    if !persisted?
       false
     else
       !password.nil? || !password_confirmation.nil?
