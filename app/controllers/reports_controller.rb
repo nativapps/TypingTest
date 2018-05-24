@@ -40,7 +40,7 @@ class ReportsController < ApplicationController
 	private
 
 	def report_params
-		params.require(:report).permit(:try_number, :correct, :incorrect, :total_type, 
-																	 :total_word, :wpm, :accuracy, :participant_id)
+		params.require(:report).permit(:try_number, :correct, :incorrect, :total_type, :total_word,
+																	 :wpm, :accuracy, :participant_id, :room_id, :test_id)
 	end
 end

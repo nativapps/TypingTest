@@ -1,4 +1,5 @@
 class Participants::ConfirmationsController < Devise::ConfirmationsController
+  before_action :test
   # Remove the first skip_before_filter (:require_no_authentication) if you
   # don't want to enable logged participants to access the confirmation page.
   # If you are using rails 5.1+ use: skip_before_action
@@ -43,7 +44,11 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
     end
   end
 
+  def test
+    debugger
+  end
   protected
+  
 
   def with_unconfirmed_confirmable
     @confirmable = Participant.find_or_initialize_with_error_by(:confirmation_token, params[:confirmation_token])
@@ -65,7 +70,4 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
     sign_in_and_redirect(resource_name, @confirmable)
   end
 
-  def after_confirmation_path_for(resource_name, resource)
-    your_new_after_confirmation_path
-  end
 end
