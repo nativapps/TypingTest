@@ -1,15 +1,16 @@
 class RoomTestController < ApplicationController
   before_action :authenticate_participant!, :except => [:index]
-  
-  def index
+
+	def index
+		# This def is only for show the main page
 	end
-	
+
 	def lobby
 		if current_participant.rooms 
 			@lobby_rooms = current_participant.rooms
 			render
 		else
-			@hola = "nada paso!"
+			@hola = 'nada paso!'
 		end
 	end
 
@@ -19,7 +20,7 @@ class RoomTestController < ApplicationController
 			@room_id = room_id
 			@mensaje= current_participant.rooms.find(room_id).start_date
 		else
-			@mensaje = "no era la fecha permitida"
+			@mensaje = 'no era la fecha permitida'
 			@tests = []
 		end
 	end
@@ -32,7 +33,7 @@ class RoomTestController < ApplicationController
         @hola = current_participant
         render
       else
-        @hola = "nada paso!"
+        @hola = 'nada paso!'
       end
     else
       redirect_to root_path

@@ -47,8 +47,8 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
   def test
     debugger
   end
+
   protected
-  
 
   def with_unconfirmed_confirmable
     @confirmable = Participant.find_or_initialize_with_error_by(:confirmation_token, params[:confirmation_token])
@@ -69,5 +69,4 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
     set_flash_message :notice, :confirmed
     sign_in_and_redirect(resource_name, @confirmable)
   end
-
 end
