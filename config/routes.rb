@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   as :participant do
     patch '/participant/confirmation' => 'confirmations#update', :via => :put, :as => :update_participant_confirmation
   end
-  namespace :participant do
-    devise_for :participants, :controllers => { :confirmations => "confirmations" }
-  end
+
+  devise_for :participants, :controllers => { :confirmations => "confirmations" }
 
   resources :participants
   devise_for :users
