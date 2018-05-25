@@ -9,15 +9,16 @@
     <div class="fondo_password">
       <%= image_tag('logo.png') %>
       <section class="wrapper_password">
-        <h1>Poner aca el nombre del usuario</h1>
 
         <%= form_for(@participant) do |f| %>
-          <div class="wrapper_inputs">
-          <%= f.label :password, "Password" %><br />
-          <%= f.password_field :password, :autocomplete => "off"  %>
+          <h1><%= @participant.first_name %> <%= @participant.last_name %></h1>
 
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation %>
+          <div class="wrapper_inputs">
+            <%= f.label :password, "Password" %><br />
+            <%= f.password_field :password, :autocomplete => "off"  %>
+
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation %>
           </div>
 
           <%= f.submit "CREATE", class:'button' %>
