@@ -1,5 +1,4 @@
 class Participants::ConfirmationsController < Devise::ConfirmationsController
-  before_action :test
   # Remove the first skip_before_filter (:require_no_authentication) if you
   # don't want to enable logged participants to access the confirmation page.
   # If you are using rails 5.1+ use: skip_before_action
@@ -42,10 +41,6 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
       self.resource = @confirmable
       render 'participant/confirmations/new' # Change this if you don't have the views on default path 
     end
-  end
-
-  def test
-    debugger
   end
 
   protected
