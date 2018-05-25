@@ -1,6 +1,37 @@
 @charset "UTF-8";
 /* CSS Document */
 
+/* Style for the create password view */
+div.fondo_password {
+  width: 100vw;
+  height:100vh;
+  background-image: url(../img/fondo_login.png);
+  background-size: cover;
+  background-position: center bottom;
+  background-color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+div.fondo_password img {
+margin: 10px 0 40px 0;
+}
+
+section.wrapper_password {
+  max-width: 427px;
+  height: auto;
+  background-color: white;
+  padding: 33px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.16);
+  text-align: center;
+  margin: 0 auto;
+}
+
+section.wrapper_password input, section.wrapper_passwor textarea  {
+  width: 90%;
+}
+
 /* General CSS*/
 html {
   box-sizing: border-box;
