@@ -6,12 +6,12 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  #For mailer
+  # For mailer
   config.action_mailer.default_url_options = { host: "localhost:3000" }
-  #add letter_opener
-  #config.action_mailer.delivery_method = :letter_opener
+  # add letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
 
-  #Change mail delivery to either :smtp, :sendmail, :file, :test
+  # Change mail delivery to either :smtp, :sendmail, :file, :test
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
