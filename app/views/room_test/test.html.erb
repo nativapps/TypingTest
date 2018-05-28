@@ -1,5 +1,5 @@
 <body >
- <%= render :partial => "layouts/header_test" %>
+ <%= render :partial => "layouts/header_test"%>
 
 <div class="main_wrapper">
   <%= form_for :report, remote: true do |f| %>
@@ -9,6 +9,8 @@
     <%= f.hidden_field :total_type, id: "count_typed"%>
     <%= f.hidden_field :total_word, id: "total_word"%>
     <%= f.hidden_field :participant_id, value: current_participant.id %>
+    <%= f.hidden_field :room_id, value: params[:room_id] %>
+    <%= f.hidden_field :test_id, value: params[:test_id ]%>
     
       <%# end %>
     <section class="test" id="test_box">
@@ -117,8 +119,8 @@
 
             </div> <!-- .result-bar -->
           </div><!-- .wrapper-bar -->
-        
-      
+       
+ 
 
         </section>
 </div>
@@ -142,7 +144,7 @@
     <!--<button>
       Enviar y Finalizar
     </button>-->
-
+    
   </section>
   
   
@@ -473,7 +475,6 @@ if (navigator.userAgent.match(/firefox/i)) {
 
       $("#result_box")[0].innerHTML = results;
   
-
       return wpm;
   }
  
