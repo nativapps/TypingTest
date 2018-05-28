@@ -2,7 +2,6 @@ class InvitationMailer < ApplicationMailer
   #default from: 'invitacion@example.com'
  
   def invitation_email(room)
-    room = room
     if !room.nil?
       room.participants.each do |participant|
         @participant = participant
