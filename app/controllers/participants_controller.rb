@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:update]
 
 	def index
 		@participants = Participant.all
@@ -28,7 +28,11 @@ class ParticipantsController < ApplicationController
 
 	def update
 		@participant = Participant.find(params[:id])
-		if @participant.update(participant_params)
+		@participant.confirm if !@participant.confirmed?  
+		if @participant.update(participant_params) && !@participant.confirmed?
+			@participant.confirm
+			redirect_to root_path
+		elsif @participant.update(participant_params)
 			redirect_to participants_path
 		else
 			render :edit
