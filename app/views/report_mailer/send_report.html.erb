@@ -1,0 +1,89 @@
+<body>
+
+  <header>
+  </header>
+
+  <div class="main_wrapper">
+
+    <section class="test-result">
+      <h3>(@report.participant_id) Typing Test Results </h3>
+
+      <div class="points">
+        <p>Typed</p>
+        <h2>@report.total_type</h2>
+      </div>
+
+      <div class="points">
+        <p>Correct</p>
+        <h2>@report.correct</h2>
+      </div>
+
+      <div class="points">
+        <p>Incorrect</p>
+        <h2>@report.incorrect</h2>
+      </div>
+
+      <div class="points">
+        <p>WPM</p>
+        <h2>@report.wpm</h2>
+      </div>
+
+      <div class="points">
+        <p>Accuracy</p>
+        <h2>@report.accuracy</h2>
+      </div>
+
+      <div class="wrapper-bar">
+
+        <h4>Your Adjusted Typing speed is <span>Fluent</span></h4>
+
+        <div class="result-bar">
+          <div class="measurement">
+            <span>
+              Slow
+            </span>
+            <p>0</p>
+          </div>
+
+          <div class="measurement">
+            <span>
+              Average
+            </span>
+            <p>20</p>
+          </div>
+
+
+          <div class="measurement">
+            <span>
+              Fluent
+            </span>
+            <p>40</p>
+          </div>
+
+
+          <div class="measurement">
+            <span>
+            Fast
+            </span>
+            <p>60</p>
+          </div>
+
+          <div class="measurement">
+            <span>
+              Pro
+            </span>
+            <p>80</p>
+          </div>
+
+          <div class="result">
+            <h3>@report.wpm</h3>
+          </div>
+
+        </div> <!-- .result-bar -->
+      </div><!-- .wrapper-bar -->
+
+      </section>
+  </div> <!-- main_wrapper -->
+
+
+</body>
