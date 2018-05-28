@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   def index
-    @reports = Report.all
+    @reports = Report.order(:wpm).page(params[:page])
   end
 
   def edit

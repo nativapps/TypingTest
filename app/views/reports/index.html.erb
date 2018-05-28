@@ -19,7 +19,7 @@
 				</form>
 			</ul>
 
-
+			<%= paginate @reports %>
 			<div class="table-wrapper">
 				<table cass="table-results">
 					<tr>
@@ -52,6 +52,10 @@
 						</tr>
 					<% end %>
 				</table>
+
+				<%= paginate @reports %>
+				<br>
+				<br>
 			</div> <!-- .table-wrapper -->
 		</div><!-- .main_wrapper -->
 	</main>
