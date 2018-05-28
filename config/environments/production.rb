@@ -80,7 +80,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   #Mailer
-  config.action_mailer.default_url_options = { host: "34.217.211.230:3000" }
+  config.action_mailer.default_url_options = { host: "34.217.211.230" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',

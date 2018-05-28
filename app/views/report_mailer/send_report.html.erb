@@ -6,31 +6,32 @@
   <div class="main_wrapper">
 
     <section class="test-result">
-      <h3>(@report.participant_id) Typing Test Results </h3>
+      <h3> <%= (Participant.find_by_id(@report.participant_id).name) + 
+            (Participant.find_by_id(@report.participant_id).last_name) %> Typing Test Results </h3>
 
       <div class="points">
         <p>Typed</p>
-        <h2>@report.total_type</h2>
+        <h2><%= @report.total_type %></h2>
       </div>
 
       <div class="points">
         <p>Correct</p>
-        <h2>@report.correct</h2>
+        <h2><%= @report.correct %></h2>
       </div>
 
       <div class="points">
         <p>Incorrect</p>
-        <h2>@report.incorrect</h2>
+        <h2><%= @report.incorrect %></h2>
       </div>
 
       <div class="points">
         <p>WPM</p>
-        <h2>@report.wpm</h2>
+        <h2><%= @report.wpm %></h2>
       </div>
 
       <div class="points">
         <p>Accuracy</p>
-        <h2>@report.accuracy</h2>
+        <h2><%= @report.accuracy %></h2>
       </div>
 
       <div class="wrapper-bar">
@@ -76,7 +77,7 @@
           </div>
 
           <div class="result">
-            <h3>@report.wpm</h3>
+            <h3><%= @report.wpm %></h3>
           </div>
 
         </div> <!-- .result-bar -->
