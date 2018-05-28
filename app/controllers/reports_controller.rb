@@ -1,6 +1,10 @@
 class ReportsController < ApplicationController
   def index
-    @reports = Report.order(:wpm).page(params[:page])
+    @reports = if params[:term]
+      Report.where(wpm: params[:term]).page(params[:page])
+    else
+      Report.page(params[:page])
+    end
   end
 
   def edit
@@ -39,7 +43,6 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:try_number, :correct, :incorrect, :total_type,
-                   :total_word, :wpm, :accuracy, :participant_id, :room_id, :test_id)
+    params.require(:report).permit(:try_number, :correct, :incorrect, :total_type, :total_word, :wpm, :accuracy, :participant_id, :room_id, :test_id, :term)
   end
 end
