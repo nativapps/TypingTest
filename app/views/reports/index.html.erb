@@ -19,11 +19,20 @@
 				</form>
 			</ul>
 
+			<%= form_tag(reports_path, method: :get) do %>
+				<%= number_field_tag :term %>
+				<%= submit_tag 'Search' %>
+			<% end %>
+			
 			<%= paginate @reports %>
+			
+			<br><br>
+
 			<div class="table-wrapper">
 				<table cass="table-results">
 					<tr>
-						<th><i class="fas fa-sort"></i></i> User Name</th>
+						<th><i class="fas fa-sort"></i> Participant Name</th>
+						<th><i class="fas fa-sort"></i> Identification</th>
 						<th><i class="fas fa-sort"></i> Test</th>
 						<th><i class="fas fa-sort"></i> Room</th>
 						<th><i class="fas fa-sort"></i> Acurracy</th>
@@ -37,6 +46,7 @@
 					<% @reports.each do |r| %>
 						<tr>
 							<td><%= r.participant.first_name %> <%= r.participant.last_name %></td>
+							<td><%= r.participant.identification %></td>
 							<td><%= r.participant.rooms.find(r.room_id).test_banks.find(r.test_id).id %></td>
 							<td><%= r.participant.rooms.find(r.room_id).id %></td>
 							<td><%= r.accuracy %></td>
@@ -53,9 +63,9 @@
 					<% end %>
 				</table>
 
-				<%= paginate @reports %>
-				<br>
-				<br>
+				<br><br>
+
+				<%#= paginate @reports %>
 			</div> <!-- .table-wrapper -->
 		</div><!-- .main_wrapper -->
 	</main>
