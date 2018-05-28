@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:update]
 
 	def index
 		@participants = Participant.all
@@ -27,7 +27,7 @@ class ParticipantsController < ApplicationController
 	end
 
 	def update
-		@participant = Participant.find(params[:id])
+  		@participant = Participant.find(params[:id])
 		if @participant.update(participant_params)
 			redirect_to participants_path
 		else
