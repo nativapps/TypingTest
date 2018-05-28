@@ -28,10 +28,10 @@ class ParticipantsController < ApplicationController
 
 	def update
 		@participant = Participant.find(params[:id])
-		@participant.confirm if !@participant.confirmed?  
 		if @participant.update(participant_params) && !@participant.confirmed?
+			debugger
 			@participant.confirm
-			redirect_to root_path
+			redirect_to :root
 		elsif @participant.update(participant_params)
 			redirect_to participants_path
 		else
