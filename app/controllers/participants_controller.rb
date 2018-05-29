@@ -30,7 +30,7 @@ class ParticipantsController < ApplicationController
 		@participant = Participant.find(params[:id])
 		if @participant.update(participant_params) && !@participant.confirmed?
 			@participant.confirm
-			redirect_to root_path
+			redirect_to :root
 		elsif @participant.update(participant_params)
 			redirect_to participants_path
 		else

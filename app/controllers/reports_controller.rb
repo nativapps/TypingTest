@@ -14,6 +14,7 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     if @report.save
+      ReportMailer.send_report(@report).deliver
       redirect_to :room_test_lobby
     else
       render json: {Message: "Report results were not saved succesfully. Please contact the

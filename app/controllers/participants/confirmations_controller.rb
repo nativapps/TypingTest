@@ -2,7 +2,7 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
   # Remove the first skip_before_filter (:require_no_authentication) if you
   # don't want to enable logged participants to access the confirmation page.
   # If you are using rails 5.1+ use: skip_before_action
-  skip_before_filter :require_no_authentication
+  # skip_before_filter :require_no_authentication
   skip_before_action :authenticate_participant!
 
   # PUT /resource/confirmation
