@@ -2,7 +2,7 @@ class TestBanksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tests = TestBank.all
+    @tests = TestBank.page(params[:page])
   end
 
   def show

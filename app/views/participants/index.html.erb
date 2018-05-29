@@ -11,6 +11,7 @@
 	</ul>
 
 		<div class="table-wrapper checkbox">
+		<%= paginate @participants %>
 		<table>
 			<tr>
 				<th></th>
@@ -36,6 +37,8 @@
 				</tr>
 			<% end %>
 		</table>
+
+		<%= paginate @participants %>
 	
 		<% if @participants.blank? %>
 			<h2>There are no participants saved</h2>
