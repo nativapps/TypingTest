@@ -32,13 +32,8 @@ class Room < ApplicationRecord
   end
 
   def update_participants
-    if @participants.blank? 
-      HasParticipant.destroy_all
-    else
-      HasParticipant.destroy_all
-      @participants.each do |participant_id|
-        HasParticipant.create(participant_id: participant_id, room_id: self.id)
-      end
+    @participants.each do |participant_id|
+      HasParticipant.create(participant_id: participant_id, room_id: self.id)
     end
   end
 
