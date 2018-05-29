@@ -2,7 +2,8 @@ class ParticipantsController < ApplicationController
 	before_action :authenticate_user!, except: [:update]
 
 	def index
-		@participants = Participant.page(params[:page])
+		@search = Participant.ransack(params[:q])
+    	@participants = @search.result(distinct: true).page(params[:page])
 	end
 
 	def show

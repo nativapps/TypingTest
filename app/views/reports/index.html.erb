@@ -6,40 +6,32 @@
 
 <main>
 		<div class="main_wrapper">
-
-			<ul class="controls_ul clearfix">
-				<form>
-					<li><input class="input-search" type="search" placeholder="Search"></li>
-					<li><button class="button-search"><%= image_tag("search.png") %></button></li>
-				</form>
-
-				<form>
-					<li><input class="input-search" type="search" placeholder="Numero de resultados"></li>
-					<li><button class="button-search">Filtrar</button></li>
-				</form>
-			</ul>
-
-			<%= form_tag(reports_path, method: :get) do %>
-				<%= number_field_tag :term %>
-				<%= submit_tag 'Search' %>
+			<%= search_form_for @search do |f| %>
+			<%= f.condition_fields do |c| %>
+				<%= c.attribute_fields do |a| %>
+				<%= a.attribute_select %>                            
+				<% end %>   
+			<%= c.value_fields do |v| %>
+				<%= v.text_field :value %>  
+			<%end %>                                              
+			<%end %>
+			<%= f.submit %>
 			<% end %>
-			
+
 			<%= paginate @reports %>
 			
-			<br><br>
-
 			<div class="table-wrapper">
 				<table cass="table-results">
 					<tr>
-						<th><i class="fas fa-sort"></i> Participant Name</th>
-						<th><i class="fas fa-sort"></i> Identification</th>
-						<th><i class="fas fa-sort"></i> Test</th>
-						<th><i class="fas fa-sort"></i> Room</th>
-						<th><i class="fas fa-sort"></i> Acurracy</th>
-						<th><i class="fas fa-sort"></i> WPM</th>
-						<th><i class="fas fa-sort"></i> Typed</th>
-						<th><i class="fas fa-sort"></i> Correct</th>
-						<th><i class="fas fa-sort"></i> Incorrect</th>
+						<th> <%= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
+						<th> Identification <i class="fas fa-sort"></i> </th>
+						<th> Test <i class="fas fa-sort"></i> </th>
+						<th> Room <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :accuracy) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :wpm) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :total_type) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :correct) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :incorrect) %> <i class="fas fa-sort"></i> </th>
 						<th></th>
 					</tr>
 
@@ -66,6 +58,7 @@
 				<br><br>
 
 				<%#= paginate @reports %>
+
 			</div> <!-- .table-wrapper -->
 		</div><!-- .main_wrapper -->
 	</main>

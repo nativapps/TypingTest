@@ -1,10 +1,10 @@
 class ReportsController < ApplicationController
   def index
-    @reports = if params[:term]
-      Report.where(wpm: params[:term]).page(params[:page])
-    else
-      Report.page(params[:page])
-    end
+    @search = Report.ransack(params[:q])
+    @reports = @search.result(distinct: true).page(params[:page])
+    # @reports = @search.result.includes(:rooms)
+
+    @search.build_condition
   end
 
   def edit
@@ -17,8 +17,7 @@ class ReportsController < ApplicationController
       ReportMailer.send_report(@report).deliver
       redirect_to :room_test_lobby
     else
-      render json: {Message: "Report results were not saved succesfully. Please contact the
-        administrator or the person in charge of your test."}
+      render json: {Message: "Report results were not saved succesfully. Please contact the administrator or the person in charge of your test."}
     end
   end
 

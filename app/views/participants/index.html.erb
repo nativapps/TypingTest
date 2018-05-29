@@ -7,23 +7,22 @@
 <main>
 	<div class="main_wrapper">
 		<ul class="controls_ul clearfix">
-		<li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add participant", new_participant_path, class:"button_control" %></li>
-	</ul>
+			<li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add participant", new_participant_path, class:"button_control" %></li>
+		</ul>
 
 		<div class="table-wrapper checkbox">
 		<%= paginate @participants %>
 		<table>
 			<tr>
-				<th></th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Phone Number</th>
-				<th>Email</th>
+				<th> <%= sort_link(@search, :first_name) %> <i class="fas fa-sort"></i> </th>
+				<th> <%= sort_link(@search, :last_name) %> <i class="fas fa-sort"></i> </th>
+				<th> <%= sort_link(@search, :phone) %> <i class="fas fa-sort"></i> </th>
+				<th> <%= sort_link(@search, :email) %> <i class="fas fa-sort"></i> </th>
 				<th><th>
 			</tr>
+
 			<% @participants.each do |participant| %>
 				<tr>
-					<td><%= radio_button_tag "participant", participant.id, class:"", id: participant.id %></td>
 					<td><%= participant.first_name %></td>
 					<td><%= participant.last_name %></td>
 					<td><%= participant.phone %></td>
