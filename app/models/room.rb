@@ -32,8 +32,11 @@ class Room < ApplicationRecord
   end
 
   def update_participants
-    @participants.each do |participant_id|
-      HasParticipant.create(participant_id: participant_id, room_id: self.id)
+    if !@participants.blank?
+      @participants.each do |participant_id|
+        HasParticipant.where("room_id=? AND participant_id=?", self.id, participant_id.to_i).delete_all
+        HasParticipant.create(participant_id: participant_id, room_id: self.id)
+      end
     end
   end
 
@@ -48,11 +51,9 @@ class Room < ApplicationRecord
   end
 
   def update_test_banks
-    if @test_banks.blank?
-      HasTest.destroy_all
-    else
-      HasTest.destroy_all
+    if !@test_banks.blank?
       @test_banks.each do |test_bank_id|
+        HasTest.where("room_id=? AND participant_id=?", self.id, test_bank_id.to_i).delete_all
         HasTest.create(test_bank_id: test_bank_id, room_id: self.id)
       end
     end
