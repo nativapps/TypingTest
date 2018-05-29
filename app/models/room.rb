@@ -53,7 +53,7 @@ class Room < ApplicationRecord
   def update_test_banks
     if !@test_banks.blank?
       @test_banks.each do |test_bank_id|
-        HasTest.where("room_id=? AND participant_id=?", self.id, test_bank_id.to_i).delete_all
+        HasTest.where("room_id=? AND test_bank_id=?", self.id, test_bank_id.to_i).delete_all
         HasTest.create(test_bank_id: test_bank_id, room_id: self.id)
       end
     end

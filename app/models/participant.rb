@@ -4,7 +4,8 @@ class Participant < ApplicationRecord
   devise :database_authenticatable,
          :rememberable, :trackable, :validatable,
          :registerable, :confirmable
-
+  
+  has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
   has_many :reports
 

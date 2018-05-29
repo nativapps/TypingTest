@@ -3,7 +3,7 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
   # don't want to enable logged participants to access the confirmation page.
   # If you are using rails 5.1+ use: skip_before_action
   # skip_before_filter :require_no_authentication
-  skip_before_action :authenticate_participant!
+  # skip_before_action :authenticate_participant!
 
   # PUT /resource/confirmation
   def update

@@ -871,3 +871,163 @@ I, [2018-05-22T20:36:10.606827 #15148]  INFO -- : worker=0 ready
 I, [2018-05-22T20:36:10.607637 #15139]  INFO -- : master process ready
 I, [2018-05-22T20:36:10.621591 #15151]  INFO -- : worker=1 spawned pid=15151
 I, [2018-05-22T20:36:10.621718 #15151]  INFO -- : worker=1 ready
+I, [2018-05-29T20:57:17.957494 #30341]  INFO -- : Refreshing Gem list
+/home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:701:in `block (2 levels) in skip_callback': Before process_action callback :authenticate_participant! has not been defined (ArgumentError)
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:697:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:697:in `block in skip_callback'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:627:in `block in __update_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:625:in `reverse_each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:625:in `__update_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:696:in `skip_callback'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:203:in `block (3 levels) in <module:ClassMethods>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:96:in `block in _insert_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:95:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:95:in `_insert_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:202:in `block (2 levels) in <module:ClassMethods>'
+	from /home/ubuntu/TypingTest/app/controllers/participants/confirmations_controller.rb:6:in `<class:ConfirmationsController>'
+	from /home/ubuntu/TypingTest/app/controllers/participants/confirmations_controller.rb:1:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/loaded_features_index.rb:65:in `register'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `block in require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:249:in `load_dependency'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:370:in `block in require_or_load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:37:in `block in load_interlock'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies/interlock.rb:13:in `loading'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:37:in `load_interlock'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:326:in `depend_on'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `depend_on'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:242:in `require_dependency'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:478:in `block (2 levels) in eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:477:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:477:in `block in eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:475:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:475:in `eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:356:in `eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/application/finisher.rb:69:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/application/finisher.rb:69:in `block in <module:Finisher>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:32:in `instance_exec'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:32:in `run'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:61:in `block in run_initializers'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:228:in `block in tsort_each'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:431:in `each_strongly_connected_component_from'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:349:in `block in each_strongly_connected_component'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `each'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `call'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `each_strongly_connected_component'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:226:in `tsort_each'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:205:in `tsort_each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:60:in `run_initializers'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/application.rb:361:in `initialize!'
+	from /home/ubuntu/TypingTest/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require_relative'
+	from config.ru:4:in `block in <main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/rack-2.0.5/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/rack-2.0.5/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn.rb:56:in `eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn.rb:56:in `block in builder'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:795:in `build_app!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:139:in `start'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/bin/unicorn:126:in `<top (required)>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+I, [2018-05-29T20:59:06.366494 #30582]  INFO -- : Refreshing Gem list
+E, [2018-05-29T20:59:07.276789 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:07.276867 #30582] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2018-05-29T20:59:07.777344 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:07.777426 #30582] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2018-05-29T20:59:08.277895 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:08.277987 #30582] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2018-05-29T20:59:08.778421 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:08.778515 #30582] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2018-05-29T20:59:09.279003 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:09.279079 #30582] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2018-05-29T20:59:09.779513 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+/home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/socket_helper.rb:137:in `initialize': Address already in use - connect(2) for /home/ubuntu/TypingTest/shared/sockets/unicorn.sock (Errno::EADDRINUSE)
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/socket_helper.rb:137:in `new'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/socket_helper.rb:137:in `bind_listen'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:241:in `listen'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:851:in `block in bind_new_listeners!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:851:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:851:in `bind_new_listeners!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:140:in `start'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/bin/unicorn:126:in `<top (required)>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+I, [2018-05-29T20:59:32.578169 #30784]  INFO -- : Refreshing Gem list
+I, [2018-05-29T20:59:33.441790 #30784]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T20:59:33.441901 #30784]  INFO -- : worker=0 spawning...
+I, [2018-05-29T20:59:33.443404 #30784]  INFO -- : worker=1 spawning...
+I, [2018-05-29T20:59:33.444252 #30784]  INFO -- : master process ready
+I, [2018-05-29T20:59:33.460121 #30793]  INFO -- : worker=0 spawned pid=30793
+I, [2018-05-29T20:59:33.460296 #30793]  INFO -- : worker=0 ready
+I, [2018-05-29T20:59:33.461216 #30795]  INFO -- : worker=1 spawned pid=30795
+I, [2018-05-29T20:59:33.461544 #30795]  INFO -- : worker=1 ready
+I, [2018-05-29T21:19:32.691743 #30784]  INFO -- : reaped #<Process::Status: pid 30793 exit 0> worker=0
+I, [2018-05-29T21:19:32.691825 #30784]  INFO -- : reaped #<Process::Status: pid 30795 exit 0> worker=1
+I, [2018-05-29T21:19:32.691879 #30784]  INFO -- : reloading config_file=config/unicorn.rb
+I, [2018-05-29T21:19:32.846062 #30784]  INFO -- : Refreshing Gem list
+I, [2018-05-29T21:19:32.857720 #30784]  INFO -- : done reloading config_file=config/unicorn.rb
+I, [2018-05-29T21:19:32.857836 #30784]  INFO -- : master complete
+I, [2018-05-29T21:20:12.233679 #1423]  INFO -- : Refreshing Gem list
+I, [2018-05-29T21:20:16.623565 #1423]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T21:20:16.623711 #1423]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T21:20:16.623802 #1423]  INFO -- : worker=0 spawning...
+I, [2018-05-29T21:20:16.624867 #1423]  INFO -- : worker=1 spawning...
+I, [2018-05-29T21:20:16.625872 #1423]  INFO -- : master process ready
+I, [2018-05-29T21:20:16.640099 #1447]  INFO -- : worker=0 spawned pid=1447
+I, [2018-05-29T21:20:16.640340 #1447]  INFO -- : worker=0 ready
+I, [2018-05-29T21:20:16.641043 #1449]  INFO -- : worker=1 spawned pid=1449
+I, [2018-05-29T21:20:16.641152 #1449]  INFO -- : worker=1 ready
+I, [2018-05-29T21:21:59.878984 #1423]  INFO -- : reaped #<Process::Status: pid 1447 exit 0> worker=0
+I, [2018-05-29T21:21:59.879076 #1423]  INFO -- : reaped #<Process::Status: pid 1449 exit 0> worker=1
+I, [2018-05-29T21:21:59.879138 #1423]  INFO -- : master complete
+I, [2018-05-29T21:22:35.164103 #1975]  INFO -- : Refreshing Gem list
+I, [2018-05-29T21:22:36.025326 #1975]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T21:22:36.025491 #1975]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T21:22:36.025581 #1975]  INFO -- : worker=0 spawning...
+I, [2018-05-29T21:22:36.026742 #1975]  INFO -- : worker=1 spawning...
+I, [2018-05-29T21:22:36.027505 #1975]  INFO -- : master process ready
+I, [2018-05-29T21:22:36.034178 #1984]  INFO -- : worker=0 spawned pid=1984
+I, [2018-05-29T21:22:36.034337 #1984]  INFO -- : worker=0 ready
+I, [2018-05-29T21:22:36.034933 #1986]  INFO -- : worker=1 spawned pid=1986
+I, [2018-05-29T21:22:36.035043 #1986]  INFO -- : worker=1 ready
+I, [2018-05-29T22:02:12.368049 #1975]  INFO -- : reaped #<Process::Status: pid 1984 exit 0> worker=0
+I, [2018-05-29T22:02:12.368158 #1975]  INFO -- : reaped #<Process::Status: pid 1986 exit 0> worker=1
+I, [2018-05-29T22:02:12.368220 #1975]  INFO -- : master complete
+I, [2018-05-29T22:02:13.021678 #4200]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:02:13.893032 #4200]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:02:13.893785 #4200]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:02:13.893889 #4200]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:02:13.895126 #4200]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:02:13.895903 #4200]  INFO -- : master process ready
+I, [2018-05-29T22:02:13.908901 #4209]  INFO -- : worker=0 spawned pid=4209
+I, [2018-05-29T22:02:13.909039 #4209]  INFO -- : worker=0 ready
+I, [2018-05-29T22:02:13.909650 #4211]  INFO -- : worker=1 spawned pid=4211
+I, [2018-05-29T22:02:13.909766 #4211]  INFO -- : worker=1 ready
+I, [2018-05-29T22:06:40.953143 #4200]  INFO -- : reaped #<Process::Status: pid 4209 exit 0> worker=0
+I, [2018-05-29T22:06:40.953235 #4200]  INFO -- : reaped #<Process::Status: pid 4211 exit 0> worker=1
+I, [2018-05-29T22:06:40.953292 #4200]  INFO -- : master complete
+I, [2018-05-29T22:06:41.563935 #4492]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:06:42.421915 #4492]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:06:42.422691 #4492]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:06:42.422790 #4492]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:06:42.423978 #4492]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:06:42.424653 #4502]  INFO -- : worker=0 spawned pid=4502
+I, [2018-05-29T22:06:42.424771 #4502]  INFO -- : worker=0 ready
+I, [2018-05-29T22:06:42.425605 #4492]  INFO -- : master process ready
+I, [2018-05-29T22:06:42.437909 #4505]  INFO -- : worker=1 spawned pid=4505
+I, [2018-05-29T22:06:42.438030 #4505]  INFO -- : worker=1 ready
