@@ -10,6 +10,7 @@
     <li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add room", new_room_path, class:"button_control" %></li>
   </ul>
   <div class="table-wrapper checkbox">
+  <%= paginate @rooms %>
     <table>
       <tr>
         <th></th>
@@ -38,6 +39,8 @@
       <% end %>
 
     </table>
+
+    <%= paginate @rooms %>
 
     <% if @rooms.blank? %>
       <h2>There are no rooms saved</h2>

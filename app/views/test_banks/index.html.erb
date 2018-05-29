@@ -11,6 +11,9 @@
 	</ul>
 
 	<div class="table-wrapper checkbox">
+
+	<%= paginate @tests %>
+
 	<table>
 	<tr>
 		<th></th>
@@ -33,9 +36,13 @@
 			</tr>      
 		<% end %>
 	</table>
+
+	<%= paginate @tests %>		
+
 	<% if @tests.blank? %>
 		<h2>There are no tests saved</h2>
 	<% end %>
+	
 </div> <!-- .table-wrapper -->
 </div><!-- .main_wrapper -->
 </main>

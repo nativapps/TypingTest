@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@rooms = Room.all
+		@rooms = Room.page(params[:page])
 	end
 
 	def show

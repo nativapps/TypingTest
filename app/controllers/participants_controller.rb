@@ -2,7 +2,7 @@ class ParticipantsController < ApplicationController
 	before_action :authenticate_user!, except: [:update]
 
 	def index
-		@participants = Participant.all
+		@participants = Participant.page(params[:page])
 	end
 
 	def show

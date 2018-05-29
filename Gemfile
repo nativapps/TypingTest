@@ -9,6 +9,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 # The pager, order
 gem 'kaminari'
 
+# The search box
+gem 'ransack'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
