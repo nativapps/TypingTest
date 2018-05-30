@@ -6,32 +6,26 @@
 
 <main>
 		<div class="main_wrapper">
-			<%= search_form_for @search do |f| %>
-			<%= f.condition_fields do |c| %>
-				<%= c.attribute_fields do |a| %>
-				<%= a.attribute_select %>                            
-				<% end %>   
-			<%= c.value_fields do |v| %>
-				<%= v.text_field :value %>  
-			<%end %>                                              
-			<%end %>
-			<%= f.submit %>
-			<% end %>
+		<%= form_tag(reports_path, method: :get) do %>
+			<%= text_field_tag :wpm, params[:wpm].to_i %>
+			<%= submit_tag 'Search' %>
+		  <% end %>
+		  
 
-			<%= paginate @reports %>
+			<%#= paginate @reports %>
 			
 			<div class="table-wrapper">
 				<table cass="table-results">
 					<tr>
-						<th> <%= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
+						<th> <%#= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
 						<th> Identification <i class="fas fa-sort"></i> </th>
 						<th> Test <i class="fas fa-sort"></i> </th>
 						<th> Room <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :accuracy) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :wpm) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :total_type) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :correct) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :incorrect) %> <i class="fas fa-sort"></i> </th>
+						<th> tabla<%#= sort_link(@search, :accuracy) %> <i class="fas fa-sort"></i> </th>
+						<th> tabla<%#= sort_link(@search, :wpm) %> <i class="fas fa-sort"></i> </th>
+						<th> tabla<%#= sort_link(@search, :total_type) %> <i class="fas fa-sort"></i> </th>
+						<th> tabla<%#= sort_link(@search, :correct) %> <i class="fas fa-sort"></i> </th>
+						<th> tabla<%#= sort_link(@search, :incorrect) %> <i class="fas fa-sort"></i> </th>
 						<th></th>
 					</tr>
 

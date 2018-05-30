@@ -1,10 +1,10 @@
 class ReportsController < ApplicationController
   def index
-    @search = Report.ransack(params[:q])
-    @reports = @search.result(distinct: true).page(params[:page])
-    # @reports = @search.result.includes(:rooms)
-
-    @search.build_condition
+    @reports = if params[:wpm]
+      Report.where('wpm LIKE ?', "%#{params[:wpm]}%")
+    else
+      Report.page(params[:page])
+    end
   end
 
   def edit
@@ -43,6 +43,6 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:try_number, :correct, :incorrect, :total_type, :total_word, :wpm, :accuracy, :participant_id, :room_id, :test_id, :term)
+    params.require(:report).permit(:try_number, :correct, :incorrect, :total_type, :total_word, :wpm, :accuracy, :participant_id, :room_id, :test_id)
   end
 end
