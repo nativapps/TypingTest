@@ -21,7 +21,7 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
       end
     end
 
-    if !@confirmable.errors.empty?
+    unless @confirmable.errors.empty?
       self.resource = @confirmable
       render 'participant/confirmations/new' # Change this if you don't have the views on default path
     end
@@ -47,7 +47,7 @@ class Participants::ConfirmationsController < Devise::ConfirmationsController
 
   def with_unconfirmed_confirmable
     @confirmable = Participant.find_or_initialize_with_error_by(:confirmation_token, params[:confirmation_token])
-    if !@confirmable.new_record?
+    unless @confirmable.new_record?
       @confirmable.only_if_unconfirmed {yield}
     end
   end
