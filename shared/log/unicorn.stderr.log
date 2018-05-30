@@ -1031,3 +1031,133 @@ I, [2018-05-29T22:06:42.424771 #4502]  INFO -- : worker=0 ready
 I, [2018-05-29T22:06:42.425605 #4492]  INFO -- : master process ready
 I, [2018-05-29T22:06:42.437909 #4505]  INFO -- : worker=1 spawned pid=4505
 I, [2018-05-29T22:06:42.438030 #4505]  INFO -- : worker=1 ready
+I, [2018-05-29T22:15:39.561779 #4492]  INFO -- : reaped #<Process::Status: pid 4502 exit 0> worker=0
+I, [2018-05-29T22:15:39.561874 #4492]  INFO -- : reaped #<Process::Status: pid 4505 exit 0> worker=1
+I, [2018-05-29T22:15:39.561947 #4492]  INFO -- : master complete
+I, [2018-05-29T22:15:40.180572 #4798]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:15:41.051578 #4798]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:15:41.052334 #4798]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:15:41.052438 #4798]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:15:41.053641 #4798]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:15:41.054922 #4798]  INFO -- : master process ready
+I, [2018-05-29T22:15:41.067210 #4807]  INFO -- : worker=0 spawned pid=4807
+I, [2018-05-29T22:15:41.067346 #4807]  INFO -- : worker=0 ready
+I, [2018-05-29T22:15:41.067984 #4810]  INFO -- : worker=1 spawned pid=4810
+I, [2018-05-29T22:15:41.068098 #4810]  INFO -- : worker=1 ready
+I, [2018-05-29T22:23:55.998610 #4798]  INFO -- : reaped #<Process::Status: pid 4807 exit 0> worker=0
+I, [2018-05-29T22:23:55.998706 #4798]  INFO -- : reaped #<Process::Status: pid 4810 exit 0> worker=1
+I, [2018-05-29T22:23:55.998762 #4798]  INFO -- : master complete
+I, [2018-05-29T22:23:56.635096 #5197]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:23:57.500148 #5197]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:23:57.500881 #5197]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:23:57.500992 #5197]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:23:57.502293 #5197]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:23:57.503059 #5207]  INFO -- : worker=0 spawned pid=5207
+I, [2018-05-29T22:23:57.503173 #5207]  INFO -- : worker=0 ready
+I, [2018-05-29T22:23:57.504036 #5197]  INFO -- : master process ready
+I, [2018-05-29T22:23:57.516859 #5210]  INFO -- : worker=1 spawned pid=5210
+I, [2018-05-29T22:23:57.516983 #5210]  INFO -- : worker=1 ready
+I, [2018-05-29T22:26:28.415627 #5197]  INFO -- : reaped #<Process::Status: pid 5207 exit 0> worker=0
+I, [2018-05-29T22:26:28.415725 #5197]  INFO -- : reaped #<Process::Status: pid 5210 exit 0> worker=1
+I, [2018-05-29T22:26:28.415781 #5197]  INFO -- : master complete
+I, [2018-05-29T22:26:29.038027 #5446]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:26:29.901802 #5446]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:26:29.902586 #5446]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:26:29.902691 #5446]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:26:29.903889 #5446]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:26:29.904534 #5455]  INFO -- : worker=0 spawned pid=5455
+I, [2018-05-29T22:26:29.904645 #5455]  INFO -- : worker=0 ready
+I, [2018-05-29T22:26:29.905475 #5446]  INFO -- : master process ready
+I, [2018-05-29T22:26:29.921571 #5458]  INFO -- : worker=1 spawned pid=5458
+I, [2018-05-29T22:26:29.921711 #5458]  INFO -- : worker=1 ready
+I, [2018-05-29T22:28:30.306872 #5446]  INFO -- : reaped #<Process::Status: pid 5455 exit 0> worker=0
+I, [2018-05-29T22:28:30.306968 #5446]  INFO -- : reaped #<Process::Status: pid 5458 exit 0> worker=1
+I, [2018-05-29T22:28:30.307025 #5446]  INFO -- : master complete
+I, [2018-05-29T22:28:30.925603 #5689]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:28:31.787328 #5689]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:28:31.788099 #5689]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:28:31.788201 #5689]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:28:31.789433 #5689]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:28:31.791044 #5689]  INFO -- : master process ready
+I, [2018-05-29T22:28:31.806440 #5698]  INFO -- : worker=0 spawned pid=5698
+I, [2018-05-29T22:28:31.806578 #5698]  INFO -- : worker=0 ready
+I, [2018-05-29T22:28:31.807315 #5701]  INFO -- : worker=1 spawned pid=5701
+I, [2018-05-29T22:28:31.807423 #5701]  INFO -- : worker=1 ready
+I, [2018-05-29T22:29:59.305881 #5689]  INFO -- : reaped #<Process::Status: pid 5698 exit 0> worker=0
+I, [2018-05-29T22:29:59.305985 #5689]  INFO -- : reaped #<Process::Status: pid 5701 exit 0> worker=1
+I, [2018-05-29T22:29:59.306050 #5689]  INFO -- : master complete
+I, [2018-05-29T22:29:59.911448 #5928]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:30:00.771328 #5928]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:30:00.772079 #5928]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:30:00.772177 #5928]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:30:00.773393 #5928]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:30:00.774030 #5937]  INFO -- : worker=0 spawned pid=5937
+I, [2018-05-29T22:30:00.774151 #5937]  INFO -- : worker=0 ready
+I, [2018-05-29T22:30:00.774922 #5928]  INFO -- : master process ready
+I, [2018-05-29T22:30:00.790933 #5940]  INFO -- : worker=1 spawned pid=5940
+I, [2018-05-29T22:30:00.791065 #5940]  INFO -- : worker=1 ready
+I, [2018-05-29T22:32:52.880237 #5928]  INFO -- : reaped #<Process::Status: pid 5937 exit 0> worker=0
+I, [2018-05-29T22:32:52.880332 #5928]  INFO -- : reaped #<Process::Status: pid 5940 exit 0> worker=1
+I, [2018-05-29T22:32:52.880387 #5928]  INFO -- : master complete
+I, [2018-05-29T22:32:53.507096 #6194]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:32:54.363044 #6194]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:32:54.363820 #6194]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:32:54.363922 #6194]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:32:54.365128 #6194]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:32:54.365992 #6203]  INFO -- : worker=0 spawned pid=6203
+I, [2018-05-29T22:32:54.366109 #6203]  INFO -- : worker=0 ready
+I, [2018-05-29T22:32:54.367057 #6194]  INFO -- : master process ready
+I, [2018-05-29T22:32:54.383059 #6206]  INFO -- : worker=1 spawned pid=6206
+I, [2018-05-29T22:32:54.383186 #6206]  INFO -- : worker=1 ready
+I, [2018-05-29T22:34:46.949067 #6194]  INFO -- : reaped #<Process::Status: pid 6203 exit 0> worker=0
+I, [2018-05-29T22:34:46.949172 #6194]  INFO -- : reaped #<Process::Status: pid 6206 exit 0> worker=1
+I, [2018-05-29T22:34:46.949233 #6194]  INFO -- : master complete
+I, [2018-05-29T22:34:47.558929 #6452]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:34:48.414707 #6452]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:34:48.415462 #6452]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:34:48.415596 #6452]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:34:48.416807 #6452]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:34:48.417482 #6461]  INFO -- : worker=0 spawned pid=6461
+I, [2018-05-29T22:34:48.417601 #6461]  INFO -- : worker=0 ready
+I, [2018-05-29T22:34:48.418465 #6452]  INFO -- : master process ready
+I, [2018-05-29T22:34:48.434788 #6464]  INFO -- : worker=1 spawned pid=6464
+I, [2018-05-29T22:34:48.434933 #6464]  INFO -- : worker=1 ready
+I, [2018-05-30T04:12:54.840392 #6452]  INFO -- : reaped #<Process::Status: pid 6461 exit 0> worker=0
+I, [2018-05-30T04:12:54.840482 #6452]  INFO -- : reaped #<Process::Status: pid 6464 exit 0> worker=1
+I, [2018-05-30T04:12:54.840536 #6452]  INFO -- : master complete
+I, [2018-05-30T04:12:55.440795 #8976]  INFO -- : Refreshing Gem list
+I, [2018-05-30T04:12:56.292217 #8976]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-30T04:12:56.292376 #8976]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-30T04:12:56.292473 #8976]  INFO -- : worker=0 spawning...
+I, [2018-05-30T04:12:56.293757 #8976]  INFO -- : worker=1 spawning...
+I, [2018-05-30T04:12:56.294925 #8976]  INFO -- : master process ready
+I, [2018-05-30T04:12:56.307697 #8985]  INFO -- : worker=0 spawned pid=8985
+I, [2018-05-30T04:12:56.307814 #8985]  INFO -- : worker=0 ready
+I, [2018-05-30T04:12:56.308390 #8988]  INFO -- : worker=1 spawned pid=8988
+I, [2018-05-30T04:12:56.308493 #8988]  INFO -- : worker=1 ready
+I, [2018-05-30T04:22:17.011447 #8976]  INFO -- : reaped #<Process::Status: pid 8985 exit 0> worker=0
+I, [2018-05-30T04:22:17.011548 #8976]  INFO -- : reaped #<Process::Status: pid 8988 exit 0> worker=1
+I, [2018-05-30T04:22:17.011599 #8976]  INFO -- : master complete
+I, [2018-05-30T04:22:17.624768 #9329]  INFO -- : Refreshing Gem list
+I, [2018-05-30T04:22:18.475052 #9329]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-30T04:22:18.475216 #9329]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-30T04:22:18.475308 #9329]  INFO -- : worker=0 spawning...
+I, [2018-05-30T04:22:18.476584 #9329]  INFO -- : worker=1 spawning...
+I, [2018-05-30T04:22:18.477257 #9338]  INFO -- : worker=0 spawned pid=9338
+I, [2018-05-30T04:22:18.477363 #9338]  INFO -- : worker=0 ready
+I, [2018-05-30T04:22:18.478215 #9329]  INFO -- : master process ready
+I, [2018-05-30T04:22:18.491143 #9341]  INFO -- : worker=1 spawned pid=9341
+I, [2018-05-30T04:22:18.491246 #9341]  INFO -- : worker=1 ready
+I, [2018-05-30T04:24:13.353333 #9329]  INFO -- : reaped #<Process::Status: pid 9338 exit 0> worker=0
+I, [2018-05-30T04:24:13.353429 #9329]  INFO -- : reaped #<Process::Status: pid 9341 exit 0> worker=1
+I, [2018-05-30T04:24:13.353493 #9329]  INFO -- : master complete
+I, [2018-05-30T04:24:13.972187 #9552]  INFO -- : Refreshing Gem list
+I, [2018-05-30T04:24:14.828320 #9552]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-30T04:24:14.828479 #9552]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-30T04:24:14.828576 #9552]  INFO -- : worker=0 spawning...
+I, [2018-05-30T04:24:14.829959 #9552]  INFO -- : worker=1 spawning...
+I, [2018-05-30T04:24:14.830948 #9552]  INFO -- : master process ready
+I, [2018-05-30T04:24:14.843776 #9561]  INFO -- : worker=0 spawned pid=9561
+I, [2018-05-30T04:24:14.843902 #9561]  INFO -- : worker=0 ready
+I, [2018-05-30T04:24:14.844557 #9564]  INFO -- : worker=1 spawned pid=9564
+I, [2018-05-30T04:24:14.844669 #9564]  INFO -- : worker=1 ready
