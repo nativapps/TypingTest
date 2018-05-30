@@ -9,7 +9,7 @@ class Participant < ApplicationRecord
   has_many :rooms, through: :has_participants
   has_many :reports
 
-  after_destroy :destroy_has_participant
+  before_destroy :destroy_has_participant
 
   def destroy_has_participant
     HasParticipant.where("participant_id=?", id).delete_all

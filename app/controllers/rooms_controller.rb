@@ -37,7 +37,6 @@ class RoomsController < ApplicationController
 		@room = Room.find(params[:id])
 		@room.participants=params[:participants]
 		@room.test_banks=params[:test_banks]
-		InvitationMailer.invitation_email(@participant).deliver
 		if @room.update(room_params)
 			redirect_to rooms_path
 		else

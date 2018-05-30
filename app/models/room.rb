@@ -7,11 +7,11 @@ class Room < ApplicationRecord
 
   after_create :save_participants
   after_update :update_participants
-  after_destroy :destroy_participants
+  before_destroy :destroy_participants
 
   after_create :save_test_banks
   after_update :update_test_banks
-  aferr_destroy :destroy_has_test
+  before_destroy :destroy_has_test
 
 
   def participants=(value)
