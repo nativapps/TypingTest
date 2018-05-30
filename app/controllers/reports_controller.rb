@@ -1,10 +1,8 @@
 class ReportsController < ApplicationController
   def index
-    @reports = if params[:wpm]
-      Report.where('wpm LIKE ?', "%#{params[:wpm]}%")
-    else
-      Report.page(params[:page])
-    end
+    @search = Report.ransack(params[:q])
+    @reports = @search.result.page(params[:page])
+    @search.build_condition
   end
 
   def edit

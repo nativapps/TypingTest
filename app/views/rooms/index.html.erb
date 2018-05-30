@@ -10,21 +10,34 @@
     <li class="last_button_control"><%= link_to image_tag("add2x.png")+"Add room", new_room_path, class:"button_control" %></li>
   </ul>
   <div class="table-wrapper checkbox">
+
+
+  <%= search_form_for @search do |f| %>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+    <%= c.predicate_select only: [:cont, :lteq, :gteq]%> 
+    <%= c.value_fields do |v| %>
+      <%= v.text_field :value %> 
+      <%end %>
+    <%end %>
+    <%= f.submit %>
+  <% end %>
+
   <%= paginate @rooms %>
     <table>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Start Date</th>
-        <th>Finish Date</th>
-        <th>Tried Times</th>
-        <th>Limit</th>
+        <th> <%= sort_link(@search, :name) %> <i class="fas fa-sort"></i> </th>
+        <th> <%= sort_link(@search, :start_date) %> <i class="fas fa-sort"></i> </th>
+        <th> <%= sort_link(@search, :finish_date) %> <i class="fas fa-sort"></i> </>
+        <th> <%= sort_link(@search, :tried_times) %> <i class="fas fa-sort"></i> </th>
+        <th> <%= sort_link(@search, :set_limit) %> <i class="fas fa-sort"></i> </th>
         <th></th>
       </tr>
 
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= radio_button_tag "room", room.id, class:"selectClick", id: room.id %></td>
           <td><%= room.name %></td>
           <td><%= room.start_date %></td>
           <td><%= room.finish_date %></td>

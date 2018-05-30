@@ -2,7 +2,9 @@ class TestBanksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tests = TestBank.page(params[:page])
+    @search = TestBank.ransack(params[:q])
+    @tests = @search.result.page(params[:page])
+    @search.build_condition
   end
 
   def show
