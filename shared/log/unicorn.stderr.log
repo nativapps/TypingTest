@@ -871,3 +871,293 @@ I, [2018-05-22T20:36:10.606827 #15148]  INFO -- : worker=0 ready
 I, [2018-05-22T20:36:10.607637 #15139]  INFO -- : master process ready
 I, [2018-05-22T20:36:10.621591 #15151]  INFO -- : worker=1 spawned pid=15151
 I, [2018-05-22T20:36:10.621718 #15151]  INFO -- : worker=1 ready
+I, [2018-05-29T20:57:17.957494 #30341]  INFO -- : Refreshing Gem list
+/home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:701:in `block (2 levels) in skip_callback': Before process_action callback :authenticate_participant! has not been defined (ArgumentError)
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:697:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:697:in `block in skip_callback'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:627:in `block in __update_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:625:in `reverse_each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:625:in `__update_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:696:in `skip_callback'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:203:in `block (3 levels) in <module:ClassMethods>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:96:in `block in _insert_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:95:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:95:in `_insert_callbacks'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:202:in `block (2 levels) in <module:ClassMethods>'
+	from /home/ubuntu/TypingTest/app/controllers/participants/confirmations_controller.rb:6:in `<class:ConfirmationsController>'
+	from /home/ubuntu/TypingTest/app/controllers/participants/confirmations_controller.rb:1:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/loaded_features_index.rb:65:in `register'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `block in require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:249:in `load_dependency'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `require'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:370:in `block in require_or_load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:37:in `block in load_interlock'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies/interlock.rb:13:in `loading'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:37:in `load_interlock'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:326:in `depend_on'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `depend_on'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:242:in `require_dependency'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:478:in `block (2 levels) in eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:477:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:477:in `block in eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:475:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:475:in `eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/engine.rb:356:in `eager_load!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/application/finisher.rb:69:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/application/finisher.rb:69:in `block in <module:Finisher>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:32:in `instance_exec'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:32:in `run'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:61:in `block in run_initializers'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:228:in `block in tsort_each'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:431:in `each_strongly_connected_component_from'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:349:in `block in each_strongly_connected_component'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `each'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `call'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `each_strongly_connected_component'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:226:in `tsort_each'
+	from /home/ubuntu/.rvm/rubies/ruby-2.4.1/lib/ruby/2.4.0/tsort.rb:205:in `tsort_each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/initializable.rb:60:in `run_initializers'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/railties-5.2.0/lib/rails/application.rb:361:in `initialize!'
+	from /home/ubuntu/TypingTest/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require_relative'
+	from config.ru:4:in `block in <main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/rack-2.0.5/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/rack-2.0.5/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn.rb:56:in `eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn.rb:56:in `block in builder'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:795:in `build_app!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:139:in `start'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/bin/unicorn:126:in `<top (required)>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+I, [2018-05-29T20:59:06.366494 #30582]  INFO -- : Refreshing Gem list
+E, [2018-05-29T20:59:07.276789 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:07.276867 #30582] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2018-05-29T20:59:07.777344 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:07.777426 #30582] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2018-05-29T20:59:08.277895 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:08.277987 #30582] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2018-05-29T20:59:08.778421 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:08.778515 #30582] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2018-05-29T20:59:09.279003 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+E, [2018-05-29T20:59:09.279079 #30582] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2018-05-29T20:59:09.779513 #30582] ERROR -- : adding listener failed addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock (in use)
+/home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/socket_helper.rb:137:in `initialize': Address already in use - connect(2) for /home/ubuntu/TypingTest/shared/sockets/unicorn.sock (Errno::EADDRINUSE)
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/socket_helper.rb:137:in `new'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/socket_helper.rb:137:in `bind_listen'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:241:in `listen'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:851:in `block in bind_new_listeners!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:851:in `each'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:851:in `bind_new_listeners!'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/lib/unicorn/http_server.rb:140:in `start'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/gems/unicorn-5.4.0/bin/unicorn:126:in `<top (required)>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `load'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/unicorn:22:in `<main>'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+	from /home/ubuntu/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+I, [2018-05-29T20:59:32.578169 #30784]  INFO -- : Refreshing Gem list
+I, [2018-05-29T20:59:33.441790 #30784]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T20:59:33.441901 #30784]  INFO -- : worker=0 spawning...
+I, [2018-05-29T20:59:33.443404 #30784]  INFO -- : worker=1 spawning...
+I, [2018-05-29T20:59:33.444252 #30784]  INFO -- : master process ready
+I, [2018-05-29T20:59:33.460121 #30793]  INFO -- : worker=0 spawned pid=30793
+I, [2018-05-29T20:59:33.460296 #30793]  INFO -- : worker=0 ready
+I, [2018-05-29T20:59:33.461216 #30795]  INFO -- : worker=1 spawned pid=30795
+I, [2018-05-29T20:59:33.461544 #30795]  INFO -- : worker=1 ready
+I, [2018-05-29T21:19:32.691743 #30784]  INFO -- : reaped #<Process::Status: pid 30793 exit 0> worker=0
+I, [2018-05-29T21:19:32.691825 #30784]  INFO -- : reaped #<Process::Status: pid 30795 exit 0> worker=1
+I, [2018-05-29T21:19:32.691879 #30784]  INFO -- : reloading config_file=config/unicorn.rb
+I, [2018-05-29T21:19:32.846062 #30784]  INFO -- : Refreshing Gem list
+I, [2018-05-29T21:19:32.857720 #30784]  INFO -- : done reloading config_file=config/unicorn.rb
+I, [2018-05-29T21:19:32.857836 #30784]  INFO -- : master complete
+I, [2018-05-29T21:20:12.233679 #1423]  INFO -- : Refreshing Gem list
+I, [2018-05-29T21:20:16.623565 #1423]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T21:20:16.623711 #1423]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T21:20:16.623802 #1423]  INFO -- : worker=0 spawning...
+I, [2018-05-29T21:20:16.624867 #1423]  INFO -- : worker=1 spawning...
+I, [2018-05-29T21:20:16.625872 #1423]  INFO -- : master process ready
+I, [2018-05-29T21:20:16.640099 #1447]  INFO -- : worker=0 spawned pid=1447
+I, [2018-05-29T21:20:16.640340 #1447]  INFO -- : worker=0 ready
+I, [2018-05-29T21:20:16.641043 #1449]  INFO -- : worker=1 spawned pid=1449
+I, [2018-05-29T21:20:16.641152 #1449]  INFO -- : worker=1 ready
+I, [2018-05-29T21:21:59.878984 #1423]  INFO -- : reaped #<Process::Status: pid 1447 exit 0> worker=0
+I, [2018-05-29T21:21:59.879076 #1423]  INFO -- : reaped #<Process::Status: pid 1449 exit 0> worker=1
+I, [2018-05-29T21:21:59.879138 #1423]  INFO -- : master complete
+I, [2018-05-29T21:22:35.164103 #1975]  INFO -- : Refreshing Gem list
+I, [2018-05-29T21:22:36.025326 #1975]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T21:22:36.025491 #1975]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T21:22:36.025581 #1975]  INFO -- : worker=0 spawning...
+I, [2018-05-29T21:22:36.026742 #1975]  INFO -- : worker=1 spawning...
+I, [2018-05-29T21:22:36.027505 #1975]  INFO -- : master process ready
+I, [2018-05-29T21:22:36.034178 #1984]  INFO -- : worker=0 spawned pid=1984
+I, [2018-05-29T21:22:36.034337 #1984]  INFO -- : worker=0 ready
+I, [2018-05-29T21:22:36.034933 #1986]  INFO -- : worker=1 spawned pid=1986
+I, [2018-05-29T21:22:36.035043 #1986]  INFO -- : worker=1 ready
+I, [2018-05-29T22:02:12.368049 #1975]  INFO -- : reaped #<Process::Status: pid 1984 exit 0> worker=0
+I, [2018-05-29T22:02:12.368158 #1975]  INFO -- : reaped #<Process::Status: pid 1986 exit 0> worker=1
+I, [2018-05-29T22:02:12.368220 #1975]  INFO -- : master complete
+I, [2018-05-29T22:02:13.021678 #4200]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:02:13.893032 #4200]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:02:13.893785 #4200]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:02:13.893889 #4200]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:02:13.895126 #4200]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:02:13.895903 #4200]  INFO -- : master process ready
+I, [2018-05-29T22:02:13.908901 #4209]  INFO -- : worker=0 spawned pid=4209
+I, [2018-05-29T22:02:13.909039 #4209]  INFO -- : worker=0 ready
+I, [2018-05-29T22:02:13.909650 #4211]  INFO -- : worker=1 spawned pid=4211
+I, [2018-05-29T22:02:13.909766 #4211]  INFO -- : worker=1 ready
+I, [2018-05-29T22:06:40.953143 #4200]  INFO -- : reaped #<Process::Status: pid 4209 exit 0> worker=0
+I, [2018-05-29T22:06:40.953235 #4200]  INFO -- : reaped #<Process::Status: pid 4211 exit 0> worker=1
+I, [2018-05-29T22:06:40.953292 #4200]  INFO -- : master complete
+I, [2018-05-29T22:06:41.563935 #4492]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:06:42.421915 #4492]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:06:42.422691 #4492]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:06:42.422790 #4492]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:06:42.423978 #4492]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:06:42.424653 #4502]  INFO -- : worker=0 spawned pid=4502
+I, [2018-05-29T22:06:42.424771 #4502]  INFO -- : worker=0 ready
+I, [2018-05-29T22:06:42.425605 #4492]  INFO -- : master process ready
+I, [2018-05-29T22:06:42.437909 #4505]  INFO -- : worker=1 spawned pid=4505
+I, [2018-05-29T22:06:42.438030 #4505]  INFO -- : worker=1 ready
+I, [2018-05-29T22:15:39.561779 #4492]  INFO -- : reaped #<Process::Status: pid 4502 exit 0> worker=0
+I, [2018-05-29T22:15:39.561874 #4492]  INFO -- : reaped #<Process::Status: pid 4505 exit 0> worker=1
+I, [2018-05-29T22:15:39.561947 #4492]  INFO -- : master complete
+I, [2018-05-29T22:15:40.180572 #4798]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:15:41.051578 #4798]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:15:41.052334 #4798]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:15:41.052438 #4798]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:15:41.053641 #4798]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:15:41.054922 #4798]  INFO -- : master process ready
+I, [2018-05-29T22:15:41.067210 #4807]  INFO -- : worker=0 spawned pid=4807
+I, [2018-05-29T22:15:41.067346 #4807]  INFO -- : worker=0 ready
+I, [2018-05-29T22:15:41.067984 #4810]  INFO -- : worker=1 spawned pid=4810
+I, [2018-05-29T22:15:41.068098 #4810]  INFO -- : worker=1 ready
+I, [2018-05-29T22:23:55.998610 #4798]  INFO -- : reaped #<Process::Status: pid 4807 exit 0> worker=0
+I, [2018-05-29T22:23:55.998706 #4798]  INFO -- : reaped #<Process::Status: pid 4810 exit 0> worker=1
+I, [2018-05-29T22:23:55.998762 #4798]  INFO -- : master complete
+I, [2018-05-29T22:23:56.635096 #5197]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:23:57.500148 #5197]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:23:57.500881 #5197]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:23:57.500992 #5197]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:23:57.502293 #5197]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:23:57.503059 #5207]  INFO -- : worker=0 spawned pid=5207
+I, [2018-05-29T22:23:57.503173 #5207]  INFO -- : worker=0 ready
+I, [2018-05-29T22:23:57.504036 #5197]  INFO -- : master process ready
+I, [2018-05-29T22:23:57.516859 #5210]  INFO -- : worker=1 spawned pid=5210
+I, [2018-05-29T22:23:57.516983 #5210]  INFO -- : worker=1 ready
+I, [2018-05-29T22:26:28.415627 #5197]  INFO -- : reaped #<Process::Status: pid 5207 exit 0> worker=0
+I, [2018-05-29T22:26:28.415725 #5197]  INFO -- : reaped #<Process::Status: pid 5210 exit 0> worker=1
+I, [2018-05-29T22:26:28.415781 #5197]  INFO -- : master complete
+I, [2018-05-29T22:26:29.038027 #5446]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:26:29.901802 #5446]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:26:29.902586 #5446]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:26:29.902691 #5446]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:26:29.903889 #5446]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:26:29.904534 #5455]  INFO -- : worker=0 spawned pid=5455
+I, [2018-05-29T22:26:29.904645 #5455]  INFO -- : worker=0 ready
+I, [2018-05-29T22:26:29.905475 #5446]  INFO -- : master process ready
+I, [2018-05-29T22:26:29.921571 #5458]  INFO -- : worker=1 spawned pid=5458
+I, [2018-05-29T22:26:29.921711 #5458]  INFO -- : worker=1 ready
+I, [2018-05-29T22:28:30.306872 #5446]  INFO -- : reaped #<Process::Status: pid 5455 exit 0> worker=0
+I, [2018-05-29T22:28:30.306968 #5446]  INFO -- : reaped #<Process::Status: pid 5458 exit 0> worker=1
+I, [2018-05-29T22:28:30.307025 #5446]  INFO -- : master complete
+I, [2018-05-29T22:28:30.925603 #5689]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:28:31.787328 #5689]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:28:31.788099 #5689]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:28:31.788201 #5689]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:28:31.789433 #5689]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:28:31.791044 #5689]  INFO -- : master process ready
+I, [2018-05-29T22:28:31.806440 #5698]  INFO -- : worker=0 spawned pid=5698
+I, [2018-05-29T22:28:31.806578 #5698]  INFO -- : worker=0 ready
+I, [2018-05-29T22:28:31.807315 #5701]  INFO -- : worker=1 spawned pid=5701
+I, [2018-05-29T22:28:31.807423 #5701]  INFO -- : worker=1 ready
+I, [2018-05-29T22:29:59.305881 #5689]  INFO -- : reaped #<Process::Status: pid 5698 exit 0> worker=0
+I, [2018-05-29T22:29:59.305985 #5689]  INFO -- : reaped #<Process::Status: pid 5701 exit 0> worker=1
+I, [2018-05-29T22:29:59.306050 #5689]  INFO -- : master complete
+I, [2018-05-29T22:29:59.911448 #5928]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:30:00.771328 #5928]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:30:00.772079 #5928]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:30:00.772177 #5928]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:30:00.773393 #5928]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:30:00.774030 #5937]  INFO -- : worker=0 spawned pid=5937
+I, [2018-05-29T22:30:00.774151 #5937]  INFO -- : worker=0 ready
+I, [2018-05-29T22:30:00.774922 #5928]  INFO -- : master process ready
+I, [2018-05-29T22:30:00.790933 #5940]  INFO -- : worker=1 spawned pid=5940
+I, [2018-05-29T22:30:00.791065 #5940]  INFO -- : worker=1 ready
+I, [2018-05-29T22:32:52.880237 #5928]  INFO -- : reaped #<Process::Status: pid 5937 exit 0> worker=0
+I, [2018-05-29T22:32:52.880332 #5928]  INFO -- : reaped #<Process::Status: pid 5940 exit 0> worker=1
+I, [2018-05-29T22:32:52.880387 #5928]  INFO -- : master complete
+I, [2018-05-29T22:32:53.507096 #6194]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:32:54.363044 #6194]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:32:54.363820 #6194]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:32:54.363922 #6194]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:32:54.365128 #6194]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:32:54.365992 #6203]  INFO -- : worker=0 spawned pid=6203
+I, [2018-05-29T22:32:54.366109 #6203]  INFO -- : worker=0 ready
+I, [2018-05-29T22:32:54.367057 #6194]  INFO -- : master process ready
+I, [2018-05-29T22:32:54.383059 #6206]  INFO -- : worker=1 spawned pid=6206
+I, [2018-05-29T22:32:54.383186 #6206]  INFO -- : worker=1 ready
+I, [2018-05-29T22:34:46.949067 #6194]  INFO -- : reaped #<Process::Status: pid 6203 exit 0> worker=0
+I, [2018-05-29T22:34:46.949172 #6194]  INFO -- : reaped #<Process::Status: pid 6206 exit 0> worker=1
+I, [2018-05-29T22:34:46.949233 #6194]  INFO -- : master complete
+I, [2018-05-29T22:34:47.558929 #6452]  INFO -- : Refreshing Gem list
+I, [2018-05-29T22:34:48.414707 #6452]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-29T22:34:48.415462 #6452]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-29T22:34:48.415596 #6452]  INFO -- : worker=0 spawning...
+I, [2018-05-29T22:34:48.416807 #6452]  INFO -- : worker=1 spawning...
+I, [2018-05-29T22:34:48.417482 #6461]  INFO -- : worker=0 spawned pid=6461
+I, [2018-05-29T22:34:48.417601 #6461]  INFO -- : worker=0 ready
+I, [2018-05-29T22:34:48.418465 #6452]  INFO -- : master process ready
+I, [2018-05-29T22:34:48.434788 #6464]  INFO -- : worker=1 spawned pid=6464
+I, [2018-05-29T22:34:48.434933 #6464]  INFO -- : worker=1 ready
+I, [2018-05-30T04:12:54.840392 #6452]  INFO -- : reaped #<Process::Status: pid 6461 exit 0> worker=0
+I, [2018-05-30T04:12:54.840482 #6452]  INFO -- : reaped #<Process::Status: pid 6464 exit 0> worker=1
+I, [2018-05-30T04:12:54.840536 #6452]  INFO -- : master complete
+I, [2018-05-30T04:12:55.440795 #8976]  INFO -- : Refreshing Gem list
+I, [2018-05-30T04:12:56.292217 #8976]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-30T04:12:56.292376 #8976]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-30T04:12:56.292473 #8976]  INFO -- : worker=0 spawning...
+I, [2018-05-30T04:12:56.293757 #8976]  INFO -- : worker=1 spawning...
+I, [2018-05-30T04:12:56.294925 #8976]  INFO -- : master process ready
+I, [2018-05-30T04:12:56.307697 #8985]  INFO -- : worker=0 spawned pid=8985
+I, [2018-05-30T04:12:56.307814 #8985]  INFO -- : worker=0 ready
+I, [2018-05-30T04:12:56.308390 #8988]  INFO -- : worker=1 spawned pid=8988
+I, [2018-05-30T04:12:56.308493 #8988]  INFO -- : worker=1 ready
+I, [2018-05-30T04:22:17.011447 #8976]  INFO -- : reaped #<Process::Status: pid 8985 exit 0> worker=0
+I, [2018-05-30T04:22:17.011548 #8976]  INFO -- : reaped #<Process::Status: pid 8988 exit 0> worker=1
+I, [2018-05-30T04:22:17.011599 #8976]  INFO -- : master complete
+I, [2018-05-30T04:22:17.624768 #9329]  INFO -- : Refreshing Gem list
+I, [2018-05-30T04:22:18.475052 #9329]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-30T04:22:18.475216 #9329]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-30T04:22:18.475308 #9329]  INFO -- : worker=0 spawning...
+I, [2018-05-30T04:22:18.476584 #9329]  INFO -- : worker=1 spawning...
+I, [2018-05-30T04:22:18.477257 #9338]  INFO -- : worker=0 spawned pid=9338
+I, [2018-05-30T04:22:18.477363 #9338]  INFO -- : worker=0 ready
+I, [2018-05-30T04:22:18.478215 #9329]  INFO -- : master process ready
+I, [2018-05-30T04:22:18.491143 #9341]  INFO -- : worker=1 spawned pid=9341
+I, [2018-05-30T04:22:18.491246 #9341]  INFO -- : worker=1 ready
+I, [2018-05-30T04:24:13.353333 #9329]  INFO -- : reaped #<Process::Status: pid 9338 exit 0> worker=0
+I, [2018-05-30T04:24:13.353429 #9329]  INFO -- : reaped #<Process::Status: pid 9341 exit 0> worker=1
+I, [2018-05-30T04:24:13.353493 #9329]  INFO -- : master complete
+I, [2018-05-30T04:24:13.972187 #9552]  INFO -- : Refreshing Gem list
+I, [2018-05-30T04:24:14.828320 #9552]  INFO -- : unlinking existing socket=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock
+I, [2018-05-30T04:24:14.828479 #9552]  INFO -- : listening on addr=/home/ubuntu/TypingTest/shared/sockets/unicorn.sock fd=12
+I, [2018-05-30T04:24:14.828576 #9552]  INFO -- : worker=0 spawning...
+I, [2018-05-30T04:24:14.829959 #9552]  INFO -- : worker=1 spawning...
+I, [2018-05-30T04:24:14.830948 #9552]  INFO -- : master process ready
+I, [2018-05-30T04:24:14.843776 #9561]  INFO -- : worker=0 spawned pid=9561
+I, [2018-05-30T04:24:14.843902 #9561]  INFO -- : worker=0 ready
+I, [2018-05-30T04:24:14.844557 #9564]  INFO -- : worker=1 spawned pid=9564
+I, [2018-05-30T04:24:14.844669 #9564]  INFO -- : worker=1 ready

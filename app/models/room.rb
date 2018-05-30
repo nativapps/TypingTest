@@ -7,9 +7,12 @@ class Room < ApplicationRecord
 
   after_create :save_participants
   after_update :update_participants
+  before_destroy :destroy_participants
 
   after_create :save_test_banks
   after_update :update_test_banks
+  before_destroy :destroy_has_test
+
 
   def participants=(value)
     @participants = value
@@ -22,44 +25,44 @@ class Room < ApplicationRecord
   private
 
   def save_participants
-    if @participants.blank?
-      # This is empty for now, need to fix (rubocop)
-    else
+    unless @participants.blank?
       @participants.each do |participant_id|
-        HasParticipant.create(participant_id: participant_id, room_id: self.id)
+        HasParticipant.create(participant_id: participant_id.to_i, room_id: id)
       end
     end
   end
 
   def update_participants
-    if @participants.blank? 
-      HasParticipant.destroy_all
-    else
-      HasParticipant.destroy_all
+    unless @participants.blank?
+      HasParticipant.where("room_id=?", id).delete_all
       @participants.each do |participant_id|
-        HasParticipant.create(participant_id: participant_id, room_id: self.id)
+        HasParticipant.create(participant_id: participant_id, room_id: id)
       end
     end
   end
 
+  def destroy_participants
+    HasParticipant.where("room_id=?", id).delete_all
+  end
+
   def save_test_banks
-    if @test_banks.blank?
-      # This is empty for now, need to fix (rubocop)
-    else
+    unless @test_banks.blank?
       @test_banks.each do |test_bank_id|
-        HasTest.create(test_bank_id: test_bank_id, room_id: self.id)
+        HasTest.create(test_bank_id: test_bank_id, room_id: id)
       end
     end
   end
 
   def update_test_banks
-    if @test_banks.blank?
-      HasTest.destroy_all
-    else
-      HasTest.destroy_all
+    HasTest.where("room_id=?", id).delete_all
+    unless @test_banks.blank?
       @test_banks.each do |test_bank_id|
-        HasTest.create(test_bank_id: test_bank_id, room_id: self.id)
+        HasTest.create(test_bank_id: test_bank_id, room_id: id)
       end
     end
+  end
+
+  def destroy_has_test
+    HasTest.where("room_id=?", id).delete_all
   end
 end

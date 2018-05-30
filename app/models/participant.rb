@@ -4,10 +4,16 @@ class Participant < ApplicationRecord
   devise :database_authenticatable,
          :rememberable, :trackable, :validatable,
          :registerable, :confirmable
-
+  
   has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
   has_many :reports
+
+  before_destroy :destroy_has_participant
+
+  def destroy_has_participant
+    HasParticipant.where("participant_id=?", id).delete_all
+  end
 
   def password_match?
     self.errors[:password] << I18n.t('errors.messages.blank') if password.blank?
@@ -38,7 +44,7 @@ class Participant < ApplicationRecord
 
   def password_required?
     # Password is required if it is being set, but not for new records
-    if !persisted?
+    unless persisted?
       false
     else
       !password.nil? || !password_confirmation.nil?
