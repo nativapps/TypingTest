@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @search = Room.ransack(params[:q])
-    @rooms = @search.result.page(params[:page])
+    @rooms = @search.result(distinct: true).page(params[:page])
     @search.build_condition
   end
 

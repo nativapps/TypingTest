@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   def index
     @search = Report.ransack(params[:q])
-    @reports = @search.result.page(params[:page])
+    @reports = @search.result(distinct: true).page(params[:page])
     @search.build_condition
   end
 
@@ -18,15 +18,6 @@ class ReportsController < ApplicationController
       render json: {Message: "Report results were not saved succesfully. Please contact the administrator or the person in charge of your test."}
     end
   end
-
-#	def update
-#    @report = User.find(params[:id])
-#    if @user.update_attributes(report_params)
-#      # Handle a successful update.
-#    else
-#      render 'edit'
-#    end
-#	end
 
   def destroy
     @report = Report.find(params[:id])
