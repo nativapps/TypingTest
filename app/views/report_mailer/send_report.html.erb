@@ -1,51 +1,50 @@
-<body>
 
-  <header>
-  </header>
 
-  <div class="main_wrapper">
+  <div class="main_wrapper_email">
 
-    <section class="test-result">
-      <h3>  Typing Test Results </h3>
+  <h2> Typing Test </h2>
+  
+    <section class="test-test_result_email">
+      <h3>  These are your results for today's test </h3>
 
-      <div class="points">
+      <div class="points_email">
         <p>Typed</p>
         <h2><%= @report.total_type %></h2>
       </div>
 
-      <div class="points">
+      <div class="points_email">
         <p>Correct</p>
         <h2><%= @report.correct %></h2>
       </div>
 
-      <div class="points">
+      <div class="points_email">
         <p>Incorrect</p>
-        <h2><%= @report.incorrect %></h2>
+        <h2><%= @report.incorrect || 0 %></h2>
       </div>
 
-      <div class="points">
+      <div class="points_email">
         <p>WPM</p>
         <h2><%= @report.wpm %></h2>
       </div>
 
-      <div class="points">
+      <div class="points_email">
         <p>Accuracy</p>
         <h2><%= @report.accuracy %></h2>
       </div>
 
-      <div class="wrapper-bar">
+      <div class="wrapper_bar_email">
 
-        <h4>Your Adjusted Typing speed is <span>Fluent</span></h4>
+      <h4>Your Adjusted Typing speed is <span><%= @report.wpm %></span></h4>
 
-        <div class="result-bar">
-          <div class="measurement">
+        <div class="result_bar_email">
+          <div class="measurement_email">
             <span>
               Slow
             </span>
             <p>0</p>
           </div>
 
-          <div class="measurement">
+          <div class="measurement_email">
             <span>
               Average
             </span>
@@ -53,7 +52,7 @@
           </div>
 
 
-          <div class="measurement">
+          <div class="measurement_email">
             <span>
               Fluent
             </span>
@@ -61,29 +60,24 @@
           </div>
 
 
-          <div class="measurement">
+          <div class="measurement_email">
             <span>
             Fast
             </span>
             <p>60</p>
           </div>
 
-          <div class="measurement">
+          <div class="measurement_email">
             <span>
               Pro
             </span>
             <p>80</p>
           </div>
-
-          <div class="result">
-            <h3><%= @report.wpm %></h3>
+          <div class="result_email" id="dial" style="width:<%= @report.wpm %>%">
+<!--            <h4><%= @report.wpm %></h4>-->
           </div>
 
-        </div> <!-- .result-bar -->
       </div><!-- .wrapper-bar -->
 
       </section>
   </div> <!-- main_wrapper -->
-
-
-</body>
