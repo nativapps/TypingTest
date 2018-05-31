@@ -13,13 +13,11 @@ Rails.application.routes.draw do
   get 'room_test/test'
   get 'room_test/lobby'
   get 'room_test/rooms'
-  post 'room_test/test', to: "reports#create"
-  # patch 'room_test/test', to: "reports#update"
+  post 'room_test/test', to: 'reports#create'
 
   resources :test_banks
 
   resources :reports
-  # post 'report/create'
 
   root 'room_test#index'
 

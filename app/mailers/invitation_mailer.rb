@@ -1,6 +1,5 @@
 class InvitationMailer < ApplicationMailer
-  #default from: 'invitacion@example.com'
- 
+  # default from: 'invitacion@example.com'
   def invitation_email(room)
     unless room.nil?
       room.participants.each do |participant|
