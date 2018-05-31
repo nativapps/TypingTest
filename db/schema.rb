@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_221620) do
+ActiveRecord::Schema.define(version: 2018_05_31_153545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2018_05_24_221620) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_has_tests_on_room_id"
     t.index ["test_bank_id"], name: "index_has_tests_on_test_bank_id"
+  end
+
+  create_table "participant_tests", force: :cascade do |t|
+    t.bigint "participant_id"
+    t.bigint "test_bank_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_participant_tests_on_participant_id"
+    t.index ["test_bank_id"], name: "index_participant_tests_on_test_bank_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -56,6 +65,26 @@ ActiveRecord::Schema.define(version: 2018_05_24_221620) do
     t.index ["confirmation_token"], name: "index_participants_on_confirmation_token", unique: true
     t.index ["email"], name: "index_participants_on_email", unique: true
     t.index ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true
+  end
+
+  create_table "participants_tests", force: :cascade do |t|
+    t.bigint "participant_id"
+    t.bigint "test_bank_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "participants_id"
+    t.integer "test_id"
+    t.index ["participant_id"], name: "index_participants_tests_on_participant_id"
+    t.index ["test_bank_id"], name: "index_participants_tests_on_test_bank_id"
+  end
+
+  create_table "particpants_tests", force: :cascade do |t|
+    t.bigint "participant_id"
+    t.bigint "test_bank_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_particpants_tests_on_participant_id"
+    t.index ["test_bank_id"], name: "index_particpants_tests_on_test_bank_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -117,5 +146,11 @@ ActiveRecord::Schema.define(version: 2018_05_24_221620) do
   add_foreign_key "has_participants", "rooms"
   add_foreign_key "has_tests", "rooms"
   add_foreign_key "has_tests", "test_banks"
+  add_foreign_key "participant_tests", "participants"
+  add_foreign_key "participant_tests", "test_banks"
+  add_foreign_key "participants_tests", "participants"
+  add_foreign_key "participants_tests", "test_banks"
+  add_foreign_key "particpants_tests", "participants"
+  add_foreign_key "particpants_tests", "test_banks"
   add_foreign_key "reports", "participants"
 end

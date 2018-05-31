@@ -6,11 +6,6 @@
 
 <main>
 		<div class="main_wrapper">
-			<%#= form_tag(reports_path, method: :get) do %>
-				<%#= text_field_tag :wpm, params[:wpm] %>
-				<%#= submit_tag 'Search', name: nil %>
-			<%# end %>
-
 			<%= search_form_for @search do |f| %>
 				<%= f.condition_fields do |c| %>
 					<%= c.attribute_fields do |a| %>
@@ -24,15 +19,15 @@
 			<%= f.submit %>
 			<% end %>
 
-			<%#= paginate @reports %>
+			<%= paginate @reports %>
 			
 			<div class="table-wrapper">
 				<table cass="table-results">
 					<tr>
-						<th> <%#= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search.participant, :identification) %></i> </th>
-						<th> Test <i class="fas fa-sort"></i> </th>
-						<th> Room <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :participant_id) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :test_id) %> <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search, :room_id) %> <i class="fas fa-sort"></i> </th>
 						<th> <%= sort_link(@search, :accuracy) %> <i class="fas fa-sort"></i> </th>
 						<th> <%= sort_link(@search, :wpm) %> <i class="fas fa-sort"></i> </th>
 						<th> <%= sort_link(@search, :total_type) %> <i class="fas fa-sort"></i> </th>
@@ -63,7 +58,7 @@
 
 				<br><br>
 
-				<%#= paginate @reports %>
+				<%= paginate @reports %>
 
 			</div> <!-- .table-wrapper -->
 		</div><!-- .main_wrapper -->

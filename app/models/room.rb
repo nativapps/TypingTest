@@ -13,7 +13,6 @@ class Room < ApplicationRecord
   after_update :update_test_banks
   before_destroy :destroy_has_test
 
-
   def participants=(value)
     @participants = value
   end

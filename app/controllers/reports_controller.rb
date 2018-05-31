@@ -1,15 +1,10 @@
 class ReportsController < ApplicationController
   def index
-    @search = Report.ransack(params[:q])
-    @reports = @search.result().page(params[:page])
+    @search = Report.joins(:participant).ransack(params[:q])
+    @reports = @search.result().page(params[:page]).page(params[:page])
     @search.build_condition
-    
-    # debugger
-    #unless params[:wpm].nil?
-    #@reports = Report.search(params[:wpm]).order('wpm').page(params[:page])
-    #end
-  end
 
+  end
   def edit
     @report = Report.find(params[:id])
   end
