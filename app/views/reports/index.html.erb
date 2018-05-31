@@ -6,11 +6,23 @@
 
 <main>
 		<div class="main_wrapper">
-			<%= form_tag(reports_path, method: :get) do %>
-				<%= text_field_tag :wpm, params[:wpm] %>
-				<%= submit_tag 'Search', name: nil %>
+			<%#= form_tag(reports_path, method: :get) do %>
+				<%#= text_field_tag :wpm, params[:wpm] %>
+				<%#= submit_tag 'Search', name: nil %>
+			<%# end %>
+
+			<%= search_form_for @search do |f| %>
+				<%= f.condition_fields do |c| %>
+					<%= c.attribute_fields do |a| %>
+						<%= a.attribute_select %>                         
+					<% end %>                                           
+				<%= c.predicate_select only: [:cont, :lteq, :gteq]%> 
+				<%= c.value_fields do |v| %>                          
+					<%= v.text_field :value %>              
+				<%end %>                                              
+			<%end %>
+			<%= f.submit %>
 			<% end %>
-		
 
 			<%#= paginate @reports %>
 			
@@ -18,7 +30,7 @@
 				<table cass="table-results">
 					<tr>
 						<th> <%#= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
-						<th> Identification <i class="fas fa-sort"></i> </th>
+						<th> <%= sort_link(@search.participant, :identification) %></i> </th>
 						<th> Test <i class="fas fa-sort"></i> </th>
 						<th> Room <i class="fas fa-sort"></i> </th>
 						<th> <%= sort_link(@search, :accuracy) %> <i class="fas fa-sort"></i> </th>
@@ -33,8 +45,8 @@
 						<tr>
 							<td><%= r.participant.first_name %> <%= r.participant.last_name %></td>
 							<td><%= r.participant.identification %></td>
-							<td><%= r.participant.rooms.find(r.room_id).test_banks.find(r.test_id).id %></td>
-							<td><%= r.participant.rooms.find(r.room_id).id %></td>
+							<td><%= r.participant.rooms.find(r.room_id).test_banks.find(r.test_id).name %></td>
+							<td><%= r.participant.rooms.find(r.room_id).name %></td>
 							<td><%= r.accuracy %></td>
 							<td><%= r.wpm %></td>
 							<td><%= r.total_type %></td>
