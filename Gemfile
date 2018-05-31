@@ -9,6 +9,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 # The pager, order
 gem 'kaminari'
 
+gem 'sortable-table', github: 'caselle/sortable-table'
+
 # The search box
 gem 'ransack'
 
