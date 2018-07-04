@@ -73,4 +73,6 @@ class RoomsController < ApplicationController
   def room_id
     return params[:room_id]
   end
+
+  
 end

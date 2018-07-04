@@ -29,11 +29,17 @@ class RoomTestController < ApplicationController
     if current_participant
       @time = current_participant.rooms.find(room_id).set_limit
       @test = TestBank.find(params[:test_id])
-      # @try = current_participant.rooms.find(room_id).test_banks.find(test_id).try_times
+      @tryxD = current_participant.rooms.find(room_id).test_banks.find(test_id).try_times
       try = ParticipantTest.where("participant_id = #{current_participant.id} AND test_bank_id = #{test_id} AND room_id = #{room_id}")
-      if try.first.try_number >= 0
+      
+      if try.first.try_number.nil? || try.first.try_number.blank?
+        try.update(try_number: 2)
+      end
+
+      if  try.first.try_number > 0
         try.update(try_number: try.first.try_number - 1)
         render
+      
       else
         flash[:notice] = "Your try time is limited"
         redirect_to root_path
