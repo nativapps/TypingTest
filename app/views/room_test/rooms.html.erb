@@ -2,10 +2,11 @@
 
 <div class="main_wrapper">
 	<div class="bank_test_item">
+	
 	<% @tests.each do |test| %>
 		<h2><%= test.name %></h2>
     <%= link_to room_test_test_path(test_id: test.id, room_id:@room_id), class:"button" do %>
-      START TEST
+			START TEST
 	<% end %>
 	  <br>
       <br>

@@ -51,6 +51,6 @@ class TestBanksController < ApplicationController
   private
 
   def test_params
-    params.require(:test_bank).permit(:name, :type_test, :text_test)
+    params.require(:test_bank).permit(:name, :type_test, :text_test, :tried_times)
   end
 end

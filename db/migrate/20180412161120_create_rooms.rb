@@ -4,7 +4,6 @@ class CreateRooms < ActiveRecord::Migration[5.2]
       t.string :name
       t.date :start_date
       t.date :finish_date
-      t.integer :tried_times
       t.string :set_limit
 
       t.timestamps

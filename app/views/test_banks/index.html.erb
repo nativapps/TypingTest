@@ -31,6 +31,7 @@
 	<tr>
 		<th> <%= sort_link(@search, :name) %> <i class="fas fa-sort"></i> </th>
 		<th> <%= sort_link(@search, :type_test) %> <i class="fas fa-sort"></i> </th>
+		<th> <%= sort_link(@search, :try_times) %> <i class="fas fa-sort"></i> </th>
 		<th> <%= sort_link(@search, :created_at) %> <i class="fas fa-sort"></i> </th>
 		<th></th>
 	</tr>
@@ -38,6 +39,7 @@
 			<tr>
 				<td><%= test.name %></td>
 				<td><%= test.type_test %></td>
+				<td><%= test.try_times %></td>
 				<td><%= test.created_at %></td>
 				<td>
 					<%= link_to image_tag("view2x.png")+"View",  test, class:"button_control" %>

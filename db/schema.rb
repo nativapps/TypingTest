@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_153545) do
+ActiveRecord::Schema.define(version: 2018_06_06_045211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_05_31_153545) do
     t.bigint "test_bank_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "try_number"
+    t.integer "room_id"
     t.index ["participant_id"], name: "index_participant_tests_on_participant_id"
     t.index ["test_bank_id"], name: "index_participant_tests_on_test_bank_id"
   end
@@ -107,7 +109,6 @@ ActiveRecord::Schema.define(version: 2018_05_31_153545) do
     t.string "name"
     t.date "start_date"
     t.date "finish_date"
-    t.integer "tried_times"
     t.string "set_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_153545) do
     t.text "text_test"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "try_times"
   end
 
   create_table "users", force: :cascade do |t|

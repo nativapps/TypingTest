@@ -30,8 +30,7 @@
       <tr>
         <th> <%= sort_link(@search, :name) %> <i class="fas fa-sort"></i> </th>
         <th> <%= sort_link(@search, :start_date) %> <i class="fas fa-sort"></i> </th>
-        <th> <%= sort_link(@search, :finish_date) %> <i class="fas fa-sort"></i> </>
-        <th> <%= sort_link(@search, :tried_times) %> <i class="fas fa-sort"></i> </th>
+        <th> <%= sort_link(@search, :finish_date) %> <i class="fas fa-sort"></i> </h>
         <th> <%= sort_link(@search, :set_limit) %> <i class="fas fa-sort"></i> </th>
         <th></th>
       </tr>
@@ -41,7 +40,6 @@
           <td><%= room.name %></td>
           <td><%= room.start_date %></td>
           <td><%= room.finish_date %></td>
-          <td><%= room.tried_times %></td>
           <td><%= room.set_limit %> segundos</td>
           <td>
             <%= link_to image_tag("view2x.png")+"View",  room, class:"button_control" %>

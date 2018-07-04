@@ -13,6 +13,9 @@ class Room < ApplicationRecord
   after_update :update_test_banks
   before_destroy :destroy_has_test
 
+  after_update :create_participant_test
+  before_update :destroy_participant_test
+
   def participants=(value)
     @participants = value
   end
@@ -22,6 +25,21 @@ class Room < ApplicationRecord
   end
 
   private
+
+  def create_participant_test
+    ParticipantTest.where("room_id=?", id).delete_all
+    unless @participants.blank? && @test_banks.blank?
+      @participants.each do |participant_id|
+        @test_banks.each do |test_bank_id|
+          ParticipantTest.create(participant_id: participant_id.to_i, test_bank_id: test_bank_id.to_i, room_id: id.to_i)
+        end
+      end
+    end
+  end
+
+  def destroy_participant_test
+    ParticipantTest.where("room_id=?", id).delete_all
+  end
 
   def save_participants
     unless @participants.blank?

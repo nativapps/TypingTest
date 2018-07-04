@@ -67,10 +67,12 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :start_date, :finish_date, :tried_times, :set_limit, :participants, :test_banks)
+    params.require(:room).permit(:name, :start_date, :finish_date, :set_limit, :participants, :test_banks)
   end
 
   def room_id
     return params[:room_id]
   end
+
+  
 end
