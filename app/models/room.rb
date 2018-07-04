@@ -14,6 +14,7 @@ class Room < ApplicationRecord
   before_destroy :destroy_has_test
 
   after_update :create_participant_test
+  after_create :create_participant_test
   before_update :destroy_participant_test
 
   def participants=(value)
