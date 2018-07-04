@@ -2,9 +2,11 @@ class TestBanksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @search = TestBank.ransack(params[:q])
-    @tests = @search.result.page(params[:page])
-    @search.build_condition
+    @tests = if params[:name]
+      TestBank.where('LOWER(name) LIKE LOWER(?)', "%#{params[:name]}%").page(params[:page])
+    else
+      TestBank.all.page(params[:page])
+    end
   end
 
   def show

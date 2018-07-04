@@ -12,27 +12,19 @@
 
 	<div class="table-wrapper checkbox">
 
-	<%= search_form_for @search do |f| %>
-		<%= f.condition_fields do |c| %>
-			<%= c.attribute_fields do |a| %>
-				<%= a.attribute_select %>
-			<% end %>
-			<%= c.predicate_select only: [:cont, :lteq, :gteq]%>
-				<%= c.value_fields do |v| %>
-					<%= v.text_field :value %>
-				<%end %>
-			<%end %>
-			<%= f.submit %>
-		<% end %>
+	<%= form_tag(test_banks_path, method: :get) do %>
+		<%= text_field_tag :name, params[:name] %>
+		<%= submit_tag 'Search' %>
+	<% end %>
 
 	<%= paginate @tests %>
 
 	<table>
 	<tr>
-		<th> <%= sort_link(@search, :name) %> <i class="fas fa-sort"></i> </th>
-		<th> <%= sort_link(@search, :type_test) %> <i class="fas fa-sort"></i> </th>
-		<th> <%= sort_link(@search, :try_times) %> <i class="fas fa-sort"></i> </th>
-		<th> <%= sort_link(@search, :created_at) %> <i class="fas fa-sort"></i> </th>
+		<th> Name </th>
+		<th> Type </th>
+		<th> try times </th>
+		<th> Created at </th>
 		<th></th>
 	</tr>
 	<% @tests.each do |test| %>
@@ -42,9 +34,9 @@
 				<td><%= test.try_times %></td>
 				<td><%= test.created_at %></td>
 				<td>
-					<%= link_to image_tag("view2x.png")+"View",  test, class:"button_control" %>
-					<%= link_to image_tag("edit2x.png")+"Edit", edit_test_bank_path(test), class:"button_control", id:"edit" %>
-					<%= link_to image_tag("delete2x.png")+"Delete",  test, method: :delete, data: {confirm: '¿Do you want to delete this room?'}, class:"button_control" %>
+					<%= link_to image_tag("view2x.png"), test %>
+					<%= link_to image_tag("edit2x.png"), edit_test_bank_path(test), id:"edit" %>
+					<%= link_to image_tag("delete2x.png"),  test, method: :delete, data: {confirm: '¿Do you want to delete this room?'} %>
 				</td>
 			</tr>
 		<% end %>

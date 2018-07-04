@@ -2,9 +2,11 @@ class ParticipantsController < ApplicationController
   before_action :authenticate_user!, except: [:update]
 
   def index
-    @search = Participant.ransack(params[:q])
-    @participants = @search.result(distinct: true).page(params[:page])
-    @search.build_condition
+    @participants = if params[:search]
+      Participant.where('LOWER(first_name) LIKE LOWER(:search) OR LOWER(last_name) LIKE LOWER(:search)', search: "%#{params[:search]}%").page(params[:page])
+    else
+      Participant.all.page(params[:page])
+    end
   end
 
   def show
@@ -57,6 +59,6 @@ class ParticipantsController < ApplicationController
 
   def participant_params
     params.require(:participant).permit(:first_name, :last_name, :identification, :phone, 
-                      :email, :password, :password_confirmation)
+                      :email, :password, :password_confirmation, :search)
   end
 end

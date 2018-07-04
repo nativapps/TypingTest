@@ -1,65 +1,55 @@
 <header>
 	<%= render :partial => "header_view/header_admin" %>
-		<h1>Result</h1>
-		<p>Administrator</p>
+	<h1>Result</h1>
+	<p>Administrator</p>
 </header>
 
 <main>
-		<div class="main_wrapper">
-			<%= search_form_for @search do |f| %>
-				<%= f.condition_fields do |c| %>
-					<%= c.attribute_fields do |a| %>
-						<%= a.attribute_select %>                         
-					<% end %>                                           
-				<%= c.predicate_select only: [:cont, :lteq, :gteq]%> 
-				<%= c.value_fields do |v| %>                          
-					<%= v.text_field :value %>              
-				<%end %>                                              
-			<%end %>
-			<%= f.submit %>
-			<% end %>
+	<div class="main_wrapper">
+		<%= form_tag(reports_path, method: :get) do %>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag 'Search' %>
+		<% end %>
+		
 
-			<%= paginate @reports %>
-			
-			<div class="table-wrapper">
-				<table cass="table-results">
+		<div class="table-wrapper">
+			<table cass="table-results">
+				<tr>
+					<th> First name</th>
+					<th> Identification </th>
+					<th> Test </th>
+					<th> Room </th>
+					<th> Accuracy </th>
+					<th> WPM </th>
+					<th> Total typed </th>
+					<th> Correct </th>
+					<th> Incorrect </th>
+					<th></th>
+				</tr>
+				
+				<% @reports.each do |r| %>
 					<tr>
-						<th> <%= sort_link(@search, :participant) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :participant_id) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :test_id) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :room_id) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :accuracy) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :wpm) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :total_type) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :correct) %> <i class="fas fa-sort"></i> </th>
-						<th> <%= sort_link(@search, :incorrect) %> <i class="fas fa-sort"></i> </th>
-						<th></th>
+						<td><%= r.participant.first_name %> <%= r.participant.last_name %></td>
+						<td><%= r.participant.identification %></td>
+						<td><%= r.participant.rooms.find(r.room_id).test_banks.find(r.test_id).name %></td>
+						<td><%= r.participant.rooms.find(r.room_id).name %></td>
+						<td><%= r.accuracy %></td>
+						<td><%= r.wpm %></td>
+						<td><%= r.total_type %></td>
+						<td><%= r.correct %></td>
+						<td><%= r.incorrect %></td>
+						<td>
+						<%= link_to r, method: :delete, data: {confirm: '¿Do you want to delete this result?'} do %>
+							<i class="fas fa-trash"></i>
+						<% end %>
+						</td>
 					</tr>
-
-					<% @reports.each do |r| %>
-						<tr>
-							<td><%= r.participant.first_name %> <%= r.participant.last_name %></td>
-							<td><%= r.participant.identification %></td>
-							<td><%= r.participant.rooms.find(r.room_id).test_banks.find(r.test_id).name %></td>
-							<td><%= r.participant.rooms.find(r.room_id).name %></td>
-							<td><%= r.accuracy %></td>
-							<td><%= r.wpm %></td>
-							<td><%= r.total_type %></td>
-							<td><%= r.correct %></td>
-							<td><%= r.incorrect %></td>
-							<td>
-							<%= link_to r, method: :delete, data: {confirm: '¿Do you want to delete this result?'} do %>
-								<i class="fas fa-trash"></i>
-							<% end %>
-							</td>
-						</tr>
-					<% end %>
-				</table>
-
-				<br><br>
-
-				<%= paginate @reports %>
-
-			</div> <!-- .table-wrapper -->
-		</div><!-- .main_wrapper -->
-	</main>
+				<% end %>
+			</table>
+			
+			<br><br>
+			
+			
+		</div> <!-- .table-wrapper -->
+	</div><!-- .main_wrapper -->
+</main>

@@ -2,9 +2,11 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @search = Room.ransack(params[:q])
-    @rooms = @search.result(distinct: true).page(params[:page])
-    @search.build_condition
+    @rooms = if params[:name]
+      Room.where('LOWER(name) LIKE LOWER(?)', "%#{params[:name]}%").page(params[:page])
+    else
+      Room.all.page(params[:page])
+    end
   end
 
   def show
@@ -73,6 +75,4 @@ class RoomsController < ApplicationController
   def room_id
     return params[:room_id]
   end
-
-  
 end

@@ -1,10 +1,12 @@
 class ReportsController < ApplicationController
   def index
-    @search = Report.joins(:participant).ransack(params[:q])
-    @reports = @search.result().page(params[:page]).page(params[:page])
-    @search.build_condition
-
+    @reports = if params[:search]
+      Report.joins(:participant).where('LOWER(first_name) LIKE LOWER(:search) OR LOWER(email) LIKE LOWER(:search)', search: "%#{params[:search]}%").page(params[:page])
+    else
+      Report.all.page(params[:page])
+    end
   end
+
   def edit
     @report = Report.find(params[:id])
   end
