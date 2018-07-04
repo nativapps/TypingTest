@@ -34,6 +34,8 @@ class ParticipantsController < ApplicationController
       @participant.confirm
       redirect_to :root
     elsif @participant.update(participant_params)
+      @participant.update_attribute(:confirmation_token,
+        Devise.token_generator.generate(Participant, :confirmation_token)[0])
       redirect_to participants_path
     else
       render :edit
