@@ -7,9 +7,9 @@ class Participant < ApplicationRecord
 
   has_many :has_participants, :dependent => :destroy
   has_many :rooms, through: :has_participants
-  has_many :reports
+  has_many :reports, :dependent => :destroy
 
-  has_many :participant_test
+  has_many :participant_test, :dependent => :destroy
   has_many :test_banks, through: :participant_test
 
   before_destroy :destroy_has_participant
